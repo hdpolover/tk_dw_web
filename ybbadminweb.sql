@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2021 at 05:28 PM
+-- Generation Time: Jun 28, 2021 at 05:40 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -69,7 +69,22 @@ CREATE TABLE `participant_details` (
   `id_participant` int(11) NOT NULL,
   `full_name` varchar(100) NOT NULL,
   `birth_date` date NOT NULL,
-  `essay` varchar(100) NOT NULL
+  `age` int(2) NOT NULL,
+  `nationality` varchar(50) NOT NULL,
+  `alamat` text NOT NULL,
+  `gender` enum('P','L') NOT NULL,
+  `occupation` varchar(100) NOT NULL,
+  `field_of_study` varchar(100) NOT NULL,
+  `name_of_school` varchar(100) NOT NULL,
+  `contact_emergency` varchar(15) NOT NULL,
+  `relation` enum('parents','siblings','others') NOT NULL,
+  `wa_number` varchar(15) NOT NULL,
+  `ig_account` varchar(100) NOT NULL,
+  `tshirt_size` enum('s','m','l','xl','xxl') NOT NULL,
+  `disease_history` text NOT NULL,
+  `is_vegetarian` int(1) NOT NULL,
+  `essay` varchar(100) NOT NULL,
+  `is_talent` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -109,7 +124,10 @@ CREATE TABLE `payment_types` (
 CREATE TABLE `regist_info_detail` (
   `id` int(11) NOT NULL,
   `id_participant` int(11) NOT NULL,
-  `info_ybb` varchar(100) NOT NULL
+  `info_ybb` varchar(100) NOT NULL,
+  `detail_info` varchar(150) NOT NULL,
+  `proof_share` varchar(100) NOT NULL,
+  `is_agree` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
