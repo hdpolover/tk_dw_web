@@ -7,7 +7,7 @@ class Admin extends CI_Controller{
   {
     // code...
     $data['title'] = 'Dashboard';
-    $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    $data['admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
