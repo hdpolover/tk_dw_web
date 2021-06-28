@@ -29,7 +29,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="<?= base_url('Peserta');?>">
             <i class="fas fa-fw fa-cog"></i>
             <span>Peserta</span>
         </a></li>
