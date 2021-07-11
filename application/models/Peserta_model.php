@@ -19,7 +19,14 @@ class Peserta_model extends CI_Model
     if ($id === NULL) {
       return $this->db->get('participants',)->result_array();
     }
-      return $this->db->get_where('participants', ['id_participant' => $id])->result_array();
+    $query = "SELECT `participant_details`.*, `participants`.*, `summit`.`desc`, `regist_info_detail`.`info_ybb`
+                FROM `participants`
+          INNER JOIN `participant_details` ON `participants`.`id_participant` = `participant_details`.`id_participant`
+          INNER JOIN `summit` ON `participants`.`id_summit` = `summit`.`id_summit`
+          INNER JOIN `regist_info_detail` ON `participants`.`id_participant` = `regist_info_detail`.`id_participant`
+               WHERE `participants`.`id_participant` = $id ";
+
+    return $this->db->query($query)->result_array();
   }
 
   public function hapusPeserta($id)
@@ -35,36 +42,35 @@ class Peserta_model extends CI_Model
 
   public function tambahPeserta()
   {
-    $data1 = [
-      "id_summit" => $this->input->post('summit', true),
-      "email" => $this->input->post('email', true),
-      "status" => $this->input->post('status', true),
-      "portal_password" => $this->input->post('ppassword', true),
-      "is_fully_funded" => $this->input->post('fullyfunded', true)
-    ];
+      $data1 = [
+        "id_summit" => $this->input->post('summit', true),
+        "email" => $this->input->post('email', true),
+        "status" => $this->input->post('status', true),
+        "portal_password" => $this->input->post('ppassword', true),
+        "is_fully_funded" => $this->input->post('fullyfunded', true)
+      ];
 
-    $data2 = [
-      "full_name" => $this->input->post('fullname', true),
-      "birth_date" => $this->input->post('birth', true),
-      "essay" => $this->input->post('essay', true),
-    ];
+      $data2 = [
+        "full_name" => $this->input->post('fullname', true),
+        "birth_date" => $this->input->post('birth', true),
+        "essay" => $this->input->post('essay', true),
+      ];
 
-    $data3 = [
-      "id_payment_type" => $this->input->post('payment', true),
-      "bank_name" => $this->input->post('bank', true),
-      "account_name" => $this->input->post('account', true),
-      "payment_date" => $this->input->post('paymentdate', true),
-      "proof" => $this->input->post('proof', true)
-    ];
+      $data3 = [
+        "id_payment_type" => $this->input->post('payment', true),
+        "bank_name" => $this->input->post('bank', true),
+        "account_name" => $this->input->post('account', true),
+        "payment_date" => $this->input->post('paymentdate', true),
+        "proof" => $this->input->post('proof', true)
+      ];
 
-    $data4 = [
-      "info_ybb" => $this->input->post('infoybb', true)
-    ];
-
-    $this->db->insert('participants', $data1);
-    $this->db->insert('participant_details', $data2);
-    $this->db->insert('payments', $data3);
-    $this->db->insert('regist_info_detail', $data4);
-
+      $data4 = [
+        "info_ybb" => $this->input->post('infoybb', true)
+      ];
+      $this->db->insert('participant_details', $data2);
+      $this->db->insert('participants', $data1);
+      $this->db->insert('payments', $data3);
+      $this->db->insert('regist_info_detail', $data4);
+      redirect('peserta');
   }
 }

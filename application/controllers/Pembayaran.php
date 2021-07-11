@@ -23,4 +23,17 @@ class Pembayaran extends CI_Controller{
     $this->load->view('pembayaran/index', $data);
     $this->load->view('templates/footer');
   }
+  public function detail($id)
+  {
+    // code...
+    $data['title'] = 'Detail Pembayaran Peserta';
+    $data['admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
+    $data['pembayaran'] = $this->pembayaran->getPembayaranById($id);
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar', $data);
+    $this->load->view('templates/topbar', $data);
+    $this->load->view('pembayaran/detail', $data);
+    $this->load->view('templates/footer');
+  }
 }

@@ -65,7 +65,6 @@ class Peserta extends CI_Controller{
     }else {
       // code...
       $this->peserta->tambahPeserta();
-      redirect('peserta');
     }
   }
 }
