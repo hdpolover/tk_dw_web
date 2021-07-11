@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2021 at 05:40 PM
+-- Generation Time: Jul 03, 2021 at 12:16 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -31,15 +31,16 @@ CREATE TABLE `admins` (
   `id_admin` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `image` varchar(50) NOT NULL
+  `image` varchar(50) NOT NULL,
+  `is_active` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id_admin`, `username`, `password`, `image`) VALUES
-(1, 'qoriahindah', 'dummy', 'default.jpg');
+INSERT INTO `admins` (`id_admin`, `username`, `password`, `image`, `is_active`) VALUES
+(1, 'qoriahindah', 'dummy', 'default.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -133,6 +134,34 @@ CREATE TABLE `regist_info_detail` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `status_content`
+--
+
+CREATE TABLE `status_content` (
+  `id_status` int(11) NOT NULL,
+  `description` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `submit_content`
+--
+
+CREATE TABLE `submit_content` (
+  `id_content` int(11) NOT NULL,
+  `id_admin` int(3) NOT NULL,
+  `date` datetime NOT NULL,
+  `description` text NOT NULL,
+  `file` varchar(50) NOT NULL,
+  `created_date` date NOT NULL,
+  `modified_date` datetime NOT NULL,
+  `id_status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `summit`
 --
 
@@ -189,6 +218,20 @@ ALTER TABLE `regist_info_detail`
   ADD KEY `id_participant` (`id_participant`);
 
 --
+-- Indexes for table `status_content`
+--
+ALTER TABLE `status_content`
+  ADD PRIMARY KEY (`id_status`);
+
+--
+-- Indexes for table `submit_content`
+--
+ALTER TABLE `submit_content`
+  ADD PRIMARY KEY (`id_content`),
+  ADD KEY `id_status` (`id_status`),
+  ADD KEY `id_admin` (`id_admin`);
+
+--
 -- Indexes for table `summit`
 --
 ALTER TABLE `summit`
@@ -208,7 +251,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `participants`
 --
 ALTER TABLE `participants`
-  MODIFY `id_participant` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_participant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `participant_details`
@@ -233,6 +276,18 @@ ALTER TABLE `payment_types`
 --
 ALTER TABLE `regist_info_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `status_content`
+--
+ALTER TABLE `status_content`
+  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `submit_content`
+--
+ALTER TABLE `submit_content`
+  MODIFY `id_content` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `summit`
@@ -268,6 +323,13 @@ ALTER TABLE `payments`
 --
 ALTER TABLE `regist_info_detail`
   ADD CONSTRAINT `regist_info_detail_ibfk_1` FOREIGN KEY (`id_participant`) REFERENCES `participants` (`id_participant`);
+
+--
+-- Constraints for table `submit_content`
+--
+ALTER TABLE `submit_content`
+  ADD CONSTRAINT `submit_content_ibfk_1` FOREIGN KEY (`id_status`) REFERENCES `status_content` (`id_status`),
+  ADD CONSTRAINT `submit_content_ibfk_2` FOREIGN KEY (`id_admin`) REFERENCES `admins` (`id_admin`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

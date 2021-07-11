@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="<?= base_url('admin/index');?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -27,22 +27,48 @@
         Partisipant
     </div>
 
+
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="<?= base_url('Peserta');?>">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Peserta</span>
-        </a></li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-user fa-cog"></i>
+                    <span>Participants</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Submenu:</h6>
+                        <a class="collapse-item" href="<?= base_url('Peserta');?>">Participants</a>
+                        <a class="collapse-item" href="cards.html">Valid Participants</a>
+                    </div>
+                </div>
+            </li>   
 
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="<?= base_url('Pembayaran');?>">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Pembayaran</span>
+            <i class="fas fa-dollar-sign fa-cog"></i>
+            <span>Payment</span>
         </a>
 
     </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-user fa-cog"></i>
+                    <span>Admin</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Submenu:</h6>
+                        <a class="collapse-item" href="<?= base_url('Contentadmin');?>">Content Media</a>
+                        <a class="collapse-item" href="<?= base_url('Adminmanagement');?>">Admin Management</a>
+                    </div>
+                </div>
+            </li>  
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
@@ -73,5 +99,8 @@
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
+    
+
 </ul>
 <!-- End of Sidebar -->
+
