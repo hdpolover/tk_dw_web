@@ -13,8 +13,8 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('admin/index');?>">
+    <li class="nav-item active">
+        <a class="nav-link" href="<?= base_url('dashboard');?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -38,7 +38,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Submenu:</h6>
-                        <a class="collapse-item" href="<?= base_url('Peserta');?>">Participants</a>
+                        <a class="collapse-item" href="<?= base_url('participant');?>">Participants</a>
                         <a class="collapse-item" href="cards.html">Valid Participants</a>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Submenu:</h6>
                         <a class="collapse-item" href="<?= base_url('Contentadmin');?>">Content Media</a>
-                        <a class="collapse-item" href="<?= base_url('Adminmanagement');?>">Admin Management</a>
+                        <a class="collapse-item" href="<?= base_url('admin');?>">Admin Management</a>
                     </div>
                 </div>
             </li>  
