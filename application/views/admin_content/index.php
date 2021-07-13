@@ -2,7 +2,7 @@
 
     <!-- Page Heading 
     <h1 class="h3 mb-4 text-gray-800"><?= $title?></h1>-->
-    <a href="<?= base_url();?>admin_content/tryQr" class="btn btn-primary mb-4">Add Content</a>
+    <a href="<?= base_url();?>admin_content/showQr" class="btn btn-primary mb-4">Add Content</a>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">

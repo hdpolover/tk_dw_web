@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use chriskacerguis\RestServer\RestController;
 use Endroid\QrCode\Color\Color;
 use Endroid\QrCode\Encoding\Encoding;
 use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelLow;
 use Endroid\QrCode\QrCode;
-use Endroid\QrCode\Label\Label;
 use Endroid\QrCode\Logo\Logo;
 use Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeMargin;
 use Endroid\QrCode\Writer\PngWriter;
@@ -21,10 +21,10 @@ class Admin_content extends CI_Controller
     //$this->load->library('form_validation');
   }
 
-  public function tryQr()
+  public function tryQr($id)
   {
     $writer = new PngWriter();
-    $id = "07Z4ZxSpoHTVTG3YAZN4OSMHgy13";
+
     // Create QR code
     $qrCode = QrCode::create($id)
       ->setEncoding(new Encoding('UTF-8'))
@@ -36,29 +36,29 @@ class Admin_content extends CI_Controller
       ->setBackgroundColor(new Color(255, 255, 255));
 
     // Create generic logo
-    $logo = Logo::create('./assets/img/logo_1.png')
+    $logo = Logo::create('./assets/img/logo.png')
       ->setResizeToWidth(70);
-
-    // // Create generic label
-    // $label = Label::create('Hello')
-    //   ->setTextColor(new Color(255, 0, 0));
 
     $result = $writer->write($qrCode, $logo);
 
-    // Directly output the QR code
-    header('Content-Type: ' . $result->getMimeType());
-    echo $result->getString();
+    //Directly output the QR code
+    //header('Content-Type: ' . $result->getMimeType());
+    //echo $result->getString();
 
     // Save it to a file
-    $result->saveToFile('/assets/img/qr_codes/' + $id + '.png');
+    $result->saveToFile(__DIR__ . '/../../assets/img/qr_codes/' . $id . '.png');
 
     // Generate a data URI to include image data inline (i.e. inside an <img> tag)
-    $dataUri = $result->getDataUri();
+    //$dataUri = $result->getDataUri();
+  }
 
+  public function showQr()
+  {
     // code...
-    $data['title'] = 'Data Peserta';
+    $data['title'] = 'Add New Content';
     $data['current_admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
-    $data['qr'] = $dataUri;
+    //$data['qr'] = $this->tryQr("egrgvrbrbr");
+    $this->tryQr("1122");
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);

@@ -17,6 +17,12 @@ class Participant_model extends CI_Model
     return $this->db->affected_rows();
   }
 
+  public function add_participant_details($data)
+  {
+    $this->db->insert('participant_details', $data);
+    return $this->db->affected_rows();
+  }
+
   public function get_participant($id = null)
   {
     if ($id == null) {
@@ -26,17 +32,15 @@ class Participant_model extends CI_Model
     }
   }
 
-  public function get_participant_by_id($id)
+  public function get_participant_detail($id = null)
   {
-    $result = $this->db->get('participants');
-    $this->db->where('id_participant', $id);
-
-    if ($result->num_rows() == 1) {
-      return $result->row_array();
+    if ($id == null) {
+      return $this->db->get('participant_details')->result_array();
     } else {
-      return false;
+      return $this->db->get_where('participant_details', ['id_participant' => $id])->result_array();
     }
   }
+
 
   public function getPeserta()
   {
