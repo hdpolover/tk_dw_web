@@ -1,47 +1,31 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller{
+class Admin_content extends CI_Controller{
 
   public function __construct()
   {
       parent::__construct();
-      $this->load->model('Admin_model', 'admin');
+      $this->load->model('Admin_content_model', 'admin_content');
       //$this->load->library('form_validation');
   }
 
   public function index()
   {
     // code...
-    $data['title'] = 'Data Admin';
+    $data['title'] = 'Data Peserta';
     $data['current_admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
-    $data['admins'] = $this->admin->get_admins();
-    
+    //$data['peserta'] = $this->Peserta_model->campurData();
+    $data['admin_contents'] = $this->admin_content->get_admin_contents();
+    // if( $this->input->post('keyword') ) {
+    //     $data['peserta'] = $this->Peserta_model->cariDataMahasiswa();
+    // }
+
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
     $this->load->view('templates/topbar', $data);
-    $this->load->view('admin_management/index', $data);
+    $this->load->view('admin_content/index', $data);
     $this->load->view('templates/footer');
-  }
-
-  public function add_new_admin()
-  {
-    // code...
-    $data['title'] = 'Add New Admin';
-    $data['current_admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
-
-    if ($this->input->post('summit') == NULL) {
-      // code...
-      $this->load->view('templates/header', $data);
-      $this->load->view('templates/sidebar', $data);
-      $this->load->view('templates/topbar', $data);
-      $this->load->view('peserta/tambah', $data);
-      $this->load->view('templates/footer');
-    }else {
-      // code...
-      $this->peserta->tambahPeserta();
-      redirect('peserta');
-    }
   }
 
   public function detail($id)
@@ -65,5 +49,23 @@ class Admin extends CI_Controller{
     redirect('peserta');
   }
 
-  
+  public function tambah()
+  {
+    // code...
+    $data['title'] = 'Form Tambah Peserta';
+    $data['admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
+
+    if ($this->input->post('summit') == NULL) {
+      // code...
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/sidebar', $data);
+      $this->load->view('templates/topbar', $data);
+      $this->load->view('peserta/tambah', $data);
+      $this->load->view('templates/footer');
+    }else {
+      // code...
+      $this->peserta->tambahPeserta();
+      redirect('peserta');
+    }
+  }
 }

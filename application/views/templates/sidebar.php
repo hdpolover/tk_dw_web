@@ -64,11 +64,28 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Submenu:</h6>
-                        <a class="collapse-item" href="<?= base_url('Contentadmin');?>">Content Media</a>
+                        <a class="collapse-item" href="<?= base_url('admin_content');?>">Content Media</a>
                         <a class="collapse-item" href="<?= base_url('admin');?>">Admin Management</a>
                     </div>
                 </div>
             </li>  
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-user fa-cog"></i>
+                    <span>Others</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Submenu:</h6>
+                        <a class="collapse-item" href="<?= base_url('others/index_summits');?>">Summits</a>
+                        <a class="collapse-item" href="<?= base_url('admin');?>">Summit Timelines</a>
+                        <a class="collapse-item" href="<?= base_url('admin');?>">Payment Types</a>
+                    </div>
+                </div>
+            </li> 
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">

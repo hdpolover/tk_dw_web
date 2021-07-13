@@ -28,13 +28,23 @@ class Participant_model extends CI_Model
         }
   }
 
+  public function get_participant_by_id($id) {
+    $result = $this->db->get('participants');
+    $this->db->where('id_participant', $id);
+
+    if ($result->num_rows() == 1) {
+        return $result->row_array();
+    } else {
+        return false;
+    }
+  }
 
   public function getPeserta()
   {
     // code...
-    $query = "SELECT `participant_details`.*, `participants`.*, `summit`.`desc`
+    $query = "SELECT `participant_details`.*, `participants`.*, `summits`.`desc`
                 FROM `participant_details` LEFT JOIN `participants` ON `participant_details`.`id_participant` = `participants`.`id_participant`
-                LEFT JOIN `summit` ON `participants`.`id_summit` = `summit`.`id_summit` ";
+                LEFT JOIN `summits` ON `participants`.`id_summit` = `summits`.`id_summit` ";
 
     return $this->db->query($query)->result_array();
   }
@@ -44,10 +54,10 @@ class Participant_model extends CI_Model
     if ($id === NULL) {
       return $this->db->get('participants',)->result_array();
     }
-    $query = "SELECT `participant_details`.*, `participants`.*, `summit`.`desc`, `regist_info_detail`.`info_ybb`
+    $query = "SELECT `participant_details`.*, `participants`.*, `summits`.`desc`, `regist_info_detail`.`info_ybb`
                 FROM `participants`
           INNER JOIN `participant_details` ON `participants`.`id_participant` = `participant_details`.`id_participant`
-          INNER JOIN `summit` ON `participants`.`id_summit` = `summit`.`id_summit`
+          INNER JOIN `summits` ON `participants`.`id_summit` = `summits`.`id_summit`
           INNER JOIN `regist_info_detail` ON `participants`.`id_participant` = `regist_info_detail`.`id_participant`
                WHERE `participants`.`id_participant` = $id ";
 
@@ -96,6 +106,6 @@ class Participant_model extends CI_Model
       $this->db->insert('participants', $data1);
       $this->db->insert('payments', $data3);
       $this->db->insert('regist_info_detail', $data4);
-      redirect('peserta');
+      redirect('participant');
   }
 }

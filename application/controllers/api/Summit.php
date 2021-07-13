@@ -22,7 +22,7 @@ class Summit extends RestController
       $summit = $this->summit->get_summits();
     } else {
       // code...
-      $summit = $this->summit->get_where('summit', array('id_summit'=>$id));
+      $summit = $this->summit->get_where('summits', array('id_summit'=>$id));
     }
 
     if ($summit) {

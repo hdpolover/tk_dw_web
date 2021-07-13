@@ -1,22 +1,28 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-     <!--<h1 class="h3 mb-4 text-gray-800"><?= $title?></h1> -->
-    <a href="<?= base_url();?>participant/tambah" class="btn btn-primary mb-4">Add New Participants</a>
+    <h1 class="h3 mb-4 text-gray-800"><?= $title?></h1>
+    <a href="<?= base_url();?>others/add_new_summit" class="btn btn-primary mb-4">Add New Summit</a>
+
+    <?php echo $this->session->flashdata('message'); ?>
+    
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Participants</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Manage Summits</h6>
         </div>
+
+      
+
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Summit</th>
+                            <th>No.</th>
+                            <th>Summit Name</th>
+                            <th>Registration Fee</th>
+                            <th>Program Fee</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -24,19 +30,16 @@
 
                     <tbody>
                       <?php $i = 1; ?>
-                      <?php foreach ($participants as $p): ?>
+                      <?php foreach ($summits as $s): ?>
                         <tr>
                             <th scope="row"><?= $i;?></th>
-                            <td><?= $p['full_name'];?></td>
-                            <td><?= $p['email'];?></td>
-                            <td><?= $p['desc'];?></td>
-                            <td><?= $p['status'];?></td>
+                            <td><?= $s['desc'];?></td>
+                            <td><?= $s['regist_fee'];?></td>
+                            <td><?= $s['program_fee'];?></td>
+                            <td><?= $s['status'] == 0 ? "Inactive" : "Active";?></td>
                             <td>
-                              <a href="<?= base_url(); ?>peserta/detail/<?= $p['id_participant']; ?>"
-                                  class="badge badge-info">Detail</a>
-                              <a href="<?= base_url(); ?>peserta/hapus/<?= $p['id_participant']; ?>"
-                                  class="badge badge-danger" onclick="return confirm('Apa anda ingin menghapus data tersebut?');">Hapus</a>
-
+                              <a href="<?= base_url(); ?>others/summit_detail/<?= $s['id_summit']; ?>"
+                                  class="badge badge-info">Edit</a>
                             </td>
                         </tr>
                         <?php $i++; ?>

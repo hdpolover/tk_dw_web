@@ -2,7 +2,7 @@
 
     <!-- Page Heading 
     <h1 class="h3 mb-4 text-gray-800"><?= $title?></h1>-->
-    <a href="<?= base_url();?>admin/tambahAdmin" class="btn btn-primary mb-4">Add Admin</a>
+    <a href="<?= base_url();?>admin/tambahAdmin" class="btn btn-primary mb-4">Add New Admin</a>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -25,7 +25,7 @@
                         <tr>
                             <th scope="row"><?= $i;?></th>
                             <td><?= $p['username'];?></td>
-                            <td><?= $p['is_active'];?></td>
+                            <td><?= $p['status'] == 0 ? 'Inactive' : 'Active';?></td>
                         </tr>
                         <?php $i++; ?>
                       <?php endforeach ?>
