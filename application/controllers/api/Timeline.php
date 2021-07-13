@@ -3,33 +3,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 use chriskacerguis\RestServer\RestController;
 
-class Summit extends RestController
+class Timeline extends RestController
 {
 
   public function __construct()
   {
     // code...
     parent::__construct();
-    $this->load->model('summit_model', 'summit');
+    $this->load->model('timeline_model', 'timeline');
   }
 
   public function index_get()
   {
     // code...
-    $id = $this->get('id_summit');
+    $id = $this->get('id_summit_timeline');
     if ($id === NULL) {
       // code...
-      $summit = $this->summit->get_summit();
+      $timeline = $this->timeline->get_all();
     } else {
       // code...
-      $summit = $this->summit->get_summit($id);
+      $timeline = $this->timeline->get_by_id($id);
     }
 
-    if ($summit) {
+    if ($timeline) {
       // code...
       $this->response([
         'status'=> true,
-        'data' => $summit
+        'data' => $timeline
       ],  RestController::HTTP_OK);
     } else {
       // code...

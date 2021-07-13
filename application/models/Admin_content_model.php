@@ -1,24 +1,21 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 /**
  *
  */
 class Admin_content_model extends CI_Model
 {
-    public function get_admin_contents() {
-        $result = $this->db->get('summit_contents');
-
-        if ($result->num_rows() > 0) {
-            return $result->result_array();
+    public function get_admin_content($id = null)
+    {
+        if ($id == null) {
+            return $this->db->get('summit_contents')->result_array();
         } else {
-            return false;
+            return $this->db->get_where('summit_contents', ['id_summit_content' => $id])->result_array();
         }
     }
 
-
-    public function add_content() {
-
+    public function add_content()
+    {
+        
     }
 }
-
-?>

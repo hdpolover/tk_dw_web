@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 /**
  *
  */
@@ -11,26 +11,57 @@ class Summit_model extends CI_Model
     parent::__construct();
   }
 
-  public function create($data)
+  public function create_summit($data)
   {
-    // code...
     $data = array(
-      'desc' => $data[0],
-      'regist_fee' => $data[1],
-      'program_fee' => $data[2],
-      'status' => $data[3],
-  );
+      'desc' => $data['desc'],
+      'regist_fee' => $data['regist_fee'],
+      'program_fee' => $data['program_fee'],
+      'status' => $data['status'],
+    );
+
     $this->db->insert('summits', $data);
-    //return $this->db->affected_rows();
   }
 
-  public function get_summits() {
-    $result = $this->db->get('summits');
+  public function update($data)
+  {
+    $data = array(
+      'desc' => $data['desc'],
+      'regist_fee' => $data['regist_fee'],
+      'program_fee' => $data['program_fee'],
+      'status' => $data['status'],
+    );
 
-        if ($result->num_rows() > 0) {
-            return $result->result_array();
-        } else {
-            return false;
-        }
+    $this->db->set($data);
+    $this->db->where('id_summit', $data['id_summit']);
+    $this->db->update('summits');
   }
+
+  public function get_summit($id = null)
+  {
+    if ($id == null) {
+      return $this->db->get('summits')->result_array();
+    } else {
+      return $this->db->get_where('summits', ['id_summit' => $id])->result_array();
+    }
+  }
+
+  public function get_active_summits()
+  {
+    $this->db->where('status', 1);
+    $this->db->from('summits');
+    return $this->db->get()->result_array();
+  }
+
+  // public function get_by_id($id)
+  // {
+  //   $this->db->where('id_summit', $id);
+  //   $result = $this->db->get('summits');
+
+  //   if ($result->num_rows() == 1) {
+  //     return $result->row_array();
+  //   } else {
+  //     return false;
+  //   }
+  // }
 }

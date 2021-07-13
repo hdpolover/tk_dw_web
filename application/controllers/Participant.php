@@ -1,14 +1,52 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Participant extends CI_Controller{
+require('qcode-endroid/autoload.php');
+
+use Endroid\QrCode\ErrorCorrectionLevel;
+use Endroid\QrCode\LabelAlignment;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Response\QrCodeResponse;
+
+class Participant extends CI_Controller
+{
+
 
   public function __construct()
   {
-      parent::__construct();
-      $this->load->model('Participant_model', 'participant');
-      //$this->load->library('form_validation');
+    parent::__construct();
+    $this->load->model('Participant_model', 'participant');
+    //$this->load->library('form_validation');
   }
+
+  // public function generateQrCode()
+  // {
+  //   $tempdir = "temp/";
+  //   if (!file_exists($tempdir)) {
+  //     mkdir($tempdir);
+  //   }
+
+  //   //Isi dari QRCode Saat discan
+  //   $isi_teks = "Dewan Komputer 2";
+  //   $namafile = "dewan-komputer2.png";
+  //   $qrCode = new QrCode();
+  //   // Set Text
+  //   $qrCode->setText($isi_teks);
+  //   $qrCode->setWriterByName('png');
+  //   $qrCode->setMargin(5);
+  //   $qrCode->setEncoding('UTF-8');
+  //   $qrCode->setErrorCorrectionLevel(new ErrorCorrectionLevel(ErrorCorrectionLevel::HIGH));
+  //   // Set Color
+  //   $qrCode->setRoundBlockSize(true);
+  //   $qrCode->setValidateResult(false);
+  //   $qrCode->setWriterOptions(['exclude_xml_declaration' => true]);
+
+  //   // Save it to a file
+  //   $qrCode->writeFile($tempdir . $namafile);
+
+  //   echo '<h3>Library Endroid</h3>';
+  //   echo '<img src="temp/' . $namafile . '" width="250px">';
+  // }
 
   public function index()
   {
@@ -62,7 +100,7 @@ class Participant extends CI_Controller{
       $this->load->view('templates/topbar', $data);
       $this->load->view('participant/tambah', $data);
       $this->load->view('templates/footer');
-    }else {
+    } else {
       // code...
       $this->peserta->tambahPeserta();
     }

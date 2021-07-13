@@ -5,31 +5,28 @@
 
   <!-- Basic Card Example -->
   <div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Summit</h6>
-    </div>
     <div class="card-body">
-      <form method="post" action="<?= base_url('others/create_new_summit'); ?>">
+      <form method="post" action="<?= base_url(); ?>others/update_summit/<?= $summit['id_summit']; ?>">
         <div class="form-group row">
           <label for="desc" class="col-sm-4 col-form-label">Summit Description/Name</label>
           <div class="col-sm-8">
-            <input type="text" name="desc" class="form-control" id="desc">
+            <input type="text" name="desc" class="form-control" id="desc" placeholder="<?php echo $summit['desc']; ?>" value="<?php echo $summit['desc']; ?>">
           </div>
         </div>
         <div class="form-group row">
           <label for="regist_fee" class="col-sm-4 col-form-label">Registration Fee</label>
           <div class="col-sm-8">
-            <input type="number" name="regist_fee" class="form-control" id="regist_fee">
+            <input type="number" name="regist_fee" class="form-control" id="regist_fee" value="<?php echo $summit['regist_fee']; ?>" placeholder="<?php echo $summit['regist_fee']; ?>">
           </div>
         </div>
         <div class="form-group row">
           <label for="program_fee" class="col-sm-4 col-form-label">Program Fee</label>
           <div class="col-sm-8">
-            <input type="number" name="program_fee" class="form-control" id="program_fee">
+            <input type="number" name="program_fee" class="form-control" id="program_fee" value="<?php echo $summit['program_fee']; ?>"placeholder="<?php echo $summit['program_fee']; ?>">
           </div>
         </div>
         <div class="form-group row">
-          <label for="desc" class="col-sm-4 col-form-label">Summit Status</label>
+          <label for="status" class="col-sm-4 col-form-label">Summit Status</label>
           <div class="col-sm-8">
             <select class="form-control" id="status" name="status">
               <option value="0">Inactive</option>
@@ -39,8 +36,12 @@
         </div>
         <div class="text-align-right">
           <button type="submit" class="btn btn-primary btn-user btn-block">
-            Create
+            SAVE
           </button>
         </div>
     </div>
   </div>
+
+  <script>
+    document.getElementById('status').value="<?php echo set_value($summit['status']); ?>";
+ </script>

@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 /**
  *
  */
@@ -11,31 +11,30 @@ class Participant_model extends CI_Model
     parent::__construct();
   }
 
-  public function createParticipant($data)
+  public function register($data)
   {
-    // code...
-    $this->db->insert('participant', $data);
+    $this->db->insert('participants', $data);
     return $this->db->affected_rows();
   }
 
-  public function get_participants() {
-    $result = $this->db->get('participants');
-
-        if ($result->num_rows() > 0) {
-            return $result->result_array();
-        } else {
-            return false;
-        }
+  public function get_participant($id = null)
+  {
+    if ($id == null) {
+      return $this->db->get('participants')->result_array();
+    } else {
+      return $this->db->get_where('participants', ['id_participant' => $id])->result_array();
+    }
   }
 
-  public function get_participant_by_id($id) {
+  public function get_participant_by_id($id)
+  {
     $result = $this->db->get('participants');
     $this->db->where('id_participant', $id);
 
     if ($result->num_rows() == 1) {
-        return $result->row_array();
+      return $result->row_array();
     } else {
-        return false;
+      return false;
     }
   }
 
@@ -48,7 +47,7 @@ class Participant_model extends CI_Model
 
     return $this->db->query($query)->result_array();
   }
-  
+
   public function getPesertaById($id)
   {
     if ($id === NULL) {
@@ -77,35 +76,35 @@ class Participant_model extends CI_Model
 
   public function tambahPeserta()
   {
-      $data1 = [
-        "id_summit" => $this->input->post('summit', true),
-        "email" => $this->input->post('email', true),
-        "status" => $this->input->post('status', true),
-        "portal_password" => $this->input->post('ppassword', true),
-        "is_fully_funded" => $this->input->post('fullyfunded', true)
-      ];
+    $data1 = [
+      "id_summit" => $this->input->post('summit', true),
+      "email" => $this->input->post('email', true),
+      "status" => $this->input->post('status', true),
+      "portal_password" => $this->input->post('ppassword', true),
+      "is_fully_funded" => $this->input->post('fullyfunded', true)
+    ];
 
-      $data2 = [
-        "full_name" => $this->input->post('fullname', true),
-        "birth_date" => $this->input->post('birth', true),
-        "essay" => $this->input->post('essay', true),
-      ];
+    $data2 = [
+      "full_name" => $this->input->post('fullname', true),
+      "birth_date" => $this->input->post('birth', true),
+      "essay" => $this->input->post('essay', true),
+    ];
 
-      $data3 = [
-        "id_payment_type" => $this->input->post('payment', true),
-        "bank_name" => $this->input->post('bank', true),
-        "account_name" => $this->input->post('account', true),
-        "payment_date" => $this->input->post('paymentdate', true),
-        "proof" => $this->input->post('proof', true)
-      ];
+    $data3 = [
+      "id_payment_type" => $this->input->post('payment', true),
+      "bank_name" => $this->input->post('bank', true),
+      "account_name" => $this->input->post('account', true),
+      "payment_date" => $this->input->post('paymentdate', true),
+      "proof" => $this->input->post('proof', true)
+    ];
 
-      $data4 = [
-        "info_ybb" => $this->input->post('infoybb', true)
-      ];
-      $this->db->insert('participant_details', $data2);
-      $this->db->insert('participants', $data1);
-      $this->db->insert('payments', $data3);
-      $this->db->insert('regist_info_detail', $data4);
-      redirect('participant');
+    $data4 = [
+      "info_ybb" => $this->input->post('infoybb', true)
+    ];
+    $this->db->insert('participant_details', $data2);
+    $this->db->insert('participants', $data1);
+    $this->db->insert('payments', $data3);
+    $this->db->insert('regist_info_detail', $data4);
+    redirect('participant');
   }
 }
