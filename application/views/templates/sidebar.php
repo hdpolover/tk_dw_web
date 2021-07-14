@@ -64,7 +64,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Submenu:</h6>
-                        <a class="collapse-item" href="<?= base_url('admin_content');?>">Content Media</a>
+                        <a class="collapse-item" href="<?= base_url('summit_content');?>">Summit Content</a>
                         <a class="collapse-item" href="<?= base_url('admin');?>">Admin Management</a>
                     </div>
                 </div>

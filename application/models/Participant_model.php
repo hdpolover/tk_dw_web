@@ -41,11 +41,17 @@ class Participant_model extends CI_Model
     }
   }
 
+  public function get_participant_total_count()
+  {
+    //$this->db->where('id_summit', $this->session->userdata['id_summit']);
+    $num_rows = $this->db->count_all_results('participant_details');
+    return $num_rows;
+  }
 
-  public function getPeserta()
+  public function get_participants()
   {
     // code...
-    $query = "SELECT `participant_details`.*, `participants`.*, `summits`.`desc`
+    $query = "SELECT `participant_details`.*, `participants`.*, `summits`.`description`
                 FROM `participant_details` LEFT JOIN `participants` ON `participant_details`.`id_participant` = `participants`.`id_participant`
                 LEFT JOIN `summits` ON `participants`.`id_summit` = `summits`.`id_summit` ";
 

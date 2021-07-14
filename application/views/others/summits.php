@@ -30,9 +30,9 @@
                         <?php foreach ($summits as $s) : ?>
                             <tr>
                                 <th scope="row"><?= $i; ?></th>
-                                <td><?= $s['desc']; ?></td>
-                                <td><?= $s['regist_fee']; ?></td>
-                                <td><?= $s['program_fee']; ?></td>
+                                <td><?= $s['description']; ?></td>
+                                <td><?= 'Rp. ' . number_format($s['regist_fee'], 2, ',', '.'); ?></td>
+                                <td><?= 'Rp. ' . number_format($s['program_fee'], 2, ',', '.'); ?></td>
                                 <td><?= $s['status'] == 0 ? "Inactive" : "Active"; ?></td>
                                 <td>
                                     <a href="<?= base_url(); ?>others/view_summit_details/<?= $s['id_summit']; ?>" class="btn btn-danger">Edit</a>

@@ -43,6 +43,8 @@ class Auth extends CI_Controller
           // code...
           $data = [
             'username' => $admin['username'],
+            'id_admin'=> $admin['id_admin'],
+            'id_summit'=> $admin['id_summit'],
           ];
           $this->session->set_userdata($data);
           redirect('dashboard');

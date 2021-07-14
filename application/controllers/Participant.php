@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-require('qcode-endroid/autoload.php');
-
 class Participant extends CI_Controller
 {
   public function __construct()
@@ -18,7 +16,7 @@ class Participant extends CI_Controller
     //$data['title'] = 'Data Peserta';
     $data['current_admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
     //$data['peserta'] = $this->Peserta_model->campurData();
-    $data['participants'] = $this->participant->getPeserta();
+    $data['participants'] = $this->participant->get_participants();
     // if( $this->input->post('keyword') ) {
     //     $data['peserta'] = $this->Peserta_model->cariDataMahasiswa();
     // }
