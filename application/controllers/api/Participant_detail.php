@@ -47,89 +47,70 @@ class Participant_detail extends RestController
     $param = $this->post();
     $id = $param['id_participant'];
 
-    $file = $this->upload_image();
-    // code...
-    $data = [
-      'id_participant' => $this->post('id_participant'),
-      'photo' => $file,
-      'full_name' => $param['full_name'],
-      'birthdate' => $param['birthdate'],
-      'gender' => $param['gender'],
-      'address' => $param['address'],
-      'nationality' => $param['nationality'],
-      'occupation' => $param['occupation'],
-      'field_of_study' => $param['field_of_study'],
-      'institution' => $param['institution'],
-      'emergency_contact' => $param['emergency_contact'],
-      'wa_number' => $param['wa_number'],
-      'ig_account' => $param['ig_account'],
-      'tshirt_size' => $param['tshirt_size'],
-      'disease_history' => $param['disease_history'],
-      'contact_relation' => $param['contact_relation'],
-      'is_vegetarian' => $param['is_vegetarian'],
-      'subtheme' => $param['subtheme'],
-      'essay' => $param['essay'],
-      'social_projects' => $param['social_projects'],
-      'talents' => $param['talents'],
-      'achievements' => $param['achievements'],
-      'experiences' => $param['experiences'],
-      'know_program_from' => $param['know_program_from'],
-      'source_account_name' => $param['source_account_name'],
-    ];
+    $upload_image = $_FILES['image']['name'];
 
-    $res = $this->participant->add_participant_details($data);
-    $participant = $this->participant->get_participant_detail($id);
+    if ($upload_image) {
+      $config['allowed_types'] = 'gif|jpg|png|jpeg';
+      $config['max_size']      = '2048';
+      $config['upload_path'] = './assets/profile/participants/';
 
-    if ($res > 0) {
-      // code...
-      $this->response([
-        'status' => true,
-        'data' => $participant,
-        'message' => 'new participant registered'
-      ],  RestController::HTTP_CREATED);
+      $this->load->library('upload', $config);
+
+      if ($this->upload->do_upload('image')) {
+        $data = [
+          'id_participant' => $id,
+          'photo' => $upload_image,
+          'full_name' => $param['full_name'],
+          'birthdate' => $param['birthdate'],
+          'gender' => $param['gender'],
+          'address' => $param['address'],
+          'nationality' => $param['nationality'],
+          'occupation' => $param['occupation'],
+          'field_of_study' => $param['field_of_study'],
+          'institution' => $param['institution'],
+          'emergency_contact' => $param['emergency_contact'],
+          'wa_number' => $param['wa_number'],
+          'ig_account' => $param['ig_account'],
+          'tshirt_size' => $param['tshirt_size'],
+          'disease_history' => $param['disease_history'],
+          'contact_relation' => $param['contact_relation'],
+          'is_vegetarian' => $param['is_vegetarian'],
+          'subtheme' => $param['subtheme'],
+          'essay' => $param['essay'],
+          'social_projects' => $param['social_projects'],
+          'talents' => $param['talents'],
+          'achievements' => $param['achievements'],
+          'experiences' => $param['experiences'],
+          'know_program_from' => $param['know_program_from'],
+          'source_account_name' => $param['source_account_name'],
+          'video_link' => $param['video_link'],
+        ];
+
+        $res = $this->participant->add_participant_details($data);
+        $participant = $this->participant->get_participant_detail($id);
+
+        if ($res > 0) {
+          // code...
+          $this->response([
+            'status' => true,
+            'data' => $participant,
+            'message' => 'participant details added'
+          ],  RestController::HTTP_CREATED);
+        } else {
+          // code...
+          $this->response([
+            'status' => false,
+            'message' => 'failed adding participant details'
+          ],  RestController::HTTP_BAD_REQUEST);
+        }
+      } else {
+        echo $this->upload->display_errors();
+      }
     } else {
-      // code...
       $this->response([
         'status' => false,
         'message' => 'failed to register'
       ],  RestController::HTTP_BAD_REQUEST);
-    }
-  }
-
-  function upload_image()
-  {
-    $newPath = './assets/profile/';
-    if (!is_dir($newPath)) {
-      mkdir($newPath, 0777, TRUE);
-    }
-    $config['upload_path'] = $newPath; //path folder
-    $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
-    $config['encrypt_name'] = FALSE; //Enkripsi nama yang terupload
-
-    $this->load->library('upload', $config);
-
-    if (!empty($_FILES['file']['name'])) {
-
-      if ($this->upload->do_upload('file')) {
-        $gbr = $this->upload->data();
-        //Compress Image
-        $config['image_library'] = 'gd2';
-        $config['source_image'] = $newPath . $gbr['file_name'];
-        $config['create_thumb'] = FALSE;
-        $config['maintain_ratio'] = true;
-        // $config['quality']= '100%';
-        $config['width'] = 600;
-        // $config['height']= 400;
-        $config['new_image'] = $newPath . $gbr['file_name'];
-        $this->load->library('image_lib', $config);
-        $this->image_lib->resize();
-
-        $gambar = $gbr['file_name'];
-
-        return base_url('/assets/profile/' . $gambar);
-      }
-    } else {
-      return base_url('/assets/profile/default.png');
     }
   }
 }
