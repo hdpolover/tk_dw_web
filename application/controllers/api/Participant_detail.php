@@ -52,7 +52,7 @@ class Participant_detail extends RestController
     if ($upload_image) {
       $config['allowed_types'] = 'gif|jpg|png|jpeg';
       $config['max_size']      = '2048';
-      $config['upload_path'] = './assets/profile/participants/';
+      $config['upload_path'] = './assets/img/profile/participants/';
 
       $this->load->library('upload', $config);
 

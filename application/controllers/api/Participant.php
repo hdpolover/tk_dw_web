@@ -110,4 +110,28 @@ class Participant extends RestController
     }
   }
 
+  public function index_put()
+  {
+    // code...
+    $id = $this->put('id_participant');
+    $data = [
+      'status' => $this->put('status'),
+    ];
+
+    if ($this->participant->update_participant_status($data, $id) > 0) {
+      // code...
+      $this->response([
+        'status'=> true,
+        'message' => 'participant data updated'
+      ],  RestController::HTTP_OK);
+    }else {
+      // code...
+      $this->response([
+        'status'=> false,
+        'message' => 'failed to update data!'
+      ],  RestController::HTTP_BAD_REQUEST);
+    }
+
+  }
+
 }

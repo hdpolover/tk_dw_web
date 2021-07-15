@@ -29,7 +29,7 @@
                             <th scope="row"><?= $i;?></th>
                             <td><?= $p['full_name'];?></td>
                             <td><?= $p['email'];?></td>
-                            <td><?= $p['desc'];?></td>
+                            <td><?= $p['description'];?></td>
                             <td><?= $p['status'];?></td>
                             <td>
                               <a href="<?= base_url(); ?>peserta/detail/<?= $p['id_participant']; ?>"

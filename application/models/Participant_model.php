@@ -41,6 +41,13 @@ class Participant_model extends CI_Model
     }
   }
 
+  public function update_participant_status($data, $id)
+  {
+    // code...
+    $this->db->update('participants', $data, ['id_participant' => $id]);
+    return $this->db->affected_rows();
+  }
+
   public function get_participant_total_count()
   {
     //$this->db->where('id_summit', $this->session->userdata['id_summit']);
