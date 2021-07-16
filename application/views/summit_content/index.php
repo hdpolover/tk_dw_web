@@ -47,7 +47,9 @@
                                     } ?>
                                 </td>
                                 <td>
-                                    <a href="<?= base_url(); ?>summit_content/view_summit_content_details/<?= $sc['id_summit_content']; ?>" class="btn btn-danger">Edit</a>
+                                    <a href="<?= base_url(); ?>summit_content/view_summit_content_details/<?= $sc['id_summit_content']; ?>" class="badge badge-info">View</i></a>
+                                    <a href="<?= base_url(); ?>summit_content/view_summit_content_details/<?= $sc['id_summit_content']; ?>" class="badge badge-danger">Edit</i></a>
+                                
                                 </td>
                             </tr>
                             <?php $i++; ?>

@@ -2,40 +2,35 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title ?></h1>
-    <a href="<?= base_url(); ?>others/add_new_summit" class="btn btn-primary mb-4">Add New Summit</a>
+    <a href="<?= base_url(); ?>others/add_new_payment_type" class="btn btn-primary mb-4">Add New Payment Type</a>
 
     <?php echo $this->session->flashdata('message'); ?>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Manage Summits</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Manage Payment Types</h6>
         </div>
+
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Summit Name</th>
-                            <th>Registration Fee</th>
-                            <th>Program Fee</th>
-                            <th>Status</th>
+                            <th>Payment Type</th>
                             <th>Action</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         <?php $i = 1; ?>
-                        <?php foreach ($summits as $s) : ?>
+                        <?php foreach ($payment_types as $pt) : ?>
                             <tr>
                                 <th scope="row"><?= $i; ?></th>
-                                <td><?= $s['description']; ?></td>
-                                <td><?= 'Rp. ' . number_format($s['regist_fee'], 2, ',', '.'); ?></td>
-                                <td><?= 'Rp. ' . number_format($s['program_fee'], 2, ',', '.'); ?></td>
-                                <td><?= $s['status'] == 0 ? "Inactive" : "Active"; ?></td>
+                                <td><?= $pt['description']; ?></td>
                                 <td>
-                                    <a href="<?= base_url(); ?>others/view_summit_details/<?= $s['id_summit']; ?>" class="badge badge-danger">Edit</a>
+                                    <a href="<?= base_url(); ?>others/payment_types_detail/<?= $pt['id_payment_type']; ?>" class="badge badge-info">Edit</a>
                                 </td>
                             </tr>
                             <?php $i++; ?>

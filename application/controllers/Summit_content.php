@@ -51,7 +51,7 @@ class Summit_content extends CI_Controller
     $upload_image = $_FILES['image']['name'];
 
     if ($upload_image) {
-      $newPath = './assets/summit_content/' . $id_summit . '/';
+      $newPath = './assets/img/summit_contents/' . $id_summit . '/';
 
       if (!is_dir($newPath)) {
         mkdir($newPath, 0777, TRUE);
@@ -60,7 +60,7 @@ class Summit_content extends CI_Controller
       $config['upload_path'] = $newPath; //path folder
       $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf';
       $config['max_size']      = '2048';
-      $config['upload_path'] = './assets/summit_content/';
+      $config['upload_path'] = './assets/img/summit_contents/';
 
       $this->load->library('upload', $config);
 

@@ -47,7 +47,7 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="<?= base_url('Pembayaran');?>">
+        <a class="nav-link collapsed" href="<?= base_url('payment');?>">
             <i class="fas fa-dollar-sign fa-cog"></i>
             <span>Payment</span>
         </a>
@@ -82,7 +82,7 @@
                         <h6 class="collapse-header">Submenu:</h6>
                         <a class="collapse-item" href="<?= base_url('others/index_summits');?>">Summits</a>
                         <a class="collapse-item" href="<?= base_url('others/index_timelines');?>">Summit Timelines</a>
-                        <a class="collapse-item" href="<?= base_url('admin');?>">Payment Types</a>
+                        <a class="collapse-item" href="<?= base_url('others/index_payment_types');?>">Payment Types</a>
                     </div>
                 </div>
             </li> 

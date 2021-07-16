@@ -24,7 +24,7 @@ class Timeline_model extends CI_Model
         //return $this->db->affected_rows();
     }
 
-    public function get_all()
+    public function get_timeline()
     {
         $this->db->select('t.id_summit_timeline AS `id_summit_timeline`, t.description AS `desc`, s.description AS `summit_desc`, t.timeline AS `timeline`, t.status AS `status`');
         $this->db->from('summit_timelines AS t');

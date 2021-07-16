@@ -10,6 +10,7 @@ class Others extends CI_Controller
         $this->load->library('form_validation');
         $this->load->model('summit_model', 'summit');
         $this->load->model('timeline_model', 'timeline');
+        $this->load->model('payment_type_model', 'payment_type');
     }
 
     public function index_summits()
@@ -26,12 +27,25 @@ class Others extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function index_payment_types()
+    {
+        // // code...
+        $data['title'] = 'Payment Types';
+        $data['current_admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
+        $data['payment_types'] = $this->payment_type->get_payment_type();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('others/payment_types', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function add_new_summit()
     {
         // code...
         $data['title'] = 'Add New Summit';
         $data['current_admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
-
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -100,7 +114,7 @@ class Others extends CI_Controller
         // // code...
         $data['title'] = 'Summits';
         $data['current_admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
-        $data['timelines'] = $this->timeline->get_all();
+        $data['timelines'] = $this->timeline->get_timeline();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
