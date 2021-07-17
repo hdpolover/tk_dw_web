@@ -41,7 +41,6 @@
               <embed type="application/pdf" src="<?= base_url('assets/img/summit_contents/') . $sc['id_summit'] . "/" . $sc['file_path'] . "#toolbar=0&navpanes=0&scrollbar=0"; ?> " width="100%" height="100%"></embed>
             </div>
             </br>
-
           </div>
         </div>
       <?php endforeach ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2021 at 02:29 PM
+-- Generation Time: Jul 17, 2021 at 06:30 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.29
 
@@ -81,7 +81,9 @@ CREATE TABLE `participants` (
 
 INSERT INTO `participants` (`id_participant`, `id_summit`, `email`, `status`, `qr_code`, `created_date`, `is_fully_funded`) VALUES
 ('0FkIptVWVifKb9sHqhvsWDDVinx2', 1, 'hendrapolover@gmail.com', 1, '0FkIptVWVifKb9sHqhvsWDDVinx2.png', '2021-07-13 18:35:03', 0),
-('3Fvu6qHKvnhfkbx6tP4ybIWYTJz2', 1, 'hendracodes@gmail.com', 1, '3Fvu6qHKvnhfkbx6tP4ybIWYTJz2.png', '2021-07-15 09:13:07', 0);
+('3Fvu6qHKvnhfkbx6tP4ybIWYTJz2', 1, 'hendracodes@gmail.com', 1, '3Fvu6qHKvnhfkbx6tP4ybIWYTJz2.png', '2021-07-15 09:13:07', 0),
+('Icsd98LatKcS94gyrPx5NAyvFtz2', 1, 'ybbuserdemo@gmail.com', 0, 'Icsd98LatKcS94gyrPx5NAyvFtz2.png', '2021-07-15 15:30:09', 0),
+('ynD3p86rqVc2mOIO83YOpXdWGtX2', 1, 'ybb.admn@gmail.com', 4, 'ynD3p86rqVc2mOIO83YOpXdWGtX2.png', '2021-07-16 16:22:40', 0);
 
 -- --------------------------------------------------------
 
@@ -115,16 +117,18 @@ CREATE TABLE `participant_details` (
   `experiences` varchar(100) NOT NULL,
   `know_program_from` varchar(20) NOT NULL,
   `source_account_name` varchar(20) NOT NULL,
-  `video_link` varchar(100) NOT NULL
+  `video_link` varchar(100) NOT NULL,
+  `id_participant_detail` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `participant_details`
 --
 
-INSERT INTO `participant_details` (`id_participant`, `photo`, `full_name`, `birthdate`, `gender`, `address`, `nationality`, `occupation`, `field_of_study`, `institution`, `emergency_contact`, `wa_number`, `ig_account`, `tshirt_size`, `disease_history`, `contact_relation`, `is_vegetarian`, `subtheme`, `essay`, `social_projects`, `talents`, `achievements`, `experiences`, `know_program_from`, `source_account_name`, `video_link`) VALUES
-('0FkIptVWVifKb9sHqhvsWDDVinx2', 'image_picker2980659738196630803.jpg', 'hendra', '2000-01-01', 'F', 'sometimes', 'Afghanistan (AF)', 'sometimes', 'sometimes', 'point', '08854554', '363255', 'please', 'XXL', 'question', 'love', 0, 'Mental Health', 'morning', 'no', 'my', 'right', 'zaman', 'WhatsApp', 'ııhgıvj', 'ıu6ı767ook'),
-('3Fvu6qHKvnhfkbx6tP4ybIWYTJz2', 'image_picker4208947843771662846.jpg', 'polo', '2000-01-12', 'F', 'hehe', 'Bahamas (BS)', 'popo', 'popo', 'as', '88999', '85555', 'popo', 'L', 'pop', 'popo', 0, 'Public Policy', 'popop', 'pop', 'po', 'pop', 'popo', 'Facebook', 'popo', 'poop');
+INSERT INTO `participant_details` (`id_participant`, `photo`, `full_name`, `birthdate`, `gender`, `address`, `nationality`, `occupation`, `field_of_study`, `institution`, `emergency_contact`, `wa_number`, `ig_account`, `tshirt_size`, `disease_history`, `contact_relation`, `is_vegetarian`, `subtheme`, `essay`, `social_projects`, `talents`, `achievements`, `experiences`, `know_program_from`, `source_account_name`, `video_link`, `id_participant_detail`) VALUES
+('3Fvu6qHKvnhfkbx6tP4ybIWYTJz2', 'image_picker4208947843771662846.jpg', 'polo', '2000-01-12', 'F', 'hehe', 'Bahamas (BS)', 'popo', 'popo', 'as', '88999', '85555', 'popo', 'L', 'pop', 'popo', 0, 'Public Policy', 'popop', 'pop', 'po', 'pop', 'popo', 'Facebook', 'popo', 'poop', 1),
+('0FkIptVWVifKb9sHqhvsWDDVinx2', 'image_picker833877294705401663.jpg', 'hendra', '2000-01-01', 'F', 'sometimes', 'Republic of Congo (CG)', 'sometimes', 'sometimes', 'point', '08854554', '363255', 'please', 'XXL', 'question', 'love', 0, 'Mental Health', 'Selatan, menyediakan tempat isolasi khusus untuk warga terpapar COVID-19. Fasilitas isolasi ODP Center Teluk Gelam ini telah dioperasikan sejak Maret 2020 lalu dan diresmikan langsung SE penggunaannya oleh Bupati OKI, Iskandar.Adapun pasien yang dilayani di wisma karantina ini ialah pasien dengan tanpa gejala atau OTG dan pasien dengan gejala ringan hingga sedang, atau yang tidak memerlukan bantuan pernapasan (oksigen).Iwan pun mengungkap fasilitas isoman ini merupakan inisiatif Bupati OKI, Iskandar, untuk memberikan kenyamanan pada pasien. Sebab, Iskandar menilai jika orang sakit ditempatkan di tempat yang nyaman maka akan dapat membantu proses penyembuhannya.Dokter jaga di fasilitas isolasi terpusat Teluk Gelam, dr Rika Dayanti mengatakan ada beberapa hal yang perlu disiapkan ketika pasien COVID-19 melakukan isolasi. Ia menyebutkan persiapan tersebut antara lain ruangan isolasi yang nyaman, cukup terpapar matahari, ventilasi cukup, dan akses kamar mandi', 'Selatan, menyediakan tempat isolasi khusus untuk warga terpapar COVID-19. Fasilitas isolasi ODP Cent', 'Selatan, menyediakan tempat isolasi khusus untuk warga terpapar COVID-19. Fasilitas isolasi ODP Cent', 'Selatan, menyediakan tempat isolasi khusus untuk warga terpapar COVID-19. Fasilitas isolasi ODP Cent', 'Selatan, menyediakan tempat isolasi khusus untuk warga terpapar COVID-19. Fasilitas isolasi ODP Cent', 'WhatsApp', 'ııhgıvj', 'ıu6ı767ook', 2),
+('ynD3p86rqVc2mOIO83YOpXdWGtX2', 'image_picker4205930858170312751.jpg', 'jjohn mayer', '2000-01-10', 'M', 'somewhere', 'Latvia (LV)', 'ulan', 'kadar lütfen', 'güzel', '0849', '08525', 'partininkarizması', 'L', 'şey', 'her', 0, 'Public Policy', 'really', 'she', 'we', 'my', 'how', 'Friends', 'family', 'business', 3);
 
 -- --------------------------------------------------------
 
@@ -142,9 +146,19 @@ CREATE TABLE `payments` (
   `payment_proof` varchar(100) NOT NULL,
   `check_status` int(11) NOT NULL,
   `payment_status` int(11) NOT NULL,
-  `id_admin` int(11) NOT NULL,
+  `id_admin` int(11) NOT NULL DEFAULT 2,
   `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id_payment`, `id_participant`, `id_payment_type`, `bank_name`, `account_name`, `payment_date`, `payment_proof`, `check_status`, `payment_status`, `id_admin`, `amount`) VALUES
+(2, '0FkIptVWVifKb9sHqhvsWDDVinx2', 1, 'BRI', 'Hendra', '2021-07-16', 'Player_found_Icon.png', 0, 0, 2, 125000),
+(9, 'ynD3p86rqVc2mOIO83YOpXdWGtX2', 1, 'same thing', 'for the', '2021-07-15', 'image_picker10626766285759127.jpg', 0, 1, 2, 125000),
+(10, 'ynD3p86rqVc2mOIO83YOpXdWGtX2', 2, 'come over', 'but I have', '2021-07-16', 'image_picker9128702545984890694.jpg', 0, 1, 2, 2250000),
+(11, 'ynD3p86rqVc2mOIO83YOpXdWGtX2', 3, 'you are', 'no I', '2021-07-13', 'image_picker7399602237835542327.jpg', 0, 1, 2, 2250000);
 
 -- --------------------------------------------------------
 
@@ -154,8 +168,21 @@ CREATE TABLE `payments` (
 
 CREATE TABLE `payment_types` (
   `id_payment_type` int(11) NOT NULL,
-  `description` varchar(20) NOT NULL
+  `id_summit` int(11) NOT NULL,
+  `description` varchar(20) NOT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `type` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payment_types`
+--
+
+INSERT INTO `payment_types` (`id_payment_type`, `id_summit`, `description`, `start_date`, `end_date`, `type`) VALUES
+(1, 1, 'Registration Fee', '2021-07-14', '2021-07-16', 'regist_fee'),
+(2, 1, 'Program Fee Batch 1', '2021-07-16', '2021-07-16', 'program_fee'),
+(3, 1, 'Program Fee Batch 2', '2021-07-16', '2021-08-20', 'program_fee');
 
 -- --------------------------------------------------------
 
@@ -191,8 +218,10 @@ CREATE TABLE `summit_contents` (
   `id_summit_content` int(11) NOT NULL,
   `id_admin` int(11) NOT NULL,
   `id_summit` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
   `description` varchar(500) NOT NULL,
   `file_path` varchar(100) NOT NULL,
+  `file_type` varchar(20) NOT NULL,
   `created_date` datetime NOT NULL,
   `modified_date` datetime NOT NULL,
   `status` int(11) NOT NULL
@@ -202,13 +231,14 @@ CREATE TABLE `summit_contents` (
 -- Dumping data for table `summit_contents`
 --
 
-INSERT INTO `summit_contents` (`id_summit_content`, `id_admin`, `id_summit`, `description`, `file_path`, `created_date`, `modified_date`, `status`) VALUES
-(1, 2, 1, 'vfr', 'FRS SUHENDRA.pdf', '2021-07-14 10:16:17', '2021-07-14 10:16:17', 1),
-(2, 2, 1, 'ttgtgtg', '2021-07-13 18_45_50-tryQr (320×320).jpg', '2021-07-14 10:23:26', '2021-07-14 10:23:26', 2),
-(3, 1, 1, 'hhehe', 'Player found_Icon.png', '2021-07-14 13:16:56', '2021-07-14 13:16:56', 0),
-(4, 1, 1, 'qwertt', 'UII-Facade-11.jpg', '2021-07-14 13:18:34', '2021-07-14 13:18:34', 0),
-(5, 1, 1, 'grtuj', 'image_picker4192625658663213975.jpg', '2021-07-14 14:04:15', '2021-07-14 14:04:15', 0),
-(6, 1, 1, 'tes', 'image_picker2446118780825124885.jpg', '2021-07-14 14:06:25', '2021-07-14 14:06:25', 0);
+INSERT INTO `summit_contents` (`id_summit_content`, `id_admin`, `id_summit`, `title`, `description`, `file_path`, `file_type`, `created_date`, `modified_date`, `status`) VALUES
+(7, 2, 1, 'IYS Rundown', 'this is a content', 'FRS_SUHENDRA.pdf', 'pdf', '2021-07-16 13:07:27', '2021-07-16 13:07:27', 1),
+(8, 2, 1, 'defef', 'this is a pic', 'download_(11).jpg', 'jpg', '2021-07-16 13:08:08', '2021-07-16 13:08:08', 1),
+(9, 2, 1, 'ftgtg', 'fefefe', 'TOEFL_SUHENDRA.pdf', 'pdf', '2021-07-17 07:07:36', '2021-07-17 07:07:36', 1),
+(10, 2, 1, 'Fully Funded Announcement', 'fgr', 'bukti_persetujuan_bu_yekti.jpg', 'jpg', '2021-07-17 07:08:02', '2021-07-17 07:08:02', 1),
+(11, 2, 1, 'vbcbcb', 'ttty', 'bukti_persetujuan_BAK.jpg', 'jpg', '2021-07-17 07:28:52', '2021-07-17 07:28:52', 0),
+(12, 2, 1, 'This is a title', 'You can use PHP date() function or DateTime() class to get current Date & Time in PHP. This tutorial will help you to get current date time in PHP.  The provided results based on the timezone settings in the php.ini file. You may need to modify this setting to get date and time in the required timezone. Read this tutorial to set timezone in PHP configuration.', 'Formulir_Verifikasi_Judul_dan_Abstrak_TM_-_SUHENDRA.pdf', 'pdf', '2021-07-17 07:58:41', '2021-07-17 07:58:41', 1),
+(13, 2, 1, 'new content', 'something to write', 'no file', 'no type', '2021-07-17 08:58:49', '2021-07-17 08:58:49', 1);
 
 -- --------------------------------------------------------
 
@@ -220,8 +250,17 @@ CREATE TABLE `summit_timelines` (
   `id_summit` int(11) NOT NULL,
   `description` varchar(50) NOT NULL,
   `timeline` varchar(50) DEFAULT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL,
+  `id_summit_timeline` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `summit_timelines`
+--
+
+INSERT INTO `summit_timelines` (`id_summit`, `description`, `timeline`, `status`, `id_summit_timeline`) VALUES
+(1, 'Registration', 'August 1- 31, 2021', 0, 1),
+(1, 'LoA Distibution', 'September 15, 2021', 2, 2);
 
 --
 -- Indexes for dumped tables
@@ -252,6 +291,7 @@ ALTER TABLE `participants`
 -- Indexes for table `participant_details`
 --
 ALTER TABLE `participant_details`
+  ADD PRIMARY KEY (`id_participant_detail`),
   ADD KEY `fk_participant_details_id` (`id_participant`);
 
 --
@@ -267,7 +307,8 @@ ALTER TABLE `payments`
 -- Indexes for table `payment_types`
 --
 ALTER TABLE `payment_types`
-  ADD PRIMARY KEY (`id_payment_type`);
+  ADD PRIMARY KEY (`id_payment_type`),
+  ADD KEY `id_summit` (`id_summit`);
 
 --
 -- Indexes for table `summits`
@@ -287,6 +328,7 @@ ALTER TABLE `summit_contents`
 -- Indexes for table `summit_timelines`
 --
 ALTER TABLE `summit_timelines`
+  ADD PRIMARY KEY (`id_summit_timeline`),
   ADD KEY `fk_id_summit_timeline` (`id_summit`);
 
 --
@@ -300,16 +342,22 @@ ALTER TABLE `admins`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `participant_details`
+--
+ALTER TABLE `participant_details`
+  MODIFY `id_participant_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `payment_types`
 --
 ALTER TABLE `payment_types`
-  MODIFY `id_payment_type` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_payment_type` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `summits`
@@ -321,7 +369,13 @@ ALTER TABLE `summits`
 -- AUTO_INCREMENT for table `summit_contents`
 --
 ALTER TABLE `summit_contents`
-  MODIFY `id_summit_content` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_summit_content` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `summit_timelines`
+--
+ALTER TABLE `summit_timelines`
+  MODIFY `id_summit_timeline` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
