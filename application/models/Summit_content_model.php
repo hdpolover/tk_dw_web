@@ -21,6 +21,7 @@ class Summit_content_model extends CI_Model
         s.description AS `summit`,
         sc.description AS `description`,
         sc.file_path AS `file`,
+        sc.title,
         sc.status AS `status`
         FROM summit_contents sc, summits s
         WHERE sc.id_summit = s.id_summit";

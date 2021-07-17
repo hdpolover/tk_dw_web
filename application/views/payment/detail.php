@@ -45,7 +45,19 @@
             </div>
           </div>
           <div class="col">
-            <img src="<?= base_url('assets/img/payments/') . $p['id_payment_type'] . "/" . $p['payment_proof']; ?>" class="card-img border">
+            <div class="row">
+              <img src="<?= base_url('assets/img/payments/') . $p['id_payment_type'] . "/" . $p['payment_proof']; ?>" class="card-img border">
+            </div>
+            </br>
+            <div class="row">
+              <div class="col">
+                <a href="<?= base_url(); ?>payment/validate_payment/<?= $p['id_payment']; ?>" class="btn btn-info">Validate Payment</i></a>
+              </div>
+              <div class="col">
+                <a href="<?= base_url(); ?>payment/invalidate_payment/<?= $p['id_payment']; ?>" class="btn btn-danger">Invalidate Payment</i></a>
+              </div>
+            </div>
+
           </div>
         </div>
       <?php endforeach ?>

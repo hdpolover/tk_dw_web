@@ -7,6 +7,8 @@ class Others extends CI_Controller
     {
         // code...
         parent::__construct();
+        is_logged_in();
+        
         $this->load->library('form_validation');
         $this->load->model('summit_model', 'summit');
         $this->load->model('timeline_model', 'timeline');

@@ -17,7 +17,7 @@
                             <th>No</th>
                             <th>Date</th>
                             <th>Summit</th>
-                            <th>Description</th>
+                            <th>title</th>
                             <th>File</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -31,7 +31,7 @@
                                 <th scope="row"><?= $i; ?></th>
                                 <td><?= $sc['modified_date']; ?></td>
                                 <td><?= $sc['summit']; ?></td>
-                                <td><?= $sc['description']; ?></td>
+                                <td><?= $sc['title']; ?></td>
                                 <td><?= $sc['file']; ?></td>
                                 <td>
                                     <?php switch ($sc['status']) {
@@ -47,8 +47,8 @@
                                     } ?>
                                 </td>
                                 <td>
-                                    <a href="<?= base_url(); ?>summit_content/view_summit_content_details/<?= $sc['id_summit_content']; ?>" class="badge badge-info">View</i></a>
-                                    <a href="<?= base_url(); ?>summit_content/view_summit_content_details/<?= $sc['id_summit_content']; ?>" class="badge badge-danger">Edit</i></a>
+                                    <a href="<?= base_url(); ?>summit_content/view/<?= $sc['id_summit_content']; ?>" class="badge badge-info">View</i></a>
+                                    <a href="<?= base_url(); ?>summit_content/view/<?= $sc['id_summit_content']; ?>" class="badge badge-danger">Edit</i></a>
                                 
                                 </td>
                             </tr>

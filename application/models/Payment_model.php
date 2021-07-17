@@ -30,9 +30,29 @@ class Payment_model extends CI_Model
     }
   }
 
+  public function get_payment_details($id_participant, $id_payment_type) {
+    $query = "SELECT pay.*, pd.full_name, a.username AS `admin`, s.description AS `summit`, pt.description AS `payment_type`
+    from payments pay
+    INNER join participants par on pay.id_participant = par.id_participant
+    INNER join participant_details pd on par.id_participant = pd.id_participant
+    inner join admins a on a.id_admin = pay.id_admin
+    inner join payment_types pt on pt.id_payment_type = pay.id_payment_type
+    inner join summits s on s.id_summit = par.id_summit
+    where pay.id_participant = '" . $id_participant ."'"
+     . " AND pay.id_payment_type = " . $id_payment_type . "";
+
+    return $this->db->query($query)->result_array();
+  }
+
   public function add_payment($data)
   {
     $this->db->insert('payments', $data);
+    return $this->db->affected_rows();
+  }
+
+  public function update_payment($data, $id)
+  {
+    $this->db->update('payments', $data, ['id_payment' => $id]);
     return $this->db->affected_rows();
   }
 

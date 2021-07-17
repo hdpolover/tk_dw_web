@@ -3,29 +3,33 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 use chriskacerguis\RestServer\RestController;
 
-class Payment extends RestController
+class Payment_type extends RestController
 {
 
     public function __construct()
     {
         // code...
         parent::__construct();
-        $this->load->model('payment_model', 'payment');
+        $this->load->model('payment_type_model', 'payment_type');
     }
 
     public function index_get()
     {
         // code...
-        $id_participant = $this->get('id_participant');
-        $id_payment_type = $this->get('id_payment_type');
+        $id = $this->get('id_payment_type');
+        if ($id === NULL) {
+            // code...
+            $payment_type = $this->payment_type->get_payment_type();
+        } else {
+            // code...
+            $payment_type = $this->payment_type->get_payment_type($id);
+        }
 
-        $payment = $this->payment->get_payment_details($id_participant, $id_payment_type);
-
-        if ($payment) {
+        if ($payment_type) {
             // code...
             $this->response([
                 'status' => true,
-                'data' => $payment
+                'data' => $payment_type
             ],  RestController::HTTP_OK);
         } else {
             // code...
@@ -38,9 +42,7 @@ class Payment extends RestController
 
     public function index_post()
     {
-        $time = strtotime($this->post('payment_date'));
-
-        $payment_date = date('Y-m-d', $time);
+        $now = new DateTime();
 
         $upload_image = $_FILES['image']['name'];
 
@@ -65,19 +67,19 @@ class Payment extends RestController
                         'bank_name' =>  $this->post('bank_name'),
                         'account_name' =>  $this->post('account_name'),
                         'amount' =>  $this->post('amount'),
-                        'payment_date' => $payment_date,
+                        'payment_date' => $now->format('Y-m-d H:i:s'),
                         'payment_proof' => $upload_image,
                         'check_status' => 0,
                         'payment_status' => 0,
                     );
 
-                $res = $this->payment->add_payment($payment_data);
+                $res = $this->payment_type->add_payment($payment_data);
 
                 if ($res > 0) {
                     // code...
                     $this->response([
                         'status' => true,
-                        'message' => 'payment added'
+                        'message' => 'payment_type added'
                     ],  RestController::HTTP_CREATED);
                 } else {
                     // code...

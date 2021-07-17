@@ -7,6 +7,7 @@ class Summit_content extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    is_logged_in();
     $this->load->model('summit_content_model', 'summit_content');
     $this->load->model('summit_model', 'summit');
   }
@@ -40,15 +41,31 @@ class Summit_content extends CI_Controller
     $this->load->view('templates/footer');
   }
 
+  public function view($id)
+  {
+    // code...
+    $data['title'] = 'Summit Content Details';
+    $data['current_admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
+    $data['summit_content'] = $this->summit_content->get_summit_content($id);
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar', $data);
+    $this->load->view('templates/topbar', $data);
+    $this->load->view('summit_content/detail', $data);
+    $this->load->view('templates/footer');
+  }
+
   public function save_new_content()
   {
     $now = new DateTime();
 
+    $title = $this->input->post('title');
     $desc = $this->input->post('desc');
     $id_summit = $this->input->post('summit');
     $status = $this->input->post('status');
 
-    $upload_image = $_FILES['image']['name'];
+    $str = $_FILES['image']['name'];
+    $upload_image = str_replace(' ', '_', $str);
 
     if ($upload_image) {
       $newPath = './assets/img/summit_contents/' . $id_summit . '/';
@@ -60,17 +77,20 @@ class Summit_content extends CI_Controller
       $config['upload_path'] = $newPath; //path folder
       $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf';
       $config['max_size']      = '2048';
-      $config['upload_path'] = './assets/img/summit_contents/';
 
       $this->load->library('upload', $config);
 
       if ($this->upload->do_upload('image')) {
+        $fileExt = pathinfo($upload_image, PATHINFO_EXTENSION);
+
         $summit_content_data = array(
+          'title' =>  $title,
           'description' => $desc,
           'id_summit' => $id_summit,
           'created_date' => $now->format('Y-m-d H:i:s'),
           'modified_date' => $now->format('Y-m-d H:i:s'),
           'file_path' => $upload_image,
+          'file_type' => $fileExt,
           'status' => $status,
           'id_admin' =>  $this->session->userdata('id_admin'),
         );
@@ -84,11 +104,13 @@ class Summit_content extends CI_Controller
       }
     } else {
       $summit_content_data = array(
+        'title' =>  $title,
         'description' => $desc,
         'id_summit' => $id_summit,
         'created_date' => $now->format('Y-m-d H:i:s'),
         'modified_date' => $now->format('Y-m-d H:i:s'),
         'file_path' => "no file",
+        'file_type' => "no type",
         'status' => $status,
         'id_admin' =>  $this->session->userdata('id_admin'),
       );
