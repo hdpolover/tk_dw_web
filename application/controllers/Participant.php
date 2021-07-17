@@ -32,22 +32,22 @@ class Participant extends CI_Controller
   {
     // code...
     $data['title'] = 'Detail Peserta';
-    $data['admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
-    $data['peserta'] = $this->peserta->getPesertaById($id);
+    $data['current_admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
+    $data['peserta'] = $this->participant->get_participant_detail($id);
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
     $this->load->view('templates/topbar', $data);
-    $this->load->view('peserta/detail', $data);
+    $this->load->view('participant/detail', $data);
     $this->load->view('templates/footer');
   }
 
-  public function hapus($id)
-  {
-    // code...
-    $this->peserta->hapusPeserta($id);
-    redirect('peserta');
-  }
+  // public function hapus($id)
+  // {
+  //   // code...
+  //   $this->peserta->hapusPeserta($id);
+  //   redirect('peserta');
+  // }
 
   public function tambah()
   {
@@ -66,5 +66,18 @@ class Participant extends CI_Controller
       // code...
       $this->peserta->tambahPeserta();
     }
+  }
+
+  public function full()
+  {
+    $data['title'] = 'Fully Funded Participants';
+    $data['current_admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
+    $data['participants'] = $this->participant->get_participants();
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar', $data);
+    $this->load->view('templates/topbar', $data);
+    $this->load->view('participant/full', $data);
+    $this->load->view('templates/footer');
   }
 }

@@ -80,16 +80,16 @@ class Participant_model extends CI_Model
     return $this->db->query($query)->result_array();
   }
 
-  public function hapusPeserta($id)
-  {
-    //$this->db->delete('participants', 'participants_detail', 'payments', 'regist_info_detail' ['id_participant' => $id]);
-
-    $this->db->delete('participant_details', ['id_participant' => $id]);
-    $this->db->delete('payments', ['id_participant' => $id]);
-    $this->db->delete('regist_info_detail', ['id_participant' => $id]);
-    $this->db->delete('participants', ['id_participant' => $id]);
-    return $this->db->affected_rows();
-  }
+  // public function hapusPeserta($id)
+  // {
+  //   //$this->db->delete('participants', 'participants_detail', 'payments', 'regist_info_detail' ['id_participant' => $id]);
+  //
+  //   $this->db->delete('participant_details', ['id_participant' => $id]);
+  //   $this->db->delete('payments', ['id_participant' => $id]);
+  //   $this->db->delete('regist_info_detail', ['id_participant' => $id]);
+  //   $this->db->delete('participants', ['id_participant' => $id]);
+  //   return $this->db->affected_rows();
+  // }
 
   public function tambahPeserta()
   {

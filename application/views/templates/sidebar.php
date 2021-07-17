@@ -40,9 +40,10 @@
                         <h6 class="collapse-header">Submenu:</h6>
                         <a class="collapse-item" href="<?= base_url('participant');?>">Participants</a>
                         <a class="collapse-item" href="cards.html">Valid Participants</a>
+                        <a class="collapse-item" href="<?= base_url('participant/full');?>">Fully Funded Participants</a>
                     </div>
                 </div>
-            </li>   
+            </li>
 
 
     <!-- Nav Item - Utilities Collapse Menu -->
@@ -68,7 +69,7 @@
                         <a class="collapse-item" href="<?= base_url('admin');?>">Admin Management</a>
                     </div>
                 </div>
-            </li>  
+            </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -85,7 +86,7 @@
                         <a class="collapse-item" href="<?= base_url('others/index_payment_types');?>">Payment Types</a>
                     </div>
                 </div>
-            </li> 
+            </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
@@ -116,8 +117,7 @@
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
-    
+
 
 </ul>
 <!-- End of Sidebar -->
-
