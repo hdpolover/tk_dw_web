@@ -124,4 +124,15 @@ class Participant_model extends CI_Model
     $this->db->insert('regist_info_detail', $data4);
     redirect('participant');
   }
+
+  public function get_fullParticipants()
+  {
+    // code...
+    $query = "SELECT `participant_details`.*, `participants`.*, `summits`.`description`
+                FROM `participant_details` LEFT JOIN `participants` ON `participant_details`.`id_participant` = `participants`.`id_participant`
+                LEFT JOIN `summits` ON `participants`.`id_summit` = `summits`.`id_summit`
+                WHERE `participants`.`is_fully_funded` = 1";
+
+    return $this->db->query($query)->result_array();
+  }
 }

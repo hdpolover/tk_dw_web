@@ -72,7 +72,7 @@ class Participant extends CI_Controller
   {
     $data['title'] = 'Fully Funded Participants';
     $data['current_admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
-    $data['participants'] = $this->participant->get_participants();
+    $data['participants'] = $this->participant->get_fullParticipants();
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
