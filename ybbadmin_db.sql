@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2021 at 06:30 PM
+-- Generation Time: Jul 18, 2021 at 04:42 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.29
 
@@ -47,16 +47,26 @@ INSERT INTO `admins` (`id_admin`, `username`, `password`, `status`, `id_summit`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `meal_attendances`
+-- Table structure for table `meal_attendance`
 --
 
-CREATE TABLE `meal_attendances` (
+CREATE TABLE `meal_attendance` (
+  `id_meal_attendance` int(11) NOT NULL,
   `id_participant` varchar(50) NOT NULL,
-  `summit_day` int(11) NOT NULL,
-  `check_in_time` datetime NOT NULL,
-  `meal_type` varchar(20) NOT NULL,
-  `status` int(11) NOT NULL,
-  `id_admin` int(11) NOT NULL
+  `id_summit` int(11) NOT NULL,
+  `id_meal_type` int(11) NOT NULL,
+  `check_in_time` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `meal_type`
+--
+
+CREATE TABLE `meal_type` (
+  `id_meal_type` int(11) NOT NULL,
+  `description` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -243,6 +253,19 @@ INSERT INTO `summit_contents` (`id_summit_content`, `id_admin`, `id_summit`, `ti
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `summit_days`
+--
+
+CREATE TABLE `summit_days` (
+  `id_summit_day` int(11) NOT NULL,
+  `id_summit` int(11) NOT NULL,
+  `day_date` date NOT NULL,
+  `description` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `summit_timelines`
 --
 
@@ -274,11 +297,19 @@ ALTER TABLE `admins`
   ADD KEY `fk_id_summit_admin` (`id_summit`);
 
 --
--- Indexes for table `meal_attendances`
+-- Indexes for table `meal_attendance`
 --
-ALTER TABLE `meal_attendances`
-  ADD KEY `fk_participant_meals_id` (`id_participant`),
-  ADD KEY `id_admin` (`id_admin`);
+ALTER TABLE `meal_attendance`
+  ADD PRIMARY KEY (`id_meal_attendance`),
+  ADD KEY `id_participant` (`id_participant`),
+  ADD KEY `id_summit` (`id_summit`),
+  ADD KEY `id_meal_type` (`id_meal_type`);
+
+--
+-- Indexes for table `meal_type`
+--
+ALTER TABLE `meal_type`
+  ADD PRIMARY KEY (`id_meal_type`);
 
 --
 -- Indexes for table `participants`
@@ -325,6 +356,13 @@ ALTER TABLE `summit_contents`
   ADD KEY `fk_id_summit_content` (`id_summit`);
 
 --
+-- Indexes for table `summit_days`
+--
+ALTER TABLE `summit_days`
+  ADD PRIMARY KEY (`id_summit_day`),
+  ADD KEY `id_summit` (`id_summit`);
+
+--
 -- Indexes for table `summit_timelines`
 --
 ALTER TABLE `summit_timelines`
@@ -340,6 +378,18 @@ ALTER TABLE `summit_timelines`
 --
 ALTER TABLE `admins`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `meal_attendance`
+--
+ALTER TABLE `meal_attendance`
+  MODIFY `id_meal_attendance` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `meal_type`
+--
+ALTER TABLE `meal_type`
+  MODIFY `id_meal_type` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `participant_details`
@@ -372,6 +422,12 @@ ALTER TABLE `summit_contents`
   MODIFY `id_summit_content` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
+-- AUTO_INCREMENT for table `summit_days`
+--
+ALTER TABLE `summit_days`
+  MODIFY `id_summit_day` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `summit_timelines`
 --
 ALTER TABLE `summit_timelines`
@@ -388,11 +444,12 @@ ALTER TABLE `admins`
   ADD CONSTRAINT `fk_id_summit_admin` FOREIGN KEY (`id_summit`) REFERENCES `summits` (`id_summit`);
 
 --
--- Constraints for table `meal_attendances`
+-- Constraints for table `meal_attendance`
 --
-ALTER TABLE `meal_attendances`
-  ADD CONSTRAINT `fk_participant_meals_id` FOREIGN KEY (`id_participant`) REFERENCES `participants` (`id_participant`),
-  ADD CONSTRAINT `meal_attendances_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admins` (`id_admin`);
+ALTER TABLE `meal_attendance`
+  ADD CONSTRAINT `meal_attendance_ibfk_1` FOREIGN KEY (`id_participant`) REFERENCES `participants` (`id_participant`),
+  ADD CONSTRAINT `meal_attendance_ibfk_2` FOREIGN KEY (`id_summit`) REFERENCES `summits` (`id_summit`),
+  ADD CONSTRAINT `meal_attendance_ibfk_3` FOREIGN KEY (`id_meal_type`) REFERENCES `meal_type` (`id_meal_type`);
 
 --
 -- Constraints for table `participants`
@@ -420,6 +477,12 @@ ALTER TABLE `payments`
 ALTER TABLE `summit_contents`
   ADD CONSTRAINT `fk_admin_summit_content` FOREIGN KEY (`id_admin`) REFERENCES `admins` (`id_admin`),
   ADD CONSTRAINT `fk_id_summit_content` FOREIGN KEY (`id_summit`) REFERENCES `summits` (`id_summit`);
+
+--
+-- Constraints for table `summit_days`
+--
+ALTER TABLE `summit_days`
+  ADD CONSTRAINT `summit_days_ibfk_1` FOREIGN KEY (`id_summit`) REFERENCES `summits` (`id_summit`);
 
 --
 -- Constraints for table `summit_timelines`
