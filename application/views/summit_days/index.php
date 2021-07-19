@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="row ml-1">
-      <a href="<?= base_url();?>attendance/add_attendance" class="btn btn-primary mb-4">Add New Attendance</a>
+      <a href="<?= base_url();?>attendance/tambah" class="btn btn-primary mb-4">Add Meal Type</a>
 
         		</div>
 
@@ -21,10 +21,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Participant Name</th>
-                            <th>Summit Day</th>
-                            <th>Check in Time</th>
-                            <th>Meal Type</th>
+                            <th>Summit Name</th>
+                            <th>Day Date</th>
+                            <th>Description</th>
                             <th>Action</th>
                         </tr>
                     </thead>

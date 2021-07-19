@@ -98,6 +98,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Submenu:</h6>
                         <a class="collapse-item" href="<?= base_url('attendance');?>">Meal Attendance</a>
+                        <a class="collapse-item" href="<?= base_url('mealtype');?>">Meal Type </a>
+                        <a class="collapse-item" href="<?= base_url('summit_days');?>">Summit Days </a>
                     </div>
                 </div>
             </li>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Attendance extends CI_Controller
+class Summit_Days extends CI_Controller
 {
   public function __construct()
   {
@@ -24,23 +24,9 @@ class Attendance extends CI_Controller
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
     $this->load->view('templates/topbar', $data);
-    $this->load->view('attendance/index', $data);
+    $this->load->view('summit_days/index', $data);
     $this->load->view('templates/footer');
   }
 
-  public function add_attendance()
-  {
-    
-     // code...
-    $data['title'] = 'Add New Attendance';
-    //$data['current_admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
-    //$data['summit'] = $this->summit->get_active_summits();
-
-    $this->load->view('templates/header', $data);
-    $this->load->view('templates/sidebar', $data);
-    //$this->load->view('templates/topbar', $data);
-    $this->load->view('attendance/add_attendance', $data);
-    $this->load->view('templates/footer');
-  }
   
 }
