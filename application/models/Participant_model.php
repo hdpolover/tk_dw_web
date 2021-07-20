@@ -60,7 +60,8 @@ class Participant_model extends CI_Model
     // code...
     $query = "SELECT `participant_details`.*, `participants`.*, `summits`.`description`
                 FROM `participant_details` LEFT JOIN `participants` ON `participant_details`.`id_participant` = `participants`.`id_participant`
-                LEFT JOIN `summits` ON `participants`.`id_summit` = `summits`.`id_summit` ";
+                LEFT JOIN `summits` ON `participants`.`id_summit` = `summits`.`id_summit`
+                WHERE `participants`.`status` >= 2";
 
     return $this->db->query($query)->result_array();
   }
@@ -70,11 +71,8 @@ class Participant_model extends CI_Model
     if ($id === NULL) {
       return $this->db->get('participants',)->result_array();
     }
-    $query = "SELECT `participant_details`.*, `participants`.*, `summits`.`desc`, `regist_info_detail`.`info_ybb`
-                FROM `participants`
-          INNER JOIN `participant_details` ON `participants`.`id_participant` = `participant_details`.`id_participant`
-          INNER JOIN `summits` ON `participants`.`id_summit` = `summits`.`id_summit`
-          INNER JOIN `regist_info_detail` ON `participants`.`id_participant` = `regist_info_detail`.`id_participant`
+    $query = "SELECT `participant_details`.*
+                FROM `participant_details` LEFT JOIN `participants` ON `participant_details`.`id_participant` = `participants`.`id_participant`
                WHERE `participants`.`id_participant` = $id ";
 
     return $this->db->query($query)->result_array();
@@ -126,6 +124,17 @@ class Participant_model extends CI_Model
   }
 
   public function get_fullParticipants()
+  {
+    // code...
+    $query = "SELECT `participant_details`.*, `participants`.*, `summits`.`description`
+                FROM `participant_details` LEFT JOIN `participants` ON `participant_details`.`id_participant` = `participants`.`id_participant`
+                LEFT JOIN `summits` ON `participants`.`id_summit` = `summits`.`id_summit`
+                WHERE `participants`.`is_fully_funded` = 1";
+
+    return $this->db->query($query)->result_array();
+  }
+
+  public function update_fullParticipants()
   {
     // code...
     $query = "SELECT `participant_details`.*, `participants`.*, `summits`.`description`

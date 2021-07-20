@@ -80,4 +80,16 @@ class Participant extends CI_Controller
     $this->load->view('participant/full', $data);
     $this->load->view('templates/footer');
   }
+  public function tambahFull()
+  {
+    $data['title'] = 'Fully Funded Participants';
+    $data['current_admin'] = $this->db->get_where('admins', ['username' => $this->session->userdata('username')])->row_array();
+    $data['participants'] = $this->participant->get_fullParticipants();
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar', $data);
+    $this->load->view('templates/topbar', $data);
+    $this->load->view('participant/tambahfull', $data);
+    $this->load->view('templates/footer');
+  }
 }

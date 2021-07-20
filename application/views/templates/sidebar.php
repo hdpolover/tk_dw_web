@@ -13,7 +13,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link" href="<?= base_url('dashboard');?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -29,18 +29,18 @@
 
 
     <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-user fa-cog"></i>
                     <span>Participants</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Submenu:</h6>
                         <a class="collapse-item" href="<?= base_url('participant');?>">Participants</a>
                         <a class="collapse-item" href="cards.html">Valid Participants</a>
-                        <a class="collapse-item" href="<?= base_url('participant/full');?>">Fully Funded Participants</a>
+                        <a class="collapse-item active" href="<?= base_url('participant/full');?>">Fully Funded Participants</a>
                     </div>
                 </div>
             </li>
@@ -62,7 +62,7 @@
                     <i class="fas fa-user fa-cog"></i>
                     <span>Admin</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseAdmin" class="collapse" aria-labelledby="headingAdmin" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Submenu:</h6>
                         <a class="collapse-item" href="<?= base_url('summit_content');?>">Summit Content</a>
@@ -73,12 +73,12 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOther"
+                    aria-expanded="true" aria-controls="collapseOther">
                     <i class="fas fa-user fa-cog"></i>
                     <span>Others</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseOther" class="collapse" aria-labelledby="headingOther" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Submenu:</h6>
                         <a class="collapse-item" href="<?= base_url('others/index_summits');?>">Summits</a>
@@ -133,7 +133,21 @@
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
-
-
 </ul>
 <!-- End of Sidebar -->
+<script>
+// Get the container element
+var btnContainer = document.getElementById("accordionSidebar");
+
+// Get all buttons with class="btn" inside the container
+var btns = btnContainer.getElementsByClassName("collapse-item");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>

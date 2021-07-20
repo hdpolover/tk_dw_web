@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="row ml-1">
-      <a href="<?= base_url();?>participant/tambah" class="btn btn-primary mb-4">Add New Fully Funded Participants</a>
+      <a href="<?= base_url();?>participant/tambahfull" class="btn btn-primary mb-4">Add New Fully Funded Participants</a>
   				<div class="filter-group ml-2">
 
               <?php
@@ -16,7 +16,7 @@
                               unset($id, $name);
                               $id = $row['id_summit'];
                               $name = $row['description'];
-                              echo '<option value="'.$id.'">'.$name.'</option>';
+                              echo '<option value="'.$name.'">'.$name.'</option>';
             }
                 echo "</select>";?>
 
