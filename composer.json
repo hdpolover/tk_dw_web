@@ -13,7 +13,9 @@
 	"require": {
 		"php": ">=5.3.7",
 		"chriskacerguis/codeigniter-restserver": "^3.1",
-		"endroid/qrcode": "^4.2"
+		"endroid/qrcode": "^4.2",
+		"dompdf/dompdf": "^1.0",
+		"mpdf/mpdf": "^8.0"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
