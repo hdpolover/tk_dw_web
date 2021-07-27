@@ -42,6 +42,13 @@
 
   <!-- Nav Item - Dashboard -->
   <li class="nav-item">
+    <a class="nav-link" href="<?= base_url('data_siswa'); ?>">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Data Siswa</span></a>
+  </li>
+
+  <!-- Nav Item - Dashboard -->
+  <li class="nav-item">
     <a class="nav-link" href="<?= base_url('laporan_bulanan'); ?>">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Laporan Bulanan</span></a>

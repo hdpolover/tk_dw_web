@@ -19,6 +19,14 @@ class Siswa_model extends CI_Model
     }
   }
 
+  public function get_data_siswa($id = null) {
+    if ($id == null) {
+      return $this->db->get('siswa')->result_array();
+    } else {
+      return $this->db->get_where('siswa', ['ID_SISWA' => $id])->result_array();
+    }
+  }
+
   public function get_siswa_for_presensi($id = null)
   {
     if ($id == null) {
