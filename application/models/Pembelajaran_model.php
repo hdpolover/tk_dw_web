@@ -18,8 +18,7 @@ class Pembelajaran_model extends CI_Model
             INNER JOIN siswa ON siswa.ID_SISWA = pembelajaran.ID_SISWA
             INNER JOIN rencana_pembelajaran ON rencana_pembelajaran.ID_RENCANA_PEMBELAJARAN = pelaksanaan_pembelajaran.ID_RENCANA_PEMBELAJARAN
             INNER JOIN sarpras ON sarpras.ID_SARPRAS = pelaksanaan_pembelajaran.ID_SARPRAS
-            INNER JOIN pegawai ON pegawai.ID_PEGAWAI = pelaksanaan_pembelajaran.ID_PEGAWAI
-            GROUP BY jenjang.KATEGORI_JENJANG";
+            INNER JOIN pegawai ON pegawai.ID_PEGAWAI = pelaksanaan_pembelajaran.ID_PEGAWAI";
             return $this->db->query($query)->result_array();
         } else {
             $query = "SELECT pembelajaran.*, pelaksanaan_pembelajaran.*, jenjang.*, siswa.*, sarpras.*, pegawai.*, rencana_pembelajaran.*
@@ -30,8 +29,7 @@ class Pembelajaran_model extends CI_Model
             INNER JOIN rencana_pembelajaran ON rencana_pembelajaran.ID_RENCANA_PEMBELAJARAN = pelaksanaan_pembelajaran.ID_RENCANA_PEMBELAJARAN
             INNER JOIN sarpras ON sarpras.ID_SARPRAS = pelaksanaan_pembelajaran.ID_SARPRAS
             INNER JOIN pegawai ON pegawai.ID_PEGAWAI = pelaksanaan_pembelajaran.ID_PEGAWAI
-            WHERE pembelajaran.ID_PELAKSANAAN_PEMBELAJARAN =" . $id. "" . "
-            GROUP BY jenjang.KATEGORI_JENJANG";
+            WHERE pembelajaran.ID_PELAKSANAAN_PEMBELAJARAN =" . $id. "" . "";
             return $this->db->query($query)->result_array();
         }
     }

@@ -83,6 +83,7 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
+                                <th>NISN</th>
                                 <th>Nama Siswa</th>
                             </tr>
                         </thead>
@@ -91,6 +92,7 @@
                             <?php foreach ($pembelajaran as $p) : ?>
                                 <tr>
                                     <th scope="row"><?= $i; ?></th>
+                                    <td><?= $p['NISN']; ?></td>
                                     <td><?= $p['NAMA_SISWA']; ?></td>
                                 </tr>
                                 <?php $i++; ?>

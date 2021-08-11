@@ -12,16 +12,16 @@ class Laporan_bulanan extends CI_Controller
 
     public function index()
     {
-        // $data['title'] = 'TK DHARMA WANITA';
-        // $data['lapor_bulan'] = $this->lapor_bulan->get_lapor_bulan();
+        $data['title'] = 'TK DHARMA WANITA';
+        $data['lapor_bulan'] = $this->lapor_bulan->get_lapor_bulan();
 
-        // $this->load->view('templates/header', $data);
-        // $this->load->view('templates/sidebar/sidebar_tu', $data);
-        // $this->load->view('templates/topbar', $data);
-        // $this->load->view('lapor_bulan/index', $data);
-        // $this->load->view('templates/footer');
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar/sidebar_tu', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('lapor_bulan/index', $data);
+        $this->load->view('templates/footer');
         //$this->generate();
-        $this->load->view('templates/laporan_pdf/p');
+        // $this->load->view('templates/laporan_pdf/p');
         // $mpdf = new \Mpdf\Mpdf();
         // $html = $this->load->view('templates/laporan_pdf/try', [], true);
         // $mpdf->WriteHTML($html);
@@ -30,13 +30,30 @@ class Laporan_bulanan extends CI_Controller
 
     public function buat()
     {
-        $data['title'] = 'TK DHARMA WANITA';
+        // $data['title'] = 'TK DHARMA WANITA';
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar/sidebar_tu', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('lapor_bulan/buat', $data);
-        $this->load->view('templates/footer');
+        // $this->load->view('templates/header', $data);
+        // $this->load->view('templates/sidebar/sidebar_tu', $data);
+        // $this->load->view('templates/topbar', $data);
+        // $this->load->view('lapor_bulan/buat', $data);
+        // $this->load->view('templates/footer');
+        //$this->load->view('templates/laporan_pdf/p');
+
+        //$this->load->view('templates/laporan_pdf/trycol');
+        try {
+            $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
+            $html = $this->load->view('templates/laporan_pdf/final', [], true);
+            $mpdf->WriteHTML(utf8_encode($html));
+            // Other code
+            $mpdf->Output();
+        } catch (\Mpdf\MpdfException $e) { // Note: safer fully qualified exception name used for catch
+            // Process the exception, log, print etc.
+            echo $e->getMessage();
+        }
+        // $mpdf = new \Mpdf\Mpdf();
+        // $html = $this->load->view('templates/laporan_pdf/p', [], true);
+        // $mpdf->WriteHTML(utf8_encode($html));
+        // $mpdf->Output("1.pdf", "D");
     }
 
     public function simpan()
