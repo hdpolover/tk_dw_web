@@ -24,10 +24,34 @@ class Presensi_siswa extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function index_b()
+    {
+        $data['title'] = 'TK DHARMA WANITA';
+        $data['presensi_siswa'] = $this->presensi_siswa->get_presensi_siswa_b();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar/sidebar_tu', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('presensi_siswa/index_b', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function tambah()
     {
         $data['title'] = 'TK DHARMA WANITA';
         $data['siswa'] = $this->siswa->get_siswa_for_presensi();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar/sidebar_tu', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('presensi_siswa/tambah', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function tambah_b()
+    {
+        $data['title'] = 'TK DHARMA WANITA';
+        $data['siswa'] = $this->siswa->get_siswa_for_presensi_b();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar/sidebar_tu', $data);

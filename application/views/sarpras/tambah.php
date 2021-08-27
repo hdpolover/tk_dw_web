@@ -22,6 +22,7 @@
                             <select class="form-control" name="jenis" id="jenis">
                                 <option selected="selected" value="" disabled="">-Pilih Jenis sarpras-</option>
                                 <option value="ruangan">Ruangan</option>
+                                <option value="kantor">Kantor</option>
                             </select>
                         </div>
                     </div>

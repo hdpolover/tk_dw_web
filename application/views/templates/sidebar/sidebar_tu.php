@@ -33,11 +33,24 @@
       <span>Presensi Pegawai</span></a>
   </li>
 
-  <!-- Nav Item - Dashboard -->
+  <!-- Nav Item - Dashboard
   <li class="nav-item">
     <a class="nav-link" href="<?= base_url('presensi_siswa'); ?>">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Presensi Siswa</span></a>
+  </li> -->
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+      <i class="fas fa-user fa-cog"></i>
+      <span>Presensi Siswa</span>
+    </a>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <a class="collapse-item" href="<?= base_url('presensi_siswa/index'); ?>">Kelompok A</a>
+        <a class="collapse-item" href="<?= base_url('presensi_siswa/index_b'); ?>">Kelompok B</a>
+      </div>
+    </div>
   </li>
 
   <!-- Nav Item - Dashboard -->

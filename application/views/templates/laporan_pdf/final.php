@@ -232,27 +232,42 @@
                 <tbody>
                     <tr>
                         <td class="tg-z9od"><strong>Akhir Bulan Lalu</strong><br>Bangsa Indonesia<br>Bangsa Asing</td>
-                        <td class="tg-w2dt">5</td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"><?= $akhir_bulan_lalu_A_L[0]['total'] == 0 ? '' : $akhir_bulan_lalu_A_L[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $akhir_bulan_lalu_A_P[0]['total'] == 0 ? '' : $akhir_bulan_lalu_A_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $akhir_bulan_lalu_B_L[0]['total'] == 0 ? '' : $akhir_bulan_lalu_B_L[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $akhir_bulan_lalu_B_P[0]['total'] == 0 ? '' : $akhir_bulan_lalu_B_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $jumlah_akhir_bulan_lalu[0]['total'] == 0 ? '' : $jumlah_akhir_bulan_lalu[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_islam_L_akhir_bulan_lalu[0]['total'] == 0 ? '' : $agama_islam_L_akhir_bulan_lalu[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_islam_P_akhir_bulan_lalu[0]['total'] == 0 ? '' : $agama_islam_P_akhir_bulan_lalu[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_kristen_L_akhir_bulan_lalu[0]['total'] == 0 ? '' : $agama_kristen_L_akhir_bulan_lalu[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_kristen_P_akhir_bulan_lalu[0]['total'] == 0 ? '' : $agama_kristen_P_akhir_bulan_lalu[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_katolik_L_akhir_bulan_lalu[0]['total'] == 0 ? '' : $agama_katolik_L_akhir_bulan_lalu[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_katolik_P_akhir_bulan_lalu[0]['total'] == 0 ? '' : $agama_katolik_P_akhir_bulan_lalu[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_hindu_L_akhir_bulan_lalu[0]['total'] == 0 ? '' : $agama_hindu_L_akhir_bulan_lalu[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_hindu_P_akhir_bulan_lalu[0]['total'] == 0 ? '' : $agama_hindu_P_akhir_bulan_lalu[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_budha_L_akhir_bulan_lalu[0]['total'] == 0 ? '' : $agama_budha_L_akhir_bulan_lalu[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_budha_P_akhir_bulan_lalu[0]['total'] == 0 ? '' : $agama_budha_P_akhir_bulan_lalu[0]['total']; ?></td>
                         <td class="tg-w2dt"></td>
                         <td class="tg-w2dt"></td>
                     </tr>
                     <tr>
                         <td class="tg-z9od"><strong>Keluar Akhir Bulan Ini</strong><br>Bangsa Indonesia<br>Bangsa Asing</td>
-                        <td class="tg-w2dt">5</td>
+                        <!-- <td class="tg-w2dt"><?= $akhir_bulan_ini_A_L[0]['total'] == 0 ? '' : $akhir_bulan_ini_A_L[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $akhir_bulan_ini_A_P[0]['total'] == 0 ? '' : $akhir_bulan_ini_A_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $akhir_bulan_ini_B_L[0]['total'] == 0 ? '' : $akhir_bulan_ini_B_L[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $akhir_bulan_ini_B_P[0]['total'] == 0 ? '' : $akhir_bulan_ini_B_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $jumlah_akhir_bulan_ini[0]['total'] == 0 ? '' : $jumlah_akhir_bulan_ini[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_islam_L_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_islam_L_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_islam_P_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_islam_P_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_kristen_L_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_kristen_L_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_kristen_P_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_kristen_P_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_katolik_L_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_katolik_L_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_katolik_P_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_katolik_P_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_hindu_L_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_hindu_L_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_hindu_P_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_hindu_P_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_budha_L_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_budha_L_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_budha_P_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_budha_P_akhir_bulan_ini[0]['total']; ?></td> -->
+                        <td class="tg-w2dt"></td>
                         <td class="tg-w2dt"></td>
                         <td class="tg-w2dt"></td>
                         <td class="tg-w2dt"></td>
@@ -272,41 +287,41 @@
                     </tr>
                     <tr>
                         <td class="tg-z9od"><strong>Masuk Bulan Ini</strong><br>Bangsa Indonesia<br>Bangsa Asing</td>
-                        <td class="tg-w2dt">5</td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"><?= $masuk_bulan_ini_A_L[0]['total'] == 0 ? '' : $masuk_bulan_ini_A_L[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $masuk_bulan_ini_A_P[0]['total'] == 0 ? '' : $masuk_bulan_ini_A_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $masuk_bulan_ini_B_L[0]['total'] == 0 ? '' : $masuk_bulan_ini_B_L[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $masuk_bulan_ini_B_L[0]['total'] == 0 ? '' : $masuk_bulan_ini_B_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $jumlah_masuk_bulan_ini[0]['total'] == 0 ? '' : $jumlah_masuk_bulan_ini[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_islam_L[0]['total'] == 0 ? '' : $agama_islam_L[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_islam_P[0]['total'] == 0 ? '' : $agama_islam_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_kristen_L[0]['total'] == 0 ? '' : $agama_kristen_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_kristen_P[0]['total'] == 0 ? '' : $agama_kristen_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_katolik_L[0]['total'] == 0 ? '' : $agama_katolik_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_katolik_P[0]['total'] == 0 ? '' : $agama_katolik_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_hindu_L[0]['total'] == 0 ? '' : $agama_hindu_L[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_hindu_P[0]['total'] == 0 ? '' : $agama_hindu_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_budha_L[0]['total'] == 0 ? '' : $agama_budha_L[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_budha_P[0]['total'] == 0 ? '' : $agama_budha_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_lain_L[0]['total'] == 0 ? '' : $agama_lain_L[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_lain_P[0]['total'] == 0 ? '' : $agama_lain_P[0]['total'] ?></td>
                     </tr>
                     <tr>
                         <td class="tg-z9od"><strong>Pada Akhir Bulan Ini</strong><br>Bangsa Indonesia<br>Bangsa Asing</td>
-                        <td class="tg-w2dt">5</td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
-                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"><?= $akhir_bulan_ini_A_L[0]['total'] == 0 ? '' : $akhir_bulan_ini_A_L[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $akhir_bulan_ini_A_P[0]['total'] == 0 ? '' : $akhir_bulan_ini_A_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $akhir_bulan_ini_B_L[0]['total'] == 0 ? '' : $akhir_bulan_ini_B_L[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $akhir_bulan_ini_B_P[0]['total'] == 0 ? '' : $akhir_bulan_ini_B_P[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $jumlah_akhir_bulan_ini[0]['total'] == 0 ? '' : $jumlah_akhir_bulan_ini[0]['total'] ?></td>
+                        <td class="tg-w2dt"><?= $agama_islam_L_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_islam_L_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_islam_P_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_islam_P_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_kristen_L_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_kristen_L_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_kristen_P_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_kristen_P_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_katolik_L_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_katolik_L_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_katolik_P_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_katolik_P_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_hindu_L_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_hindu_L_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_hindu_P_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_hindu_P_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_budha_L_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_budha_L_akhir_bulan_ini[0]['total']; ?></td>
+                        <td class="tg-w2dt"><?= $agama_budha_P_akhir_bulan_ini[0]['total'] == 0 ? '' : $agama_budha_P_akhir_bulan_ini[0]['total']; ?></td>
                         <td class="tg-w2dt"></td>
                         <td class="tg-w2dt"></td>
                     </tr>
@@ -314,45 +329,58 @@
             </table>
         </div>
         <br>
-        <div>
-            <table class="tsmall">
-                <tr>
-                    <td>Tema pada bulan ini</td>
-                </tr>
-                <tr>
-                    <td>MINGGU 1 : LINGKUNGAN DAN ALAM</td>
-
-                </tr>
-                <tr>
-                    <td>MINGGU 2 : LINGKUNGAN DAN ALAM</td>
-                </tr>
-                <tr>
-                    <td>MINGGU 3 : LINGKUNGAN DAN ALAM</td>
-                </tr>
-                <tr>
-                    <td>MINGGU 4 : LINGKUNGAN DAN ALAM</td>
-                </tr>
-                <tr>
-                    <td>MINGGU 5 : LINGKUNGAN DAN ALAM</td>
-                </tr>
-                <tr>
-                    <td rowspan="4"><br>Banyaknya hari efektif dalam 1 (satu) bulan: 12 hari</td>
-                </tr>
-            </table>
+        <div style="float: left; width: 50%;">
+            <div>
+                <table class="tsmall">
+                    <tr>
+                        <td>Tema pada bulan ini</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">MINGGU 1</td>
+                        <td>: <?= sizeof($tema_minggu_1) == 0 ? '............' : $tema_minggu_1[0]['TEMA']; ?></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">MINGGU 2</td>
+                        <td>: <?= sizeof($tema_minggu_2) == 0 ? '............' : $tema_minggu_2[0]['TEMA']; ?></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">MINGGU 3</td>
+                        <td>: <?= sizeof($tema_minggu_3) == 0 ? '............' : $tema_minggu_3[0]['TEMA']; ?></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">MINGGU 4</td>
+                        <td>: <?= sizeof($tema_minggu_4) == 0 ? '............' : $tema_minggu_4[0]['TEMA']; ?></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">MINGGU 5</td>
+                        <td>: <?= sizeof($tema_minggu_5) == 0 ? '............' : $tema_minggu_5[0]['TEMA']; ?></td>
+                    </tr>
+                </table>
+            </div>
         </div>
+        <div style="float: right; width: 50%;">
+            <div>
+                <table class="tsmall">
+                    <tr>
+                        <td rowspan="4"><br>Banyaknya hari efektif dalam 1 (satu) bulan: <?= $banyak_hari[0]['total'] ?> hari</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
     </div>
     <div style="float: right; width: 30%;">
         <div style="margin-left: 20px;">
-            <h6 style="display: block;"><strong>LAPOR BULAN</strong></h6>
+            <h2 style="display: block; text-decoration: underline; text-align: center;"><strong>LAPOR BULAN</strong></h2>
             <table class="tsmall">
                 <tbody>
                     <tr>
                         <td>Bulan</td>
-                        <td>: JUNI</td>
+                        <td>: <?= $bulan ?></td>
                     </tr>
                     <tr>
                         <td>Tahun Pelajaran</td>
-                        <td>: 2019</td>
+                        <td>: <?= $tp ?></td>
                     </tr>
                     <tr>
                         <td colspan="2"> <strong>Banyaknya Ruang</strong></td>
@@ -360,7 +388,7 @@
                     </tr>
                     <tr>
                         <td>KBM</td>
-                        <td>: 2 Ruang</td>
+                        <td>: <?= $ruangan[0]['total'] ?> Ruang</td>
                     </tr>
                     <tr>
                         <td> Hak Milik</td>

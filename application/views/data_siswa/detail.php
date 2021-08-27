@@ -104,7 +104,7 @@
                         </br>
                         <div class="row">
                             <div class="col">
-                                <p class="card-text" style="color: black;">Status Siswa</p>
+                                <p class="card-text" style="color: black;">Status Pendaftaran Siswa</p>
                             </div>
                             <div class="col">
                                 <p class="card-text" style="color: black;"><?= $p['STATUS_SISWA']; ?></p>

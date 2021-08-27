@@ -105,184 +105,207 @@
 </head>
 
 <body style="padding-left:0.5cm; padding-right:0.5cm; font-family:Arial, sans-serif; font-size:15px;">
-    <div>
-        <h4 style="text-align: center; font-size: 30px; font-weight: bold; margin-bottom: 0px; text-decoration: underline;">LAPORAN BULANAN</h4>
-        <p style="text-align: center; font-size: 17px; margin-top: 5px;">Bulan Juni / Tahun Pelajaran 2019</p>
+    <div style="float: left; width: 30%;">
+        <div>
+            <p>Kepegawaian / Personalia</p>
+            <table class="tg">
+                <thead>
+                    <tr>
+                        <th class="tg-k27y">NO.</th>
+                        <th class="tg-k27y">Jenis Pegawai</th>
+                        <th class="tg-k27y">L</th>
+                        <th class="tg-k27y">P</th>
+                        <th class="tg-k27y">Jumlah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tg-w2dt" rowspan="8" colspan="1">1.</td>
+                        <td class="tg-z9cd">Guru Pengasuh</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-z9cd">a. SARJANA</td>
+                        <td class="tg-w2dt">1</td>
+                        <td class="tg-w2dt">2</td>
+                        <td class="tg-w2dt">3</td>
+                    </tr>
+                    <tr>
+                        <td class="tg-z9cd">b. D II/ PGTK</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-z9cd">c. SPG / TK</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-z9cd">d. KPG / TK</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-z9cd">e. SPG / SD</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-z9cd">f. PGA</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-z9cd">g. SMA / SMK</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-w2dt" rowspan="8">2.</td>
+                        <td class="tg-z9cd">Pegawai Non Guru</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-z9cd">a. SPG / TK</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-z9cd">b. KPG / TK</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-z9cd">c. SPG / SD</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-z9cd">d. PGA</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-z9cd">e. SMA</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-z9cd">f. SMK</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-z9cd">g. SMP dll</td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                        <td class="tg-w2dt"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-w2dt" colspan="2">Jumlah</td>
+                        <td class="tg-w2dt">1</td>
+                        <td class="tg-w2dt">2</td>
+                        <td class="tg-w2dt">3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div>
-        <table style="width:100%; text-align:left;">
-            <tr>
-                <td>NAMA TK</td>
-                <td>
-                    : DHARMA WANITA 3
-                </td>
-                <td>KECAMATAN</td>
-                <td>
-                    : PESANGGARAN
-                </td>
-            </tr>
-            <tr>
-                <td>NAMA YAYASAN</td>
-                <td>
-                    : KUMPULAN DHARMA WANITA PERSATUAN
-                </td>
-                <td>KABUPATEN</td>
-                <td>
-                    : BANYUWANGI
-                </td>
-            </tr>
-            <tr>
-                <td>NSS/NIS</td>
-                <td>
-                    : 002052501010/000100
-                </td>
-                <td>PROVINSI</td>
-                <td>
-                    : JAWA TIMUR
-                </td>
-            </tr>
-            <tr>
-                <td>AKTE NO./TGL DIDIRIKAN</td>
-                <td>
-                    : 16 Agustus 2007 / 421.1/2261/429.102/2007
-                </td>
-            </tr>
-        </table>
+    <div style="float: right; width: 60%;">
+        <div>
+            <p>Presensi</p>
+            <table class="tg">
+                <thead>
+                    <tr>
+                        <th class="tg-ir4y">Uraian</th>
+                        <th class="tg-ir4y">Jumlah</th>
+                        <th class="tg-ir4y">%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tg-w2dt">Sakit</td>
+                        <td class="tg-w2dt">
+                            <?= $jumlah_presensi[0]; ?>
+                        </td>
+                        <td class="tg-w2dt">
+                            <?= $persen_presensi[0]; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tg-w2dt">Izin</td>
+                        <td class="tg-w2dt">
+                            <?= $jumlah_presensi[1]; ?>
+                        </td>
+                        <td class="tg-w2dt">
+                            <?= $persen_presensi[1]; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tg-w2dt">Tanpa Keterangan</td>
+                        <td class="tg-w2dt">
+                            <?= $jumlah_presensi[2]; ?>
+                        </td>
+                        <td class="tg-w2dt">
+                            <?= $persen_presensi[2]; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tg-w2dt">Jumlah</td>
+                        <td class="tg-w2dt">
+                            <?= $jumlah_presensi[3]; ?>
+                        </td>
+                        <td class="tg-w2dt">
+                            <?= $persen_presensi[3]; ?>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p>Keterangan:</p>
+            <p>Cara menghitung Absen</p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Jumlah Absen x 100
+                            <br>
+                            <hr>
+                            Jumlah murid x jumalh hari efektif
+                        </td>
+                        <td>
+                            X 100
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Kurang dari 1/2 % dihilangkan
+                            <br>
+                            Lebih dari 1/2 dihitung 1
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <br>
-    <div>
-        <table class="tg" width="100%">
-            <thead>
-                <tr>
-                    <th class="tg-ir4y" rowspan="3">
-                        KEADAAN
-                    </th>
-                    <th class="tg-k27y" rowspan="2" colspan="2">
-                        KELOMPOK "A"
-                    </th>
-                    <th class="tg-k27y" rowspan="2" colspan="2">
-                        KELOMPOK "B"
-                    </th>
-                    <th class="tg-ir4y" rowspan="3">
-                        JUMLAH L + P
-                    </th>
-                    <th class="tg-k27y" colspan="10">
-                        AGAMA
-                    </th>
-                    <th class="tg-k27y" rowspan="2" colspan="2">
-                        LAIN - LAIN
-                    </th>
-                </tr>
-                <tr>
-                    <td class="tg-w2dt" colspan="2">ISLAM</td>
-                    <td class="tg-w2dt" colspan="2">KRISTEN</td>
-                    <td class="tg-w2dt" colspan="2">KATOLIK</td>
-                    <td class="tg-w2dt" colspan="2">HINDU</td>
-                    <td class="tg-w2dt" colspan="2">BUDHA</td>
-                </tr>
-                <tr>
-                    <td class="tg-w2dt" rowspan="1">L</td>
-                    <td class="tg-w2dt" rowspan="1">P</td>
-                    <td class="tg-w2dt" rowspan="1">L</td>
-                    <td class="tg-w2dt" rowspan="1">P</td>
-                    <td class="tg-w2dt" rowspan="1">L</td>
-                    <td class="tg-w2dt" rowspan="1">P</td>
-                    <td class="tg-w2dt" rowspan="1">L</td>
-                    <td class="tg-w2dt" rowspan="1">P</td>
-                    <td class="tg-w2dt" rowspan="1">L</td>
-                    <td class="tg-w2dt" rowspan="1">P</td>
-                    <td class="tg-w2dt" rowspan="1">L</td>
-                    <td class="tg-w2dt" rowspan="1">P</td>
-                    <td class="tg-w2dt" rowspan="1">L</td>
-                    <td class="tg-w2dt" rowspan="1">P</td>
-                    <td class="tg-w2dt" rowspan="1">L</td>
-                    <td class="tg-w2dt" rowspan="1">P</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="tg-z9od"><strong>Akhir Bulan Lalu</strong><br>Bangsa Indonesia<br>Bangsa Asing</td>
-                    <td class="tg-w2dt">5</td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                </tr>
-                <tr>
-                    <td class="tg-z9od"><strong>Keluar Akhir Bulan Ini</strong><br>Bangsa Indonesia<br>Bangsa Asing</td>
-                    <td class="tg-w2dt">5</td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                </tr>
-                <tr>
-                    <td class="tg-z9od"><strong>Masuk Bulan Ini</strong><br>Bangsa Indonesia<br>Bangsa Asing</td>
-                    <td class="tg-w2dt">5</td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                </tr>
-                <tr>
-                    <td class="tg-z9od"><strong>Pada Akhir Bulan Ini</strong><br>Bangsa Indonesia<br>Bangsa Asing</td>
-                    <td class="tg-w2dt">5</td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                    <td class="tg-w2dt"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+
 </body>
 
 </html>

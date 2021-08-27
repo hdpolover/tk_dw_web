@@ -47,8 +47,14 @@ class Pegawai extends CI_Controller
             "STATUS" => $this->input->post("status"),
             "GOLONGAN" => $this->input->post("golongan"),
             "JABATAN" => $this->input->post("jabatan"),
-            "MASA_KERJA" => $this->input->post('masa_kerja'),
             "TGL_MULAI_KERJA" => $this->input->post("TGL_MULAI"),
+            "STATUS_KEPEGAWAIAN" => $this->input->post("status_kepegawaian"),
+            "MENGAJAR_KELOMPOK" => $this->input->post("mengajar_kelompok"),
+            "NOMOR_SK" => $this->input->post("nomor_sk"),
+            "TGL_SK" => $this->input->post("TGL_SK"),
+            "MASA_KERJA_TAHUN" => $this->input->post("masa_kerja_tahun") . " Tahun",
+            "MASA_KERJA_BULAN" => $this->input->post("masa_kerja_bulan") . " Bulan",
+            "RUANG" => $this->input->post("ruang"),
         );
 
         $this->pegawai->simpan($data);

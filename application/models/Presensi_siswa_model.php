@@ -13,7 +13,19 @@ class Presensi_siswa_model extends CI_Model
     if ($id == null) {
       $query = "SELECT siswa.*, presensi_siswa.*
       FROM presensi_siswa
-      INNER JOIN siswa ON siswa.ID_SISWA = presensi_siswa.ID_SISWA";
+      INNER JOIN siswa ON siswa.ID_SISWA = presensi_siswa.ID_SISWA WHERE siswa.ID_JENJANG = 1";
+      return $this->db->query($query)->result_array();
+    } else {
+      return $this->db->get_where('presensi_pegawai', ['ID_PEGAWAI' => $id])->result_array();
+    }
+  }
+
+  public function get_presensi_siswa_b($id = null)
+  {
+    if ($id == null) {
+      $query = "SELECT siswa.*, presensi_siswa.*
+      FROM presensi_siswa
+      INNER JOIN siswa ON siswa.ID_SISWA = presensi_siswa.ID_SISWA WHERE siswa.ID_JENJANG = 2";
       return $this->db->query($query)->result_array();
     } else {
       return $this->db->get_where('presensi_pegawai', ['ID_PEGAWAI' => $id])->result_array();

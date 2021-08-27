@@ -2,13 +2,13 @@
 
     <!-- Page Heading 
     <h1 class="h3 mb-4 text-gray-800"><?= $title ?></h1>-->
-    <a href="<?= base_url(); ?>presensi_siswa/tambah" class="btn btn-primary mb-4">Tambah Presensi Siswa</a>
+    <a href="<?= base_url(); ?>presensi_siswa/tambah_b" class="btn btn-primary mb-4">Tambah Presensi Siswa</a>
 
     <?= $this->session->flashdata('message'); ?>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Presensi Siswa Kelompok A</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Presensi Siswa Kelompok B</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">

@@ -61,6 +61,7 @@ class Pembayaran extends CI_Controller
             "TGL_PENDAFTARAN" => $tanggal->format("Y-m-d"),
             "STATUS_SISWA" => "BELUM DIVALIDASI",
             "NOMOR_HP" => $this->input->post('NOMOR_HP'),
+            "AGAMA"=>$this->input->post('AGAMA'),
         );
 
         //if ($validation->run()) {
@@ -201,6 +202,9 @@ class Pembayaran extends CI_Controller
             "JK_SISWA" => $s[0]["JENIS_KELAMIN"],
             "NAMA_ORTU" => $s[0]['NAMA_ORTU'],
             "NISN" => $nisn,
+            "AGAMA"=> $s[0]['AGAMA'],
+            "ID_JENJANG" => $s[0]['ID_JENJANG'],
+            "STATUS"=>"AKTIF",
         );
         $id_siswa = $this->siswa->tambah_siswa($data);
 

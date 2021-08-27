@@ -7,14 +7,11 @@
 
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
+
                     <!-- Nested Row within Card Body -->
                     <div class="row">
                         <div class="col-lg">
                             <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Formulir Pendaftaran Siswa TK Dharma Wanita</h1>
-                                </div>
-                                </br>
 
                                 <?= $this->session->flashdata('message'); ?>
 
@@ -25,10 +22,7 @@
                                                 <label for="NAMA_TERDAFTAR">Nama Lengkap</label>
                                             </div>
                                             <div class="col">
-                                                <input class="form-control <?php echo form_error('NAMA_TERDAFTAR') ? 'is-invalid' : '' ?>" type="text" name="NAMA_TERDAFTAR" min="0" placeholder="Masukan nama siswa" />
-                                                <div class="invalid-feedback">
-                                                    <?php echo form_error('NAMA_TERDAFTAR') ?>
-                                                </div>
+                                                <input class="form-control type=" text" name="NAMA_TERDAFTAR" min="0" placeholder="Masukan nama siswa" value="<?= $siswa[0]['NAMA_SISWA']; ?>" />
                                             </div>
                                         </div>
                                     </div>

@@ -1,7 +1,9 @@
 <div class="container-fluid">
 
+    <?= $this->session->flashdata('message'); ?>
+
     <!-- Page Heading 
-    <h1 class="h3 mb-4 text-gray-800"><?= $title?></h1>-->
+    <h1 class="h3 mb-4 text-gray-800"><?= $title ?></h1>-->
     <a href="<?= base_url(); ?>laporan_bulanan/buat" class="btn btn-primary mb-4">Buat Laporan Bulanan</a>
 
     <!-- DataTales Example -->
@@ -17,20 +19,25 @@
                             <th>No.</th>
                             <th>Bulan</th>
                             <th>Tahun Pelajaran</th>
+                            <th>File Laporan</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                      <?php $i = 1; ?>
-                      <?php foreach ($lapor_bulan as $k): ?>
-                        <tr>
-                            <th scope="row"><?= $i;?></th>
-                            <td><?= $k['Bulan'];?></td>
-                            <td><?= $k['TP'];?></td>
-                           
-                        </tr>
-                        <?php $i++; ?>
-                      <?php endforeach ?>
+                        <?php $i = 1; ?>
+                        <?php foreach ($lapor_bulan as $k) : ?>
+                            <tr>
+                                <th scope="row"><?= $i; ?></th>
+                                <td><?= $k['BULAN']; ?></td>
+                                <td><?= $k['TP']; ?></td>
+                                <td><?= $k['FILE']; ?></td>
+                                <td>
+                                    <a href="<?= base_url(); ?>assets/laporan/<?= $k['FILE']; ?>" class="btn btn-success">Download</a>
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
@@ -52,7 +59,7 @@
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
-<i class="fas fa-angle-up"></i>
+    <i class="fas fa-angle-up"></i>
 </a>
 
-            <!-- End of Main Content -->
+<!-- End of Main Content -->

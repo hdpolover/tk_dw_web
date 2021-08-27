@@ -58,7 +58,7 @@ class Pendaftaran extends CI_Controller
                 "TGL_PENDAFTARAN" => $tanggal->format("Y-m-d"),
                 "STATUS_SISWA" => "BELUM DIVALIDASI",
                 "NOMOR_HP" => $this->input->post('NOMOR_HP'),
-
+                "AGAMA" => $this->input->post('AGAMA'),
             );
 
             $this->pendaftaran->daftar($data);

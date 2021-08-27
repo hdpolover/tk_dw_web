@@ -25,16 +25,45 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="periode" class="col-sm-4 col-form-label">Periode</label>
-                    <div class="col-sm-8">
-                        <input type="text" name="periode" class="form-control" id="periode" placeholder="Masukan periode (Bulan)">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-4">
+                            <label class="control-label">Periode</label>
+                        </div>
+                        <div class="col-8">
+                            <select class="form-control" name="periode">
+                                <option selected="selected" value="" disabled="">-Pilih Periode-</option>
+                                <option value="Januari">Januari</option>
+                                <option value="Februari">Februari</option>
+                                <option value="Maret">Maret</option>
+                                <option value="April">April</option>
+                                <option value="Mei">Mei</option>
+                                <option value="Juni">Juni</option>
+                                <option value="Juli">Juli</option>
+                                <option value="Agustus">Agustus</option>
+                                <option value="September">September</option>
+                                <option value="Oktober">Oktober</option>
+                                <option value="November">November</option>
+                                <option value="Desember">Desember</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="minggu" class="col-sm-4 col-form-label">Minggu ke</label>
-                    <div class="col-sm-8">
-                        <input type="number" name="minggu" class="form-control" id="minggu" placeholder="Masukan minggu ke">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-4">
+                            <label class="control-label">Minggu Ke</label>
+                        </div>
+                        <div class="col-8">
+                            <select class="form-control" name="minggu">
+                                <option selected="selected" value="" disabled="">-Pilih Minggu-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row">
