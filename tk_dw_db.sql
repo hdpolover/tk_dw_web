@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2021 at 07:14 PM
+-- Generation Time: Aug 27, 2021 at 07:40 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.29
 
@@ -32,6 +32,7 @@ CREATE TABLE `daftar_siswa` (
   `NAMA_TERDAFTAR` varchar(30) NOT NULL,
   `ALAMAT_TERDAFTAR` varchar(50) NOT NULL,
   `TEMPAT_LAHIR` varchar(50) NOT NULL,
+  `AGAMA` varchar(20) NOT NULL,
   `TGL_LAHIR` date NOT NULL,
   `JENIS_KELAMIN` varchar(20) NOT NULL,
   `NAMA_ORTU` varchar(20) NOT NULL,
@@ -46,17 +47,17 @@ CREATE TABLE `daftar_siswa` (
 -- Dumping data for table `daftar_siswa`
 --
 
-INSERT INTO `daftar_siswa` (`ID_PENDAFTARAN`, `NAMA_TERDAFTAR`, `ALAMAT_TERDAFTAR`, `TEMPAT_LAHIR`, `TGL_LAHIR`, `JENIS_KELAMIN`, `NAMA_ORTU`, `NIK`, `TGL_PENDAFTARAN`, `STATUS_SISWA`, `ID_JENJANG`, `NOMOR_HP`) VALUES
-(5, 'Hendra', 'Candi', 'Candi', '2021-07-29', 'Perempuan', 'Paijo', '122323242424', '2021-07-20', 'DITERIMA', 2, '34214342134'),
-(6, 'coba', 'Candi', 'Candi', '2021-07-13', 'Perempuan', 'parnojo', '123142414', '2021-07-21', 'DITOLAK', 2, '081350204469'),
-(7, 'dvdvd', 'fdve', 'vveveve', '2021-06-27', 'Laki-Laki', 'Sudiano Paiko', '2132312', '2021-07-21', 'DITERIMA', 2, '89823981293'),
-(8, 'vdvdv', 'fbb', 'vdvdvd', '2021-07-14', 'Laki-Laki', 'POLO ANJAR', '32313', '2021-07-21', 'DITERIMA', 1, '324324'),
-(9, 'ouou', ',i,i', ',iu7uj', '2021-07-07', 'Laki-Laki', 'NUY', '345454', '2021-07-22', 'DITERIMA', 1, '454545'),
-(10, 'coba', 'vvv', 'dfd', '2021-07-01', 'Laki-Laki', 'POW', '24223', '2021-07-23', 'DITERIMA', 1, '213123'),
-(11, 'Suhendra', 'Jln. Candi 3E No. 142 Karang Besuki', 'Candi', '2016-06-07', 'Laki-Laki', 'LOPE', '4645454', '2021-07-24', 'BELUM DIVALIDASI', 1, '08135020446'),
-(12, 'momo', 'dfvdfd', 'grgrgr', '2016-06-16', 'Perempuan', 'FRIA', '3453543', '2021-07-25', 'DITERIMA', 1, '446464'),
-(13, 'Muhammad Subakti', 'Bestelsiz Mah. 105 sokak. no 2 D3 Z', 'polokll', '2016-07-25', 'Laki-Laki', 'HENDRA', '123232424', '2021-07-25', 'DITERIMA', 2, '081350204469'),
-(15, 'Suhendra', 'Jln. Candi 3E No. 142 Karang Besuki', 'Candi', '2016-07-20', 'Perempuan', 'PAIJO BEJO', '43535', '2021-07-25', 'DITERIMA', 1, '081350204469');
+INSERT INTO `daftar_siswa` (`ID_PENDAFTARAN`, `NAMA_TERDAFTAR`, `ALAMAT_TERDAFTAR`, `TEMPAT_LAHIR`, `AGAMA`, `TGL_LAHIR`, `JENIS_KELAMIN`, `NAMA_ORTU`, `NIK`, `TGL_PENDAFTARAN`, `STATUS_SISWA`, `ID_JENJANG`, `NOMOR_HP`) VALUES
+(5, 'Hendra', 'Candi', 'Candi', 'Islam', '2021-07-29', 'Perempuan', 'Paijo', '122323242424', '2021-07-20', 'DITERIMA', 2, '34214342134'),
+(6, 'coba', 'Candi', 'Candi', 'Islam', '2021-07-13', 'Perempuan', 'parnojo', '123142414', '2021-07-21', 'DITOLAK', 2, '081350204469'),
+(7, 'dvdvd', 'fdve', 'vveveve', 'Kristen', '2021-06-27', 'Laki-Laki', 'Sudiano Paiko', '2132312', '2021-07-21', 'DITERIMA', 2, '89823981293'),
+(8, 'vdvdv', 'fbb', 'vdvdvd', 'Islam', '2021-07-14', 'Laki-Laki', 'POLO ANJAR', '32313', '2021-07-21', 'DITERIMA', 1, '324324'),
+(9, 'ouou', ',i,i', ',iu7uj', 'Budha', '2021-07-07', 'Laki-Laki', 'NUY', '345454', '2021-07-22', 'DITERIMA', 1, '454545'),
+(10, 'coba', 'vvv', 'dfd', 'Islam', '2021-07-01', 'Laki-Laki', 'POW', '24223', '2021-07-23', 'DITERIMA', 1, '213123'),
+(11, 'Suhendra', 'Jln. Candi 3E No. 142 Karang Besuki', 'Candi', 'Katolik', '2016-06-07', 'Laki-Laki', 'LOPE', '4645454', '2021-07-24', 'BELUM DIVALIDASI', 1, '08135020446'),
+(12, 'momo', 'dfvdfd', 'grgrgr', 'Kristen', '2016-06-16', 'Perempuan', 'FRIA', '3453543', '2021-07-25', 'DITERIMA', 1, '446464'),
+(13, 'Muhammad Subakti', 'Bestelsiz Mah. 105 sokak. no 2 D3 Z', 'polokll', 'Islam', '2016-07-25', 'Laki-Laki', 'HENDRA', '123232424', '2021-07-25', 'DITERIMA', 2, '081350204469'),
+(15, 'Suhendra', 'Jln. Candi 3E No. 142 Karang Besuki', 'Candi', 'Islam', '2016-07-20', 'Perempuan', 'PAIJO BEJO', '43535', '2021-07-25', 'DITERIMA', 1, '081350204469');
 
 -- --------------------------------------------------------
 
@@ -101,6 +102,26 @@ INSERT INTO `kurikulum` (`ID_KURIKULUM`, `NAMA_KURIKULUM`, `PERIODE`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `laporan_bulanan`
+--
+
+CREATE TABLE `laporan_bulanan` (
+  `ID_LAPOR_BULAN` int(11) NOT NULL,
+  `BULAN` int(11) NOT NULL,
+  `TP` int(11) NOT NULL,
+  `FILE` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `laporan_bulanan`
+--
+
+INSERT INTO `laporan_bulanan` (`ID_LAPOR_BULAN`, `BULAN`, `TP`, `FILE`) VALUES
+(13, 7, 2021, 'Laporan_bulanan_7-2021.pdf');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pegawai`
 --
 
@@ -116,17 +137,23 @@ CREATE TABLE `pegawai` (
   `STATUS` varchar(20) NOT NULL,
   `JABATAN` varchar(20) NOT NULL,
   `GOLONGAN` varchar(20) NOT NULL,
-  `MASA_KERJA` varchar(20) NOT NULL,
-  `TGL_MULAI_KERJA` date NOT NULL
+  `TGL_MULAI_KERJA` date NOT NULL,
+  `STATUS_KEPEGAWAIAN` varchar(50) NOT NULL,
+  `MASA_KERJA_TAHUN` varchar(100) NOT NULL,
+  `MENGAJAR_KELOMPOK` varchar(10) NOT NULL,
+  `NOMOR_SK` varchar(20) NOT NULL,
+  `TGL_SK` date DEFAULT NULL,
+  `MASA_KERJA_BULAN` varchar(50) NOT NULL,
+  `RUANG` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pegawai`
 --
 
-INSERT INTO `pegawai` (`ID_PEGAWAI`, `NAMA`, `NIP_NUPTK`, `JK`, `TEMPAT_LAHIR`, `TGL_LAHIR`, `IJAZAH_TERAKHIR`, `AGAMA`, `STATUS`, `JABATAN`, `GOLONGAN`, `MASA_KERJA`, `TGL_MULAI_KERJA`) VALUES
-(1, 'polon', '453534', 'Laki-Laki', 'thtrb', '2021-07-13', 's4', 'islam', 'grgr', 'bfbf', 'vcv', 'bcv', '0000-00-00'),
-(2, 'bgtg', '56565', 'Laki-Laki', 'nbnbn', '2021-07-06', 'fgr', 'kristen', 'bvbv', 'bvbvb', 'btbtt', 'btbtb', '2021-07-12');
+INSERT INTO `pegawai` (`ID_PEGAWAI`, `NAMA`, `NIP_NUPTK`, `JK`, `TEMPAT_LAHIR`, `TGL_LAHIR`, `IJAZAH_TERAKHIR`, `AGAMA`, `STATUS`, `JABATAN`, `GOLONGAN`, `TGL_MULAI_KERJA`, `STATUS_KEPEGAWAIAN`, `MASA_KERJA_TAHUN`, `MENGAJAR_KELOMPOK`, `NOMOR_SK`, `TGL_SK`, `MASA_KERJA_BULAN`, `RUANG`) VALUES
+(1, 'polon', '453534', 'Laki-Laki', 'thtrb', '2021-07-13', 's4', 'islam', 'grgr', 'bfbf', 'vcv', '0000-00-00', 'PNS Dpk', '1 Tahun', 'B', '12n32', '2021-08-16', '2 Bulan', 'A'),
+(2, 'bgtg', '56565', 'Laki-Laki', 'nbnbn', '2021-07-06', 'fgr', 'kristen', 'bvbv', 'bvbvb', 'btbtt', '2021-07-12', 'Guru Bantu', '2 Tahun', 'A', '434sds', '2021-08-09', '1 Bulan', 'B');
 
 -- --------------------------------------------------------
 
@@ -211,7 +238,7 @@ INSERT INTO `pembelajaran` (`ID_PEMBELAJARAN`, `ID_SISWA`, `ID_PELAKSANAAN_PEMBE
 CREATE TABLE `presensi_pegawai` (
   `ID_PRESENSI_PEGAWAI` int(11) NOT NULL,
   `ID_PEGAWAI` int(11) NOT NULL,
-  `STATUS` int(11) NOT NULL,
+  `STATUS` int(11) DEFAULT NULL COMMENT '1 = tidak hadir, 2 = hadir, 3 = sakit, 4 = ijin',
   `TGL_PRESENSI` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -221,8 +248,10 @@ CREATE TABLE `presensi_pegawai` (
 
 INSERT INTO `presensi_pegawai` (`ID_PRESENSI_PEGAWAI`, `ID_PEGAWAI`, `STATUS`, `TGL_PRESENSI`) VALUES
 (1, 1, 1, '2021-07-26'),
-(2, 2, 0, '2021-07-13'),
-(3, 1, 2, '2021-07-12');
+(2, 2, 2, '2021-07-13'),
+(3, 1, 2, '2021-07-12'),
+(4, 1, 3, '2021-07-21'),
+(5, 2, 4, '2021-07-02');
 
 -- --------------------------------------------------------
 
@@ -233,7 +262,7 @@ INSERT INTO `presensi_pegawai` (`ID_PRESENSI_PEGAWAI`, `ID_PEGAWAI`, `STATUS`, `
 CREATE TABLE `presensi_siswa` (
   `ID_PRESENSI_SISWA` int(11) NOT NULL,
   `ID_SISWA` int(11) NOT NULL,
-  `STATUS` int(11) NOT NULL,
+  `STATUS` int(11) NOT NULL COMMENT '1 = tidak hadir, 2 = hadir, 3 = sakit, 4 = ijin',
   `TGL_PRESENSI` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -243,7 +272,15 @@ CREATE TABLE `presensi_siswa` (
 
 INSERT INTO `presensi_siswa` (`ID_PRESENSI_SISWA`, `ID_SISWA`, `STATUS`, `TGL_PRESENSI`) VALUES
 (1, 1, 2, '2021-07-13'),
-(2, 16, 1, '2021-07-19');
+(2, 16, 2, '2021-07-19'),
+(3, 2, 1, '2021-07-15'),
+(4, 1, 2, '2021-07-21'),
+(5, 1, 3, '2021-08-12'),
+(6, 1, 1, '2021-07-17'),
+(7, 16, 4, '2021-07-16'),
+(8, 2, 1, '2021-07-23'),
+(9, 16, 2, '2021-07-24'),
+(10, 16, 3, '2021-07-10');
 
 -- --------------------------------------------------------
 
@@ -265,7 +302,7 @@ CREATE TABLE `rencana_pembelajaran` (
 --
 
 INSERT INTO `rencana_pembelajaran` (`ID_RENCANA_PEMBELAJARAN`, `ID_KURIKULUM`, `PERIODE`, `MINGGU`, `TEMA`, `KETERANGAN`) VALUES
-(4, 2, 'april', 2, 'Pendidikan', 'DITERIMA'),
+(4, 2, 'April', 2, 'Pendidikan', 'DITERIMA'),
 (5, 1, 'Juni', 2, 'Lingkungan', 'DITERIMA'),
 (6, 1, 'Mei', 1, 'Diri sendiri', 'DITERIMA');
 
@@ -327,24 +364,27 @@ CREATE TABLE `siswa` (
   `NAMA_SISWA` varchar(30) NOT NULL,
   `ID_PENDAFTARAN` int(11) NOT NULL,
   `TEMPAT_LAHIR` varchar(30) NOT NULL,
+  `AGAMA` varchar(20) NOT NULL,
   `ALAMAT_SISWA` varchar(30) NOT NULL,
   `TGL_LAHIR` date NOT NULL,
   `JK_SISWA` varchar(20) NOT NULL,
   `NAMA_ORTU` varchar(30) NOT NULL,
-  `NISN` varchar(30) NOT NULL
+  `NISN` varchar(30) NOT NULL,
+  `STATUS` varchar(20) NOT NULL,
+  `ID_JENJANG` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `siswa`
 --
 
-INSERT INTO `siswa` (`ID_SISWA`, `NAMA_SISWA`, `ID_PENDAFTARAN`, `TEMPAT_LAHIR`, `ALAMAT_SISWA`, `TGL_LAHIR`, `JK_SISWA`, `NAMA_ORTU`, `NISN`) VALUES
-(1, 'ouou', 9, ',iu7uj', ',i,i', '2021-07-07', 'Laki-Laki', 'NUY', '937704'),
-(2, 'vdvdv', 8, 'vdvdvd', 'fbb', '2021-07-14', 'Laki-Laki', 'POLO ANJAR', '393671'),
-(3, 'coba', 10, 'dfd', 'vvv', '2021-07-01', 'Laki-Laki', 'POW', '388863'),
-(14, 'momo', 12, 'grgrgr', 'dfvdfd', '2016-06-16', 'Perempuan', 'FRIA', '623478'),
-(15, 'Muhammad Subakti', 13, 'polokll', 'Bestelsiz Mah. 105 sokak. no 2', '2016-07-25', 'Laki-Laki', 'HENDRA', '153402'),
-(16, 'Suhendra', 15, 'Candi', 'Jln. Candi 3E No. 142 Karang B', '2016-07-20', 'Perempuan', 'PAIJO BEJO', '716613');
+INSERT INTO `siswa` (`ID_SISWA`, `NAMA_SISWA`, `ID_PENDAFTARAN`, `TEMPAT_LAHIR`, `AGAMA`, `ALAMAT_SISWA`, `TGL_LAHIR`, `JK_SISWA`, `NAMA_ORTU`, `NISN`, `STATUS`, `ID_JENJANG`) VALUES
+(1, 'ouou', 9, ',iu7uj', 'Islam', ',i,i', '2021-07-07', 'Laki-Laki', 'NUY', '937704', 'AKTIF', 1),
+(2, 'vdvdv', 8, 'vdvdvd', 'Islam', 'fbb', '2021-07-14', 'Laki-Laki', 'POLO ANJAR', '393671', 'AKTIF', 1),
+(3, 'coba', 10, 'dfd', 'Kristen', 'vvv', '2021-07-01', 'Laki-Laki', 'POW', '388863', 'KELUAR', 1),
+(14, 'momo', 12, 'grgrgr', 'Budha', 'dfvdfd', '2016-06-16', 'Perempuan', 'FRIA', '623478', 'LULUS', 2),
+(15, 'Muhammad Subakti', 13, 'polokll', 'Kristen', 'Bestelsiz Mah. 105 sokak. no 2', '2016-07-25', 'Laki-Laki', 'HENDRA', '153402', 'AKITF', 1),
+(16, 'Suhendra', 15, 'Candi', 'Islam', 'Jln. Candi 3E No. 142 Karang B', '2016-07-20', 'Perempuan', 'PAIJO BEJO', '716613', 'AKTIF', 2);
 
 -- --------------------------------------------------------
 
@@ -400,6 +440,12 @@ ALTER TABLE `jenjang`
 --
 ALTER TABLE `kurikulum`
   ADD PRIMARY KEY (`ID_KURIKULUM`);
+
+--
+-- Indexes for table `laporan_bulanan`
+--
+ALTER TABLE `laporan_bulanan`
+  ADD PRIMARY KEY (`ID_LAPOR_BULAN`);
 
 --
 -- Indexes for table `pegawai`
@@ -502,6 +548,12 @@ ALTER TABLE `kurikulum`
   MODIFY `ID_KURIKULUM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `laporan_bulanan`
+--
+ALTER TABLE `laporan_bulanan`
+  MODIFY `ID_LAPOR_BULAN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
@@ -529,13 +581,13 @@ ALTER TABLE `pembelajaran`
 -- AUTO_INCREMENT for table `presensi_pegawai`
 --
 ALTER TABLE `presensi_pegawai`
-  MODIFY `ID_PRESENSI_PEGAWAI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_PRESENSI_PEGAWAI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `presensi_siswa`
 --
 ALTER TABLE `presensi_siswa`
-  MODIFY `ID_PRESENSI_SISWA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_PRESENSI_SISWA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `rencana_pembelajaran`
