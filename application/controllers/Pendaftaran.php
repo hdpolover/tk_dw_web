@@ -64,13 +64,13 @@ class Pendaftaran extends CI_Controller
             $this->pendaftaran->daftar($data);
 
             $nama_ortu = strtolower($this->input->post("NAMA_ORTU"));
-            $username_ortu = str_replace(' ', '_', $nama_ortu);
+            $username_ortu = str_replace(' ', '_', $nama_ortu) . '_' . rand(1, 999);
 
             $tanggal = $this->input->post("TANGGAL_LAHIR");
             $password_ortu = str_replace('-', '', $tanggal);
 
             $data_ortu = array(
-                'USERNAME' => $username_ortu,
+                'USERNAME' => $username_ortu ,
                 'PASSWORD' => $password_ortu,
                 'ID_ROLE' => 5,
             );
