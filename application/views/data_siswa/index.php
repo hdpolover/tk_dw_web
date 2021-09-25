@@ -45,6 +45,7 @@
                             <th>NISN</th>
                             <th>Nama Siswa</th>
                             <th>Jenis Kelamin</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -67,9 +68,10 @@
                                 <td><?= $p['NISN']; ?></td>
                                 <td><?= $p['NAMA_SISWA']; ?></td>
                                 <td><?= $p['JK_SISWA']; ?></td>
+                                <td><?= $p['STATUS']; ?></td>
                                 <td>
                                     <a href="<?= base_url(); ?>data_siswa/lihat/<?= $p['ID_PENDAFTARAN']; ?>" class="btn btn-info">Lihat</a>
-                                    <a href="<?= base_url(); ?>data_siswa/edit/<?= $p['ID_PENDAFTARAN']; ?>" class="btn btn-danger">Edit Status</a>
+                                    <a href="<?= base_url(); ?>data_siswa/edit/<?= $p['ID_SISWA']; ?>" class="btn btn-danger">Edit Status</a>
                                 </td>
                             </tr>
                             <?php $i++; ?>

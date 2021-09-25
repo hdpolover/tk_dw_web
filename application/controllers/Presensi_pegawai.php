@@ -32,25 +32,34 @@ class Presensi_pegawai extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar/sidebar_tu', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('presensi_pegawai/tambah', $data);
+        $this->load->view('presensi_pegawai/tambah_1', $data);
         $this->load->view('templates/footer');
     }
 
     public function simpan()
     {
-        $data = array(
-            "ID_PEGAWAI" => $this->input->post('id_pegawai'),
-            "STATUS" => $this->input->post('STATUS'),
-            "TGL_PRESENSI" => $this->input->post("TGL_PRESENSI"),
-        );
+        $id = $this->input->post('ID');
+        $status = $this->input->post('STATUS');
+        $tgl = $this->input->post('TGL_PRESENSI');
 
-        $this->presensi_pegawai->simpan($data);
+        for ($i=0; $i < sizeof($id); $i++) 
+        { 
+           $data = array('ID_PEGAWAI' => $id[$i]);
+               $data = array(
+                'ID_PEGAWAI' => $id[$i],
+                'STATUS' => $status[$i],
+                'TGL_PRESENSI' => $tgl,
+            );
 
+            $this->presensi_pegawai->simpan($data);
+        }
+       
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Presensi pegawai berhasil ditambahkan!</div>');
         redirect('presensi_pegawai');
     }
 
-    public function lihat($id) {
+    public function lihat($id)
+    {
         $data['title'] = 'TK DHARMA WANITA';
         $data['pegawai'] = $this->pegawai->get_pegawai($id);
 

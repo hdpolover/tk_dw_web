@@ -16,4 +16,9 @@ class Pegawai_model extends CI_Model
       return $this->db->get_where('pegawai', ['ID_PEGAWAI' => $id])->result_array();
     }
   }
+
+  public function hapus($id)
+  {
+    return $this->db->query("DELETE FROM pegawai WHERE ID_PEGAWAI=" . $id . "");
+  }
 }

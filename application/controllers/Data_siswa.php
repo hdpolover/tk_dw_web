@@ -46,12 +46,24 @@ class Data_siswa extends CI_Controller
         $id_jenjang = $data['pendaftaran'][0]['ID_JENJANG'];
         $data['jenjang'] = $this->jenjang->get_jenjang($id_jenjang);
 
-        $data['siswa'] = $this->siswa->get_data_siswa($data['pendaftaran']['ID_SISWA']);
+        $data['siswa'] = $this->siswa->get_data_siswa($id);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar/sidebar_tu', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('data_siswa/detail', $data);
+        $this->load->view('data_siswa/edit', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function simpan_edit() {
+        $data = array(
+            "ID_SISWA" => $this->input->post('id'),
+            "STATUS" => $this->input->post('STATUS')
+        );
+
+        $this->siswa->update_status($data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Status siswa berhasil dirubah!</div>');
+        redirect('data_siswa');
     }
 }

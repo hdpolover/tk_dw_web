@@ -262,9 +262,14 @@
                             <?= $p['GOLONGAN']; ?> / <?= $p['RUANG']; ?>
                         </td>
                         <td class="tg-w2dt">
-                            <?= $p['MASA_KERJA_TAHUN']; ?>
+                            <?php
+                            $origin = new DateTime();
+                            $target = new DateTime($p['TGL_MULAI_KERJA']);
+                            $interval = $origin->diff($target);
+                            ?>
+                            <?= $interval->format('%y Tahun'); ?>
                             <br>
-                            <?= $p['MASA_KERJA_BULAN']; ?>
+                            <?= $interval->format('%m Bulan'); ?>
                         </td>
                         <td class="tg-w2dt">
                             <?= $p['MENGAJAR_KELOMPOK']; ?>

@@ -73,4 +73,13 @@ class Pegawai extends CI_Controller
         $this->load->view('pegawai/detail', $data);
         $this->load->view('templates/footer');
     }
+
+    public function hapus($id)
+    {
+        $this->pegawai->hapus($id);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pegawai berhasil dihapus!</div>');
+        redirect('pegawai');
+    }
+    
 }

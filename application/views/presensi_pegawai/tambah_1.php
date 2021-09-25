@@ -3,10 +3,10 @@
     <!-- Basic Card Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Presensi Siswa</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Presensi Pegawai</h6>
         </div>
         <div class="card-body">
-            <form method="post" action="<?= base_url('presensi_siswa/simpan'); ?>">
+            <form method="post" action="<?= base_url('presensi_pegawai/simpan'); ?>">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-4">
@@ -21,21 +21,21 @@
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th hidden>ID_SISWA</th>
-                            <th>NISN</th>
-                            <th>Nama Siswa</th>
+                            <th hidden>ID</th>
+                            <th>NIP/NUPTK</th>
+                            <th>Nama Pegawai</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php for ($i = 0; $i < count($siswa); $i++) { ?>
+                        <?php for ($i = 0; $i < count($pegawai); $i++) { ?>
                             <?php $i = 1; ?>
-                            <?php foreach ($siswa as $p) : ?>
+                            <?php foreach ($pegawai as $p) : ?>
                                 <tr>
                                     <th scope="row"><?= $i; ?></th>
-                                    <td hidden><input type="text" name="ID[]" value="<?= $p['ID_SISWA']; ?>"></td>
-                                    <td><?= $p['NISN']; ?></td>
-                                    <td><?= $p['NAMA_SISWA']; ?></td>
+                                    <td hidden><input type="text" name="ID[]" value="<?= $p['ID_PEGAWAI']; ?>"></td>
+                                    <td><?= $p['NIP_NUPTK']; ?></td>
+                                    <td><?= $p['NAMA']; ?></td>
                                     <td>
                                         <select class="form-control" name="STATUS[]" id="STATUS[]">
                                             <option value="2">Hadir</option>
@@ -64,5 +64,6 @@
                         </div>
                     </div>
                 </div>
+            </form>
         </div>
     </div>

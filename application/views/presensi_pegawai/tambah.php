@@ -40,10 +40,10 @@
                         <div class="col-8">
                             <select class="form-control" name="STATUS" id="STATUS">
                                 <option selected="selected" value="" disabled="">-Pilih status kehadiran-</option>
-                                <option value="0">Tidak Hadir</option>
-                                <option value="1">Hadir</option>
-                                <option value="2">Sakit</option>
-                                <option value="3">Ijin</option>
+                                <option value="1">Tidak Hadir</option>
+                                <option value="2">Hadir</option>
+                                <option value="3">Sakit</option>
+                                <option value="4">Ijin</option>
                             </select>
                         </div>
                     </div>

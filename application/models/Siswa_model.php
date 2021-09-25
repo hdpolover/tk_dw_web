@@ -65,4 +65,9 @@ class Siswa_model extends CI_Model
     $query = "UPDATE pembayaran SET STATUS_PEMBAYARAN='" . $data['STATUS_PEMBAYARAN'] . "' WHERE ID_PEMBAYARAN=" . $data['ID_PEMBAYARAN'] . "";
     return $this->db->query($query)->result_array();
   }
+
+  public function update_status($data)
+  {
+    return $this->db->query("UPDATE siswa SET STATUS ='" . $data['STATUS'] . "' WHERE ID_SISWA=" . $data['ID_SISWA'] . "");
+  }
 }

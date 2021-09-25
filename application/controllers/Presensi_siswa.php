@@ -62,13 +62,21 @@ class Presensi_siswa extends CI_Controller
 
     public function simpan()
     {
-        $data = array(
-            "ID_SISWA" => $this->input->post('id_siswa'),
-            "STATUS" => $this->input->post('STATUS'),
-            "TGL_PRESENSI" => $this->input->post("TGL_PRESENSI"),
-        );
+        $id = $this->input->post('ID');
+        $status = $this->input->post('STATUS');
+        $tgl = $this->input->post('TGL_PRESENSI');
 
-        $this->presensi_siswa->simpan($data);
+        for ($i=0; $i < sizeof($id); $i++) 
+        { 
+           $data = array('ID_PEGAWAI' => $id[$i]);
+               $data = array(
+                'ID_SISWA' => $id[$i],
+                'STATUS' => $status[$i],
+                'TGL_PRESENSI' => $tgl,
+            );
+
+            $this->presensi_siswa->simpan($data);
+        }
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Presensi siswa berhasil ditambahkan!</div>');
         redirect('presensi_siswa');

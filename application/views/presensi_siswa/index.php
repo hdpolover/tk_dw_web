@@ -33,16 +33,16 @@
                                 <td><?= $p['NAMA_SISWA']; ?></td>
                                 <td>
                                     <?php switch ($p['STATUS']) {
-                                        case 0:
+                                        case 1:
                                             echo "Tidak hadir";
                                             break;
-                                        case 1:
+                                        case 2:
                                             echo "Hadir";
                                             break;
-                                        case 2:
+                                        case 3:
                                             echo "Sakit";
                                             break;
-                                        case 3:
+                                        case 4:
                                             echo "Ijin";
                                             break;
                                     }; ?>

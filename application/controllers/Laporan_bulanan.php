@@ -154,18 +154,18 @@ class Laporan_bulanan extends CI_Controller
 
 
         //akhir bulan ini
-        $data['agama_islam_L_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp,'Laki-Laki', 'Islam');
-        $data['agama_islam_P_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp,'Perempuan', 'Islam');
-        $data['agama_kristen_L_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp,'Laki-Laki', 'Kristen');
-        $data['agama_kristen_P_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp,'Perempuan', 'Kristen');
-        $data['agama_katolik_L_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp,'Laki-Laki', 'Katolik');
-        $data['agama_katolik_P_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp,'Perempuan', 'Katolik');
-        $data['agama_hindu_L_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp,'Laki-Laki', 'Hindu');
-        $data['agama_hindu_P_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp,'Perempuan', 'Hindu');
-        $data['agama_budha_L_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp,'Laki-Laki', 'Budha');
-        $data['agama_budha_P_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp,'Perempuan', 'Budha');
-        $data['agama_lain_L_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp,'Laki-Laki', 'Lain-lain');
-        $data['agama_lain_P_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp,'Perempuan', 'Lain-lain');
+        $data['agama_islam_L_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp, 'Laki-Laki', 'Islam');
+        $data['agama_islam_P_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp, 'Perempuan', 'Islam');
+        $data['agama_kristen_L_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp, 'Laki-Laki', 'Kristen');
+        $data['agama_kristen_P_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp, 'Perempuan', 'Kristen');
+        $data['agama_katolik_L_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp, 'Laki-Laki', 'Katolik');
+        $data['agama_katolik_P_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp, 'Perempuan', 'Katolik');
+        $data['agama_hindu_L_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp, 'Laki-Laki', 'Hindu');
+        $data['agama_hindu_P_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp, 'Perempuan', 'Hindu');
+        $data['agama_budha_L_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp, 'Laki-Laki', 'Budha');
+        $data['agama_budha_P_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp, 'Perempuan', 'Budha');
+        $data['agama_lain_L_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp, 'Laki-Laki', 'Lain-lain');
+        $data['agama_lain_P_akhir_bulan_ini'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_ini($bulan, $tp, 'Perempuan', 'Lain-lain');
         $data['akhir_bulan_ini_A_L'] = $this->lapor_bulan->get_akhir_bulan_ini($bulan, $tp, 1, 'Laki-Laki');
         $data['akhir_bulan_ini_A_P'] = $this->lapor_bulan->get_akhir_bulan_ini($bulan, $tp, 1, 'Perempuan');
         $data['akhir_bulan_ini_B_L'] = $this->lapor_bulan->get_akhir_bulan_ini($bulan, $tp, 2, 'Laki-Laki');
@@ -173,18 +173,18 @@ class Laporan_bulanan extends CI_Controller
         $data['jumlah_akhir_bulan_ini'] = $this->lapor_bulan->get_jumlah_akhir_bulan_ini($bulan, $tp);
 
         //akhir bulan lalu
-        $data['agama_islam_L_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp,'Laki-Laki', 'Islam');
-        $data['agama_islam_P_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp,'Perempuan', 'Islam');
-        $data['agama_kristen_L_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp,'Laki-Laki', 'Kristen');
-        $data['agama_kristen_P_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp,'Perempuan', 'Kristen');
-        $data['agama_katolik_L_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp,'Laki-Laki', 'Katolik');
-        $data['agama_katolik_P_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp,'Perempuan', 'Katolik');
-        $data['agama_hindu_L_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp,'Laki-Laki', 'Hindu');
-        $data['agama_hindu_P_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp,'Perempuan', 'Hindu');
-        $data['agama_budha_L_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp,'Laki-Laki', 'Budha');
-        $data['agama_budha_P_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp,'Perempuan', 'Budha');
-        $data['agama_lain_L_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp,'Laki-Laki', 'Lain-lain');
-        $data['agama_lain_P_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp,'Perempuan', 'Lain-lain');
+        $data['agama_islam_L_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp, 'Laki-Laki', 'Islam');
+        $data['agama_islam_P_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp, 'Perempuan', 'Islam');
+        $data['agama_kristen_L_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp, 'Laki-Laki', 'Kristen');
+        $data['agama_kristen_P_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp, 'Perempuan', 'Kristen');
+        $data['agama_katolik_L_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp, 'Laki-Laki', 'Katolik');
+        $data['agama_katolik_P_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp, 'Perempuan', 'Katolik');
+        $data['agama_hindu_L_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp, 'Laki-Laki', 'Hindu');
+        $data['agama_hindu_P_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp, 'Perempuan', 'Hindu');
+        $data['agama_budha_L_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp, 'Laki-Laki', 'Budha');
+        $data['agama_budha_P_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp, 'Perempuan', 'Budha');
+        $data['agama_lain_L_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp, 'Laki-Laki', 'Lain-lain');
+        $data['agama_lain_P_akhir_bulan_lalu'] = $this->lapor_bulan->get_agama_siswa_akhir_bulan_lalu($bulan, $tp, 'Perempuan', 'Lain-lain');
         $data['akhir_bulan_lalu_A_L'] = $this->lapor_bulan->get_akhir_bulan_lalu($bulan, $tp, 1, 'Laki-Laki');
         $data['akhir_bulan_lalu_A_P'] = $this->lapor_bulan->get_akhir_bulan_lalu($bulan, $tp, 1, 'Perempuan');
         $data['akhir_bulan_lalu_B_L'] = $this->lapor_bulan->get_akhir_bulan_lalu($bulan, $tp, 2, 'Laki-Laki');
@@ -247,7 +247,7 @@ class Laporan_bulanan extends CI_Controller
         $persen_izin = round(((($data[1] * 100) / ($total_siswa * $total_hari_1)) * 100) / 100);
         $persen_alpha = round(((($data[2] * 100) / ($total_siswa * $total_hari_1)) * 100) / 100);
         $persen_semua = $persen_izin + $persen_sakit + $persen_alpha;
-        
+
         return [$persen_sakit, $persen_izin, $persen_alpha, $persen_semua];
     }
 

@@ -107,7 +107,7 @@
                                 <p class="card-text" style="color: black;">Masa Kerja</p>
                             </div>
                             <div class="col">
-                                <p class="card-text" style="color: black;"><?= $p['MASA_KERJA']; ?></p>
+                                <p class="card-text" style="color: black;"><?= $p['MASA_KERJA_TAHUN']; ?></p>
                             </div>
                         </div>
                         </br>

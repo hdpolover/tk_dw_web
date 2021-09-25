@@ -141,21 +141,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="masa_kerja_tahun" class="col-sm-4 col-form-label">Masa Kerja Seluruhnya</label>
-                    <div class="col">
-                        <input type="number" name="masa_kerja_tahun" class="form-control" id="masa_kerja_tahun" placeholder=".....">
-                    </div>
-                    <div class="col">
-                        Tahun
-                    </div>
-                    <div class="col">
-                        <input type="number" name="masa_kerja_bulan" class="form-control" id="masa_kerja_bulan" placeholder=".....">
-                    </div>
-                    <div class="col">
-                        Bulan
-                    </div>
-                </div>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-4">

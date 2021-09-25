@@ -35,6 +35,7 @@
                                 <td><?= $p['STATUS']; ?></td>
                                 <td>
                                     <a href="<?= base_url(); ?>pegawai/lihat/<?= $p['ID_PEGAWAI']; ?>" class="btn btn-info">Lihat</a>
+                                    <a href="<?= base_url(); ?>pegawai/hapus/<?= $p['ID_PEGAWAI']; ?>" class="btn btn-danger">Hapus</a>
                                 </td>
                             </tr>
                             <?php $i++; ?>
