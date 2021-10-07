@@ -11,6 +11,12 @@
         <div class="card-body">
             <?= form_open_multipart('pembayaran/simpan_pembayaran/' . $pendaftaran[0]['ID_PENDAFTARAN']); ?>
 
+            <label class="col-form-label">Silakan lakukan pembayaran biaya pendaftaran ke rekening berikut:<br>
+                <strong>Bank JATIM</strong><br>
+                Nomor rekening: <strong>0022851314</strong><br>
+                Atas nama: <strong>TK DHARMA WANITA 91 PESANGGARAN</strong></label>
+            <br>
+            <br>
             <div class="form-group row">
                 <label for="desc" class="col-sm-4 col-form-label">Tujuan Pembayaran</label>
                 <div class="col-sm-8">

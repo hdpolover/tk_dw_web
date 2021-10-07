@@ -64,8 +64,6 @@
                             </div>
                         </div>
                         </br>
-                    </div>
-                    <div class="col">
                         <div class="row">
                             <div class="col">
                                 <p class="card-text" style="color: black;">Tanggal Pendaftaran</p>
@@ -123,8 +121,18 @@
                             <?php }; ?>
                         </div>
                     </div>
+                    <div class="col">
+                        <?php try { ?>
+                            <embed type="application/pdf" src="<?= base_url('assets/kk/') . $p['FILE_KK'] . "#toolbar=0&navpanes=0&scrollbar=0"; ?> " width="100%" height="500px"></embed>
+                        <?php } catch (exception $e) {; ?>
+                            <img src=" <?= base_url('assets/kk/') . $p['FILE_KK']; ?>" class="card-img border" style="width: 90%; height: 90%; display:block;
+    margin:auto;">
+                        <?php }; ?>
+                    </div>
+                    </br>
                 </div>
-            <?php endforeach ?>
         </div>
+    <?php endforeach ?>
     </div>
+</div>
 </div>

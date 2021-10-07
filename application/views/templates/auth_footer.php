@@ -8,6 +8,13 @@
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url('assets/');?>js/sb-admin-2.min.js"></script>
 
+<script type="application/javascript">
+    $('input[type="file"]').change(function(e) {
+        var fileName = e.target.files[0].name;
+        $('.custom-file-label').html(fileName);
+    });
+</script>
+
 </body>
 
 </html>
