@@ -1,3 +1,10 @@
+<?php
+$origin = new DateTime();
+$target = new DateTime($pegawai[0]['TGL_MULAI_KERJA']);
+$interval = $origin->diff($target);
+$d =  $interval->format('%y Tahun %m Bulan');
+?>
+
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -107,7 +114,7 @@
                                 <p class="card-text" style="color: black;">Masa Kerja</p>
                             </div>
                             <div class="col">
-                                <p class="card-text" style="color: black;"><?= $p['MASA_KERJA_TAHUN']; ?></p>
+                                <p class="card-text" style="color: black;"><?= $d; ?></p>
                             </div>
                         </div>
                         </br>

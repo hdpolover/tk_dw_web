@@ -37,7 +37,7 @@ class Pelaksanaan_pembelajaran extends CI_Controller
         $data['rencana_pembelajaran'] = $this->rencana_pembelajaran->get_rencana_pembelajaran();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar/sidebar_tu', $data);
+        $this->load->view('templates/sidebar/sidebar_kurikulum', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('pelaksanaan_pembelajaran/tambah', $data);
         $this->load->view('templates/footer');

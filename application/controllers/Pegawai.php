@@ -52,8 +52,6 @@ class Pegawai extends CI_Controller
             "MENGAJAR_KELOMPOK" => $this->input->post("mengajar_kelompok"),
             "NOMOR_SK" => $this->input->post("nomor_sk"),
             "TGL_SK" => $this->input->post("TGL_SK"),
-            "MASA_KERJA_TAHUN" => $this->input->post("masa_kerja_tahun") . " Tahun",
-            "MASA_KERJA_BULAN" => $this->input->post("masa_kerja_bulan") . " Bulan",
             "RUANG" => $this->input->post("ruang"),
         );
 
