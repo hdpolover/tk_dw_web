@@ -42,7 +42,6 @@ class Pendaftaran extends CI_Controller
 
         $umur = $this->calcutateAge($tgl_lahir);
 
-        echo ($umur);
         if ($umur <= 5 && $umur >= 4) {
             $nama_lengkap = $this->input->post('NAMA_TERDAFTAR');
             $name = strtoupper(str_replace(' ', '_', trim($nama_lengkap)));

@@ -92,7 +92,8 @@ class Auth extends CI_Controller
           $data['title'] = 'TK DHARMA WANITA';
 
           $nama = $this->session->userdata('USERNAME');
-          $nama_ortu = strtoupper(str_replace('_', ' ', $nama));
+          $result = explode('_',$nama);
+          $nama_ortu = strtoupper(str_replace('_', ' ', $result[0]));
 
           $data['pendaftaran'] = $this->pendaftaran->get_siswa_dari_ortu($nama_ortu);
           $data['pembayaran'] = $this->pembayaran->get_pembayaran_by_id_daftar($data['pendaftaran'][0]['ID_PENDAFTARAN']);
