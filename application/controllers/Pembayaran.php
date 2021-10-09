@@ -22,7 +22,8 @@ class Pembayaran extends CI_Controller
 
             $data['title'] = 'TK DHARMA WANITA';
             $nama = $this->session->userdata('USERNAME');
-            $nama_ortu = strtoupper(str_replace('_', ' ', $nama));
+            $result = explode('_', $nama);
+            $nama_ortu = strtoupper(str_replace('_', ' ', $result[0]));
 
             $data['pendaftaran'] = $this->pendaftaran->get_siswa_dari_ortu($nama_ortu);
             $data['pembayaran'] = $this->pembayaran->get_pembayaran_by_id_daftar($data['pendaftaran'][0]['ID_PENDAFTARAN']);
@@ -61,7 +62,7 @@ class Pembayaran extends CI_Controller
             "TGL_PENDAFTARAN" => $tanggal->format("Y-m-d"),
             "STATUS_SISWA" => "BELUM DIVALIDASI",
             "NOMOR_HP" => $this->input->post('NOMOR_HP'),
-            "AGAMA"=>$this->input->post('AGAMA'),
+            "AGAMA" => $this->input->post('AGAMA'),
         );
 
         //if ($validation->run()) {
@@ -142,6 +143,8 @@ class Pembayaran extends CI_Controller
         $tujuan = $this->input->post('tujuan');
         $nama_pengirim = $this->input->post('nama_pengirim');
         $tgl_bayar = $this->input->post('tgl_bayar');
+        $nominal = $this->input->post('nominal');
+        $nomor_rekening = $this->input->post('nomor_pengirim');
 
         $str = $_FILES['image']['name'];
         $upload_image = str_replace(' ', '_', $str);
@@ -167,6 +170,8 @@ class Pembayaran extends CI_Controller
                     'BUKTI_PEMBAYARAN' => $upload_image,
                     'STATUS_PEMBAYARAN' => "BELUM DIVALIDASI",
                     'NAMA_PENGIRIM' => $nama_pengirim,
+                    'NOMOR_PENGIRIM' => $nomor_rekening,
+                    'NOMINAL' => $nominal,
                 );
 
                 $this->pembayaran->simpan($summit_content_data);
@@ -202,9 +207,9 @@ class Pembayaran extends CI_Controller
             "JK_SISWA" => $s[0]["JENIS_KELAMIN"],
             "NAMA_ORTU" => $s[0]['NAMA_ORTU'],
             "NISN" => $nisn,
-            "AGAMA"=> $s[0]['AGAMA'],
+            "AGAMA" => $s[0]['AGAMA'],
             "ID_JENJANG" => $s[0]['ID_JENJANG'],
-            "STATUS"=>"AKTIF",
+            "STATUS" => "AKTIF",
         );
         $id_siswa = $this->siswa->tambah_siswa($data);
 
@@ -224,7 +229,7 @@ class Pembayaran extends CI_Controller
 
         $nomor = $data[0]["NOMOR_HP"];
 
-        $pesan = "*Selamat! Pembayaran diterima.*".
+        $pesan = "*Selamat! Pembayaran diterima.*" .
             "\n\nTerima kasih.";
         $this->kirim_pesan($nomor, $pesan);
         //selesai

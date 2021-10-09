@@ -15,11 +15,23 @@ class Laporan_bulanan extends CI_Controller
         $data['title'] = 'TK DHARMA WANITA';
         $data['lapor_bulan'] = $this->lapor_bulan->get_lapor_bulan();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar/sidebar_tu', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('lapor_bulan/index', $data);
-        $this->load->view('templates/footer');
+        if ($this->session->set_userdata($data['ID_ROLE']) == 4) {
+            $data['title'] = 'TK DHARMA WANITA';
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar/sidebar_kepsek', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('lapor_bulan/index', $data);
+            $this->load->view('templates/footer');
+        } else if ($this->session->set_userdata($data['ID_ROLE']) == 1) {
+            $data['title'] = 'TK DHARMA WANITA';
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar/sidebar_tu', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('lapor_bulan/index', $data);
+            $this->load->view('templates/footer');
+        }
     }
 
     public function buat()

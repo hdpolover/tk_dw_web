@@ -14,7 +14,8 @@
             <label class="col-form-label">Silakan lakukan pembayaran biaya pendaftaran ke rekening berikut:<br>
                 <strong>Bank JATIM</strong><br>
                 Nomor rekening: <strong>0022851314</strong><br>
-                Atas nama: <strong>TK DHARMA WANITA 91 PESANGGARAN</strong></label>
+                Atas nama: <strong>TK DHARMA WANITA 91 PESANGGARAN</strong></label><br>
+                Nominal: Rp.100.000
             <br>
             <br>
             <div class="form-group row">
@@ -38,6 +39,18 @@
                 <label for="nama_pengirim" class="col-sm-4 col-form-label">Nama Rekening Pengirim</label>
                 <div class="col-sm-8">
                     <input type="text" name="nama_pengirim" class="form-control" id="nama_pengirim" placeholder="Masukan Nama rekening pengirim">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="nomor_pengirim" class="col-sm-4 col-form-label">Nomor Rekening Pengirim</label>
+                <div class="col-sm-8">
+                    <input type="number" name="nomor_pengirim" class="form-control" id="nomor_pengirim" placeholder="Masukan Nomor rekening pengirim">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="nominal" class="col-sm-4 col-form-label">Nominal</label>
+                <div class="col-sm-8">
+                    <input type="number" name="nominal" class="form-control" id="nominal" placeholder="Masukan nominal yang dikirim">
                 </div>
             </div>
             <div class="form-group row">
