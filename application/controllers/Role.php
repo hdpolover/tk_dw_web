@@ -7,6 +7,7 @@ class Role extends CI_Controller
     {
         // code...
         parent::__construct();
+        is_logged_in();
         $this->load->library('form_validation');
         $this->load->model('role_model', 'role');
     }

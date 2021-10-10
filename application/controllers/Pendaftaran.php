@@ -7,6 +7,7 @@ class Pendaftaran extends CI_Controller
     {
         // code...
         parent::__construct();
+        is_logged_in();
         $this->load->library('form_validation');
         $this->load->model('pendaftaran_model', 'pendaftaran');
         $this->load->model('jenjang_model', 'jenjang');

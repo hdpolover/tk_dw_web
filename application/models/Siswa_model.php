@@ -70,4 +70,8 @@ class Siswa_model extends CI_Model
   {
     return $this->db->query("UPDATE siswa SET STATUS ='" . $data['STATUS'] . "' WHERE ID_SISWA=" . $data['ID_SISWA'] . "");
   }
+
+  public function get_siswa_from_jenjang($jenjang) {
+    return $this->db->get_where('siswa', ['ID_JENJANG' => $jenjang])->result_array();
+  }
 }

@@ -7,11 +7,13 @@ class Pelaksanaan_pembelajaran extends CI_Controller
     {
         // code...
         parent::__construct();
+        is_logged_in();
         $this->load->library('form_validation');
         $this->load->model('pelaksanaan_pembelajaran_model', 'pelaksanaan_pembelajaran');
         $this->load->model('jenjang_model', 'jenjang');
         $this->load->model('pegawai_model', 'pegawai');
         $this->load->model('sarpras_model', 'sarpras');
+        $this->load->model('siswa_model', 'siswa');
         $this->load->model('rencana_pembelajaran_model', 'rencana_pembelajaran');
     }
 
@@ -65,6 +67,19 @@ class Pelaksanaan_pembelajaran extends CI_Controller
         );
 
         $this->pelaksanaan_pembelajaran->tambah($data);
+        $insertId = $this->db->insert_id();
+
+        $jenjang = $this->input->post('id_jenjang');
+        $siswa = $this->siswa->get_siswa_from_jenjang($jenjang);
+
+        foreach ($siswa as $s) {
+            $data = array(
+                'ID_SISWA' => $s['ID_SISWA'],
+                'ID_PELAKSANAAN_PEMBELAJARAN' => $insertId,
+            );
+            $this->db->insert('pembelajaran', $data);
+        }
+
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pelaksanaan pembelajaran berhasil ditambahkan.</div>');
 
         $data['title'] = 'TK DHARMA WANITA';

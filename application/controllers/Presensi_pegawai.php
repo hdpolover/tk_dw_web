@@ -7,6 +7,7 @@ class Presensi_pegawai extends CI_Controller
     {
         // code...
         parent::__construct();
+        is_logged_in();
         $this->load->library('form_validation');
         $this->load->model('pegawai_model', 'pegawai');
         $this->load->model('presensi_pegawai_model', 'presensi_pegawai');

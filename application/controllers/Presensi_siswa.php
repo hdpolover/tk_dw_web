@@ -7,6 +7,7 @@ class Presensi_siswa extends CI_Controller
     {
         // code...
         parent::__construct();
+        is_logged_in();
         $this->load->library('form_validation');
         $this->load->model('siswa_model', 'siswa');
         $this->load->model('presensi_siswa_model', 'presensi_siswa');

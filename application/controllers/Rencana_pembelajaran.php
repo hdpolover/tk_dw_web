@@ -7,6 +7,7 @@ class Rencana_pembelajaran extends CI_Controller
     {
         // code...
         parent::__construct();
+        is_logged_in();
         $this->load->library('form_validation');
         $this->load->model('rencana_pembelajaran_model', 'rencana_pembelajaran');
         $this->load->model('kurikulum_model', 'kurikulum');

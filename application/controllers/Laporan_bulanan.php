@@ -7,6 +7,7 @@ class Laporan_bulanan extends CI_Controller
     {
         // code...
         parent::__construct();
+        is_logged_in();
         $this->load->model('lapor_bulan_model', 'lapor_bulan');
     }
 
@@ -15,7 +16,7 @@ class Laporan_bulanan extends CI_Controller
         $data['title'] = 'TK DHARMA WANITA';
         $data['lapor_bulan'] = $this->lapor_bulan->get_lapor_bulan();
 
-        if ($this->session->set_userdata($data['ID_ROLE']) == 4) {
+        if ($this->session->userdata('ID_ROLE') == 4) {
             $data['title'] = 'TK DHARMA WANITA';
 
             $this->load->view('templates/header', $data);
@@ -23,7 +24,7 @@ class Laporan_bulanan extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('lapor_bulan/index', $data);
             $this->load->view('templates/footer');
-        } else if ($this->session->set_userdata($data['ID_ROLE']) == 1) {
+        } else if ($this->session->userdata('ID_ROLE') == 1) {
             $data['title'] = 'TK DHARMA WANITA';
 
             $this->load->view('templates/header', $data);

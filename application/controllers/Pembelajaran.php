@@ -7,6 +7,7 @@ class Pembelajaran extends CI_Controller
     {
         // code...
         parent::__construct();
+        is_logged_in();
         $this->load->library('form_validation');
         $this->load->model('pembelajaran_model', 'pembelajaran');
         $this->load->model('pelaksanaan_pembelajaran_model', 'pelaksanaan_pembelajaran');

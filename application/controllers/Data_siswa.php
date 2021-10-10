@@ -7,6 +7,7 @@ class Data_siswa extends CI_Controller
     {
         // code...
         parent::__construct();
+        is_logged_in();
         $this->load->library('form_validation');
         $this->load->model('siswa_model', 'siswa');
         $this->load->model('jenjang_model', 'jenjang');
@@ -58,7 +59,8 @@ class Data_siswa extends CI_Controller
     public function simpan_edit() {
         $data = array(
             "ID_SISWA" => $this->input->post('id'),
-            "STATUS" => $this->input->post('STATUS')
+            "STATUS" => $this->input->post('STATUS'),
+            "ID_JENJANG" => $this->input->post('JENJANG')
         );
 
         $this->siswa->update_status($data);

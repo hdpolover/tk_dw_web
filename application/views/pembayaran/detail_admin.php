@@ -39,6 +39,24 @@
                         </br>
                         <div class="row">
                             <div class="col">
+                                <p class="card-text" style="color: black;">Nomor Pengirim</p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text" style="color: black;"><?= $p['NOMOR_PENGIRIM']; ?></p>
+                            </div>
+                        </div>
+                        </br>
+                        <div class="row">
+                            <div class="col">
+                                <p class="card-text" style="color: black;">Nominal</p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text" style="color: black;"><?= $p['NOMINAL']; ?></p>
+                            </div>
+                        </div>
+                        </br>
+                        <div class="row">
+                            <div class="col">
                                 <p class="card-text" style="color: black;">Status Pembayaran</p>
                             </div>
                             <div class="col">

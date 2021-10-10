@@ -7,6 +7,7 @@ class Pembayaran extends CI_Controller
     {
         // code...
         parent::__construct();
+        is_logged_in();
         $this->load->library('form_validation');
         $this->load->model('pembayaran_model', 'pembayaran');
         $this->load->model('pendaftaran_model', 'pendaftaran');
