@@ -12,6 +12,15 @@
                     <div class="col">
                         <div class="row">
                             <div class="col">
+                                <p class="card-text" style="color: black;">Pembayaran Untuk</p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text" style="color: black;"><?= $pendaftaran[0]['NAMA_TERDAFTAR']; ?></p>
+                            </div>
+                        </div>
+                        </br>
+                        <div class="row">
+                            <div class="col">
                                 <p class="card-text" style="color: black;">Tanggal Pembayaran</p>
                             </div>
                             <div class="col">
@@ -77,7 +86,7 @@
                                     <a href="<?= base_url(); ?>pembayaran/terima_pembayaran/<?= $p['ID_PEMBAYARAN']; ?>" class="btn btn-info btn-block">TERIMA</a>
                                 </div>
                                 <div class="col">
-                                    <a href="<?= base_url(); ?>pendaftaran/tolak_pembayaran/<?= $p['ID_PEMBAYARAN']; ?>" class="btn btn-danger btn-block">TOLAK</a>
+                                    <a href="<?= base_url(); ?>pembayaran/tolak_pembayaran/<?= $p['ID_PEMBAYARAN']; ?>" class="btn btn-danger btn-block">TOLAK</a>
                                 </div>
                             <?php }; ?>
                         </div>

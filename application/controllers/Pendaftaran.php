@@ -58,13 +58,16 @@ class Pendaftaran extends CI_Controller
                 }
 
                 $config['upload_path'] = $newPath; //path folder
-                $config['allowed_types'] = 'pdf|jpg|jpeg';
+                $config['allowed_types'] = 'pdf|jpg|jpeg|png';
                 $config['max_size']      = '10000';
                 $config['file_name'] = $new_file_name;
 
                 $this->load->library('upload', $config);
 
                 if ($this->upload->do_upload('image')) {
+                    $nama_ortu = strtolower($this->input->post("NAMA_ORTU"));
+                    $username_ortu = 'user_' . $nama_ortu[0] . $nama_ortu[1] . $nama_ortu[2] . rand(1, 999);
+
                     $data = array(
                         "NAMA_TERDAFTAR" => $nama_lengkap,
                         "ID_JENJANG" => $this->input->post('jenjang'),
@@ -79,12 +82,10 @@ class Pendaftaran extends CI_Controller
                         "NOMOR_HP" => $this->input->post('NOMOR_HP'),
                         "AGAMA" => $this->input->post('AGAMA'),
                         'FILE_KK' => $new_file_name,
+                        'USERNAME_ORTU' => $username_ortu,
                     );
 
                     $this->pendaftaran->daftar($data);
-
-                    $nama_ortu = strtolower($this->input->post("NAMA_ORTU"));
-                    $username_ortu = str_replace(' ', '_', $nama_ortu) . '_' . rand(1, 999);
 
                     $tanggal = $this->input->post("TANGGAL_LAHIR");
                     $password_ortu = str_replace('-', '', $tanggal);
@@ -139,15 +140,19 @@ class Pendaftaran extends CI_Controller
     {
         $data = $this->pendaftaran->get_pendaftaran($id);
 
-        $nama_ortu = strtolower($data[0]['NAMA_ORTU']);
-        $username_ortu = str_replace(' ', '_', $nama_ortu);
+        $username_ortu = $data[0]['USERNAME_ORTU'];
 
         $tanggal = $data[0]["TGL_LAHIR"];
         $password_ortu = str_replace('-', '', $tanggal);
 
         $nomor = $data[0]["NOMOR_HP"];
 
-        $pesan = "*Selamat! Pendaftaran diterima.*\nSilakan lakukan pembayaran pendaftaran pada website TK Dharma Wanita.
+        $pesan = "*Selamat! Pendaftaran diterima.*\nSilakan lakukan pembayaran pendaftaran pada website TK Dharma Wanita.\n
+        Silakan lakukan pembayaran biaya pendaftaran ke rekening berikut:\n
+                *Bank JATIM*\n
+                Nomor rekening: *0022851314*\n
+                Atas nama: *TK DHARMA WANITA 91 PESANGGARAN*\n
+                Nominal: *Rp.100.000*\n
         \nBerikut ini informasi login yang dapat digunakan: \n- Username: _" . $username_ortu . "_" . "\n- Password: _" . $password_ortu . "_" .
             "\n\nTerima kasih.";
         $this->kirim_pesan($nomor, $pesan);
@@ -162,7 +167,7 @@ class Pendaftaran extends CI_Controller
     public function tolak_pendaftaran($id)
     {
         $nomor = "081350204469";
-        $pesan = "*Mohon maaf! Pendaftaran ditolak.*\nSilakan lakukan pembayaran pendaftaran pada website TK Dharma Wanita.
+        $pesan = "*Mohon maaf! Pendaftaran ditolak.*\nSilakan login ulang dan lakukan pembayaran pendaftaran pada website TK Dharma Wanita.
         \nTerima kasih.";
         $this->kirim_pesan($nomor, $pesan);
         $this->pendaftaran->update_status($id, "DITOLAK");

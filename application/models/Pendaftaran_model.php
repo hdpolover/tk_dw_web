@@ -36,4 +36,6 @@ class Pendaftaran_model extends CI_Model
         // $query = "UPDATE daftar_siswa SET STATUS_SISWA='" . $text . "' WHERE ID_PENDAFTARAN=" . $id . "";
         // $this->db->query($query)->result_array();
     }
+
+    
 }

@@ -19,4 +19,9 @@ class User_model extends CI_Model
     $query = "DELETE FROM user WHERE ID_USER=" . $id ."";
     return $this->db->query($query)->result_array();
   }
+
+  public function get_nama_ortu($username) {
+    $query = "SELECT NAMA_ORTU FROM daftar_siswa WHERE USERNAME_ORTU = '" . $username ."'";
+    return $this->db->query($query)->result_array();
+  }
 }

@@ -10,6 +10,7 @@ class Auth extends CI_Controller
     $this->load->library('form_validation');
     $this->load->model('pendaftaran_model', 'pendaftaran');
     $this->load->model('pembayaran_model', 'pembayaran');
+    $this->load->model('user_model', 'user');
     $this->load->model('rencana_pembelajaran_model', 'rencana_pembelajaran');
     $this->load->model('pembelajaran_model', 'pembelajaran');
   }
@@ -92,10 +93,9 @@ class Auth extends CI_Controller
           $data['title'] = 'TK DHARMA WANITA';
 
           $nama = $this->session->userdata('USERNAME');
-          $result = explode('_',$nama);
-          $nama_ortu = strtoupper(str_replace('_', ' ', $result[0]));
+          $nama_ortu = $this->user->get_nama_ortu($nama);
 
-          $data['pendaftaran'] = $this->pendaftaran->get_siswa_dari_ortu($nama_ortu);
+          $data['pendaftaran'] = $this->pendaftaran->get_siswa_dari_ortu($nama_ortu[0]['NAMA_ORTU']);
           $data['pembayaran'] = $this->pembayaran->get_pembayaran_by_id_daftar($data['pendaftaran'][0]['ID_PENDAFTARAN']);
 
           $this->load->view('templates/header', $data);

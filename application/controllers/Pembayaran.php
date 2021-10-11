@@ -13,6 +13,7 @@ class Pembayaran extends CI_Controller
         $this->load->model('pendaftaran_model', 'pendaftaran');
         $this->load->model('jenjang_model', 'jenjang');
         $this->load->model('siswa_model', 'siswa');
+        $this->load->model('user_model', 'user');
         $this->load->model('pelaksanaan_pembelajaran_model', 'pelaksanaan_pembelajaran');
         $this->load->model('pembelajaran_model', 'pembelajaran');
     }
@@ -23,10 +24,9 @@ class Pembayaran extends CI_Controller
 
             $data['title'] = 'TK DHARMA WANITA';
             $nama = $this->session->userdata('USERNAME');
-            $result = explode('_', $nama);
-            $nama_ortu = strtoupper(str_replace('_', ' ', $result[0]));
+           $nama_ortu = $this->user->get_nama_ortu($nama);
 
-            $data['pendaftaran'] = $this->pendaftaran->get_siswa_dari_ortu($nama_ortu);
+            $data['pendaftaran'] = $this->pendaftaran->get_siswa_dari_ortu($nama_ortu[0]['NAMA_ORTU']);
             $data['pembayaran'] = $this->pembayaran->get_pembayaran_by_id_daftar($data['pendaftaran'][0]['ID_PENDAFTARAN']);
 
             $this->load->view('templates/header', $data);
@@ -117,6 +117,7 @@ class Pembayaran extends CI_Controller
     {
         $data['title'] = 'TK DHARMA WANITA';
         $data['pembayaran'] = $this->pembayaran->get_pembayaran_by_id_daftar($id);
+        $data['pendaftaran'] = $this->pendaftaran->get_pendaftaran($id);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar/sidebar_ortu', $data);
@@ -129,6 +130,7 @@ class Pembayaran extends CI_Controller
     {
         $data['title'] = 'TK DHARMA WANITA';
         $data['pembayaran'] = $this->pembayaran->get_pembayaran($id);
+        $data['pendaftaran'] = $this->pendaftaran->get_pendaftaran($id);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar/sidebar_tu', $data);
@@ -241,9 +243,21 @@ class Pembayaran extends CI_Controller
 
     public function tolak_pembayaran($id)
     {
-        $text = "DITOLAK";
+        //$text = "DITOLAK";
         //validasi pembayaran
-        $this->pembayaran->validasi_pembayaran($id, $text);
+        $this->pembayaran->hapus_pembayarna($id);
+
+        $d = $this->pembayaran->get_pembayaran($id);
+        $id_pendaftaran = $d[0]['ID_PENDAFTARAN'];
+
+        //kirim pesan
+        $data = $this->pendaftaran->get_pendaftaran($id_pendaftaran);
+
+        $nomor = $data[0]["NOMOR_HP"];
+
+        $pesan = "*Mohon maaf! Pembayaran anda telah ditolak Silakan ulangi melakukan pembayaran lagi pada website.*" .
+            "\n\nTerima kasih.";
+        $this->kirim_pesan($nomor, $pesan);
 
         $this->session->set_flashdata('message', '<div class ="alert alert-danger" style="text-align-center" role ="alert"> Pembayaran ditolak!</div>');
         redirect('pembayaran');

@@ -36,4 +36,10 @@ class Pembayaran_model extends CI_Model
     // $query = "UPDATE pembayaran SET STATUS_PEMBAYARAN='" . $text . "' WHERE ID_PEMBAYARAN=" . $id . "";
     // return $this->db->query($query)->result_array();
   }
+
+  public function hapus_pembayarna($id)
+  {
+    $query = "DELETE FROM pembayaran WHERE ID_PEMBAYARAN  =" .$id . "";
+    $this->db->query($query);
+  }
 }
