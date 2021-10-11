@@ -117,7 +117,7 @@ class Pembayaran extends CI_Controller
     {
         $data['title'] = 'TK DHARMA WANITA';
         $data['pembayaran'] = $this->pembayaran->get_pembayaran_by_id_daftar($id);
-        $data['pendaftaran'] = $this->pendaftaran->get_pendaftaran($id);
+        $data['pendaftaran'] = $this->pendaftaran->get_pendaftaran($data['pembayaran'][0]['ID_PENDAFTARAN']);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar/sidebar_ortu', $data);
@@ -130,7 +130,7 @@ class Pembayaran extends CI_Controller
     {
         $data['title'] = 'TK DHARMA WANITA';
         $data['pembayaran'] = $this->pembayaran->get_pembayaran($id);
-        $data['pendaftaran'] = $this->pendaftaran->get_pendaftaran($id);
+        $data['pendaftaran'] = $this->pendaftaran->get_pendaftaran($data['pembayaran'][0]['ID_PENDAFTARAN']);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar/sidebar_tu', $data);
