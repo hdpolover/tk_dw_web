@@ -11,7 +11,8 @@ class Pelaksanaan_pembelajaran_model extends CI_Model
             INNER JOIN rencana_pembelajaran on rencana_pembelajaran.ID_RENCANA_PEMBELAJARAN = pelaksanaan_pembelajaran.ID_RENCANA_PEMBELAJARAN
             INNER JOIN jenjang on jenjang.ID_JENJANG = pelaksanaan_pembelajaran.ID_JENJANG
             INNER JOIN pegawai on pegawai.ID_PEGAWAI = pelaksanaan_pembelajaran.ID_PEGAWAI
-            INNER JOIN sarpras on sarpras.ID_SARPRAS = pelaksanaan_pembelajaran.ID_SARPRAS";
+            INNER JOIN sarpras on sarpras.ID_SARPRAS = pelaksanaan_pembelajaran.ID_SARPRAS
+            WHERE rencana_pembelajaran.KETERANGAN = 'DITERIMA'";
             return $this->db->query($query)->result_array();
         } else {
             $query = "SELECT pelaksanaan_pembelajaran.*, jenjang.*, rencana_pembelajaran.*, pegawai.*, sarpras.*
@@ -20,7 +21,8 @@ class Pelaksanaan_pembelajaran_model extends CI_Model
             INNER JOIN jenjang on jenjang.ID_JENJANG = pelaksanaan_pembelajaran.ID_JENJANG
             INNER JOIN pegawai on pegawai.ID_PEGAWAI = pelaksanaan_pembelajaran.ID_PEGAWAI
             INNER JOIN sarpras on sarpras.ID_SARPRAS = pelaksanaan_pembelajaran.ID_SARPRAS
-            WHERE pelaksanaan_pembelajaran.ID_PELAKSANAAN_PEMBELAJARAN=" . $id . "";
+            WHERE pelaksanaan_pembelajaran.ID_PELAKSANAAN_PEMBELAJARAN=" . $id . " 
+            AND rencana_pembelajaran.KETERANGAN = 'DITERIMA'";
             return $this->db->query($query)->result_array();
         }
     }

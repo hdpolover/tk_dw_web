@@ -7,6 +7,7 @@
         </div>
         <div class="card-body">
             <form method="post" action="<?= base_url('laporan_bulanan/simpan'); ?>">
+                <?php echo form_error('jenis_laporan'); ?>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-4">
@@ -22,6 +23,7 @@
                         </div>
                     </div>
                 </div>
+                <?php echo form_error('bulan'); ?>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-4">
@@ -46,6 +48,7 @@
                         </div>
                     </div>
                 </div>
+                <?php echo form_error('tp'); ?>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-4">

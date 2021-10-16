@@ -35,7 +35,7 @@
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
-
+                                        <a href="<?= base_url(); ?>home" class="btn btn-success btn-user btn-block">Kembali ke Halaman Utama</a>
                                     </form>
                                     <hr>
                                 </div>

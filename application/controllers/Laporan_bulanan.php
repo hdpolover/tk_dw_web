@@ -8,6 +8,7 @@ class Laporan_bulanan extends CI_Controller
         // code...
         parent::__construct();
         is_logged_in();
+        $this->load->library('form_validation');
         $this->load->model('lapor_bulan_model', 'lapor_bulan');
     }
 
@@ -48,34 +49,50 @@ class Laporan_bulanan extends CI_Controller
 
     public function simpan()
     {
-        $jenis = $this->input->post('jenis_laporan');
-        $bulan = $this->input->post('bulan');
-        $tp = $this->input->post('tp');
+        $this->form_validation->set_message('required', '{field} harus diisi.');
+        $this->form_validation->set_rules('jenis_laporan', 'Jenis Laporan', 'required');
+        $this->form_validation->set_rules('bulan', 'Bulan', 'required');
+        $this->form_validation->set_rules('tp', 'Tahun Pelajaran', 'required');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
 
-        $file = "";
-        if ($jenis == 1) {
-            $file = $this->buatLaporanBulanan($bulan, $tp);
-        } else if ($jenis == 2) {
-            $file = $this->buatLaporanPersonalia($bulan, $tp);
+        if ($this->form_validation->run() == FALSE) {
+            $data['title'] = 'TK DHARMA WANITA';
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar/sidebar_tu', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('lapor_bulan/buat', $data);
+            $this->load->view('templates/footer');
         } else {
-            $file = $this->buatLaporanDaftarHadirPegawai($bulan, $tp);
-        }
+            $jenis = $this->input->post('jenis_laporan');
+            $bulan = $this->input->post('bulan');
+            $tp = $this->input->post('tp');
 
-        if ($file == "pernah") {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Laporan Bulanan sudah pernah dibuat!</div>');
+            $file = "";
+            if ($jenis == 1) {
+                $file = $this->buatLaporanBulanan($bulan, $tp);
+            } else if ($jenis == 2) {
+                $file = $this->buatLaporanPersonalia($bulan, $tp);
+            } else {
+                $file = $this->buatLaporanDaftarHadirPegawai($bulan, $tp);
+            }
 
-            redirect('laporan_bulanan/index');
-        } else {
-            $data = array(
-                "BULAN" => $bulan,
-                "TP" => $tp,
-                "FILE" => $file,
-            );
+            if ($file == "pernah") {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Laporan Bulanan sudah pernah dibuat!</div>');
 
-            $this->lapor_bulan->simpan($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Laporan Bulanan berhasil ditambahkan.</div>');
+                redirect('laporan_bulanan/index');
+            } else {
+                $data = array(
+                    "BULAN" => $bulan,
+                    "TP" => $tp,
+                    "FILE" => $file,
+                );
 
-            redirect('laporan_bulanan/index');
+                $this->lapor_bulan->simpan($data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Laporan Bulanan berhasil ditambahkan.</div>');
+
+                redirect('laporan_bulanan/index');
+            }
         }
     }
 

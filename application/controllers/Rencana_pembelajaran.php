@@ -71,7 +71,7 @@ class Rencana_pembelajaran extends CI_Controller
         );
 
         $this->rencana_pembelajaran->tambah($data);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kurikulum berhasil ditambahkan.</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Rencana Pembelajaran berhasil ditambahkan.</div>');
 
         $data['title'] = 'TK DHARMA WANITA';
         $data['rencana_pembelajaran'] = $this->rencana_pembelajaran->get_rencana_pembelajaran();
@@ -88,7 +88,7 @@ class Rencana_pembelajaran extends CI_Controller
         //validasi pembayaran
         $this->rencana_pembelajaran->validasi_rp($id, $text);
    
-        $this->session->set_flashdata('message', '<div class ="alert alert-success" style="text-align-center" role ="alert">Rencana pembelajaran diterima!</div>');
+        $this->session->set_flashdata('message', '<div class ="alert alert-success" style="text-align-center" role ="alert">Rencana pembelajaran telah divalidasi!</div>');
         redirect('rencana_pembelajaran');
     }
 

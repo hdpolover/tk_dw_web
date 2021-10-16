@@ -24,7 +24,7 @@ class Pembayaran extends CI_Controller
 
             $data['title'] = 'TK DHARMA WANITA';
             $nama = $this->session->userdata('USERNAME');
-           $nama_ortu = $this->user->get_nama_ortu($nama);
+            $nama_ortu = $this->user->get_nama_ortu($nama);
 
             $data['pendaftaran'] = $this->pendaftaran->get_siswa_dari_ortu($nama_ortu[0]['NAMA_ORTU']);
             $data['pembayaran'] = $this->pembayaran->get_pembayaran_by_id_daftar($data['pendaftaran'][0]['ID_PENDAFTARAN']);
@@ -141,48 +141,69 @@ class Pembayaran extends CI_Controller
 
     public function simpan_pembayaran($id)
     {
-        $now = new DateTime();
+        $this->form_validation->set_message('required', '{field} harus diisi.');
+        $this->form_validation->set_rules('tgl_bayar', 'Tanggal Pembayaran', 'required');
+        $this->form_validation->set_rules('tujuan', 'Tujuan Pembayaran', 'required');
+        $this->form_validation->set_rules('image', 'File Bukti Bayar', 'required');
+        $this->form_validation->set_rules('nama_pengirim', 'Nama Pengirim', 'required');
+        $this->form_validation->set_rules('nominal', 'Nominal', 'required');
+        $this->form_validation->set_rules('nomor_pengirim', 'Nomor Pengirim', 'required');
 
-        $tujuan = $this->input->post('tujuan');
-        $nama_pengirim = $this->input->post('nama_pengirim');
-        $tgl_bayar = $this->input->post('tgl_bayar');
-        $nominal = $this->input->post('nominal');
-        $nomor_rekening = $this->input->post('nomor_pengirim');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
 
-        $str = $_FILES['image']['name'];
-        $upload_image = str_replace(' ', '_', $str);
+        if ($this->form_validation->run() == FALSE) {
+            $data['title'] = 'TK DHARMA WANITA';
+            $data['pendaftaran'] = $this->pendaftaran->get_pendaftaran($id);
+            $id_jenjang = $data['pendaftaran'][0]['ID_JENJANG'];
+            $data['jenjang'] = $this->jenjang->get_jenjang($id_jenjang);
 
-        if ($upload_image) {
-            $newPath = './assets/img/bukti_pembayaran/';
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar/sidebar_ortu', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('pembayaran/bayar', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $tujuan = $this->input->post('tujuan');
+            $nama_pengirim = $this->input->post('nama_pengirim');
+            $tgl_bayar = $this->input->post('tgl_bayar');
+            $nominal = $this->input->post('nominal');
+            $nomor_rekening = $this->input->post('nomor_pengirim');
 
-            if (!is_dir($newPath)) {
-                mkdir($newPath, 0777, TRUE);
-            }
+            $str = $_FILES['image']['name'];
+            $upload_image = str_replace(' ', '_', $str);
 
-            $config['upload_path'] = $newPath; //path folder
-            $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['max_size']      = '2048';
+            if ($upload_image) {
+                $newPath = './assets/img/bukti_pembayaran/';
 
-            $this->load->library('upload', $config);
+                if (!is_dir($newPath)) {
+                    mkdir($newPath, 0777, TRUE);
+                }
 
-            if ($this->upload->do_upload('image')) {
-                $summit_content_data = array(
-                    'ID_PENDAFTARAN' => $id,
-                    'TGL_PEMBAYARAN' =>  $tgl_bayar,
-                    'TUJUAN_PEMBAYARAN' => $tujuan,
-                    'BUKTI_PEMBAYARAN' => $upload_image,
-                    'STATUS_PEMBAYARAN' => "BELUM DIVALIDASI",
-                    'NAMA_PENGIRIM' => $nama_pengirim,
-                    'NOMOR_PENGIRIM' => $nomor_rekening,
-                    'NOMINAL' => $nominal,
-                );
+                $config['upload_path'] = $newPath; //path folder
+                $config['allowed_types'] = 'gif|jpg|png|jpeg';
+                $config['max_size']      = '2048';
 
-                $this->pembayaran->simpan($summit_content_data);
+                $this->load->library('upload', $config);
 
-                $this->session->set_flashdata('message', '<div class ="alert alert-success" style="text-align-center" role ="alert">Pembayaran berhasil! Silakan tunggu validasi.</div>');
-                redirect('pembayaran');
-            } else {
-                echo $this->upload->display_errors();
+                if ($this->upload->do_upload('image')) {
+                    $summit_content_data = array(
+                        'ID_PENDAFTARAN' => $id,
+                        'TGL_PEMBAYARAN' =>  $tgl_bayar,
+                        'TUJUAN_PEMBAYARAN' => $tujuan,
+                        'BUKTI_PEMBAYARAN' => $upload_image,
+                        'STATUS_PEMBAYARAN' => "BELUM DIVALIDASI",
+                        'NAMA_PENGIRIM' => $nama_pengirim,
+                        'NOMOR_PENGIRIM' => $nomor_rekening,
+                        'NOMINAL' => $nominal,
+                    );
+
+                    $this->pembayaran->simpan($summit_content_data);
+
+                    $this->session->set_flashdata('message', '<div class ="alert alert-success" style="text-align-center" role ="alert">Pembayaran berhasil! Silakan tunggu validasi.</div>');
+                    redirect('pembayaran');
+                } else {
+                    echo $this->upload->display_errors();
+                }
             }
         }
     }

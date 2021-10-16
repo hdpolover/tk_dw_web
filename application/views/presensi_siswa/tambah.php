@@ -7,6 +7,7 @@
         </div>
         <div class="card-body">
             <form method="post" action="<?= base_url('presensi_siswa/simpan'); ?>">
+                <?php echo form_error('TGL_PRESENSI'); ?>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-4">

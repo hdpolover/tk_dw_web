@@ -37,76 +37,100 @@ class Pendaftaran extends CI_Controller
 
     public function daftar_siswa()
     {
-        $tanggal = new DateTime();
-        $tgl_lahir = $this->input->post("TANGGAL_LAHIR");
+        $this->form_validation->set_message('required', '{field} harus diisi.');
+        $this->form_validation->set_rules('TANGGAL_LAHIR', 'Tanggal Lahir', 'required');
+        $this->form_validation->set_rules('NAMA_TERDAFTAR', 'Nama Terdaftar', 'required');
+        $this->form_validation->set_rules('image', 'File Kartu Keluarga', 'required');
+        $this->form_validation->set_rules('jenjang', 'Jenjang', 'required');
+        $this->form_validation->set_rules('ALAMAT_TERDAFTAR', 'Alamat', 'required');
+        $this->form_validation->set_rules('JENIS_KELAMIN', 'Jenis Kelamin', 'required');
+        $this->form_validation->set_rules('NAMA_ORTU', 'Nama Ortu', 'required');
+        $this->form_validation->set_rules('NIK', 'NIK', 'required');
+        $this->form_validation->set_rules('NOMOR_HP', 'Nomor HP', 'required');
+        $this->form_validation->set_rules('AGAMA', 'Agama', 'required');
+        $this->form_validation->set_rules('TEMPAT_LAHIR', 'Tempat Lahir', 'required');
 
-        $umur = $this->calcutateAge($tgl_lahir);
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
 
-        if ($umur <= 5 && $umur >= 4) {
-            $nama_lengkap = $this->input->post('NAMA_TERDAFTAR');
-            $name = strtoupper(str_replace(' ', '_', trim($nama_lengkap)));
+        if ($this->form_validation->run() == FALSE) {
+            $data['title'] = 'TK DHARMA WANITA';
+            $data['jenjang'] = $this->jenjang->get_jenjang();
 
-            $upload_image = $_FILES['image']['name'];
-            $fileExt = pathinfo($upload_image, PATHINFO_EXTENSION);
-            $new_file_name = $name . "_KK." . $fileExt;
-
-            if ($upload_image) {
-                $newPath = './assets/kk/';
-
-                if (!is_dir($newPath)) {
-                    mkdir($newPath, 0777, TRUE);
-                }
-
-                $config['upload_path'] = $newPath; //path folder
-                $config['allowed_types'] = 'pdf|jpg|jpeg|png';
-                $config['max_size']      = '10000';
-                $config['file_name'] = $new_file_name;
-
-                $this->load->library('upload', $config);
-
-                if ($this->upload->do_upload('image')) {
-                    $nama_ortu = strtolower($this->input->post("NAMA_ORTU"));
-                    $username_ortu = 'user_' . $nama_ortu[0] . $nama_ortu[1] . $nama_ortu[2] . rand(1, 999);
-
-                    $data = array(
-                        "NAMA_TERDAFTAR" => $nama_lengkap,
-                        "ID_JENJANG" => $this->input->post('jenjang'),
-                        "ALAMAT_TERDAFTAR" => $this->input->post('ALAMAT_TERDAFTAR'),
-                        "TEMPAT_LAHIR" => $this->input->post("TEMPAT_LAHIR"),
-                        "TGL_LAHIR" => $this->input->post("TANGGAL_LAHIR"),
-                        "JENIS_KELAMIN" => $this->input->post("JENIS_KELAMIN"),
-                        "NAMA_ORTU" => strtoupper($this->input->post("NAMA_ORTU")),
-                        "NIK" => $this->input->post("NIK"),
-                        "TGL_PENDAFTARAN" => $tanggal->format("Y-m-d"),
-                        "STATUS_SISWA" => "BELUM DIVALIDASI",
-                        "NOMOR_HP" => $this->input->post('NOMOR_HP'),
-                        "AGAMA" => $this->input->post('AGAMA'),
-                        'FILE_KK' => $new_file_name,
-                        'USERNAME_ORTU' => $username_ortu,
-                    );
-
-                    $this->pendaftaran->daftar($data);
-
-                    $tanggal = $this->input->post("TANGGAL_LAHIR");
-                    $password_ortu = str_replace('-', '', $tanggal);
-
-                    $data_ortu = array(
-                        'USERNAME' => $username_ortu,
-                        'PASSWORD' => $password_ortu,
-                        'ID_ROLE' => 5,
-                    );
-
-                    $this->pendaftaran->daftar_ortu($data_ortu);
-
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pendaftaran berhasil! Silakan tunggu pesan pada WhatsApp Anda untuk pemberitahuan validasi!</div>');
-                    redirect('auth');
-                } else {
-                    echo $this->upload->display_errors();
-                }
-            }
+            $this->load->view('templates/auth_header', $data);
+            $this->load->view('auth/daftar');
+            $this->load->view('templates/auth_footer');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Umur tidak valid. Umur siswa harus antara 4 - 5 tahun!</div>');
-            redirect('pendaftaran');
+            $tanggal = new DateTime();
+            $tgl_lahir = $this->input->post("TANGGAL_LAHIR");
+
+            $umur = $this->calcutateAge($tgl_lahir);
+
+            if ($umur <= 5 && $umur >= 4) {
+                $nama_lengkap = $this->input->post('NAMA_TERDAFTAR');
+                $name = strtoupper(str_replace(' ', '_', trim($nama_lengkap)));
+
+                $upload_image = $_FILES['image']['name'];
+                $fileExt = pathinfo($upload_image, PATHINFO_EXTENSION);
+                $new_file_name = $name . "_KK." . $fileExt;
+
+                if ($upload_image) {
+                    $newPath = './assets/kk/';
+
+                    if (!is_dir($newPath)) {
+                        mkdir($newPath, 0777, TRUE);
+                    }
+
+                    $config['upload_path'] = $newPath; //path folder
+                    $config['allowed_types'] = 'pdf|jpg|jpeg|png';
+                    $config['max_size']      = '10000';
+                    $config['file_name'] = $new_file_name;
+
+                    $this->load->library('upload', $config);
+
+                    if ($this->upload->do_upload('image')) {
+                        $nama_ortu = strtolower($this->input->post("NAMA_ORTU"));
+                        $username_ortu = 'user_' . $nama_ortu[0] . $nama_ortu[1] . $nama_ortu[2] . rand(1, 999);
+
+                        $data = array(
+                            "NAMA_TERDAFTAR" => $nama_lengkap,
+                            "ID_JENJANG" => $this->input->post('jenjang'),
+                            "ALAMAT_TERDAFTAR" => $this->input->post('ALAMAT_TERDAFTAR'),
+                            "TEMPAT_LAHIR" => $this->input->post("TEMPAT_LAHIR"),
+                            "TGL_LAHIR" => $this->input->post("TANGGAL_LAHIR"),
+                            "JENIS_KELAMIN" => $this->input->post("JENIS_KELAMIN"),
+                            "NAMA_ORTU" => strtoupper($this->input->post("NAMA_ORTU")),
+                            "NIK" => $this->input->post("NIK"),
+                            "TGL_PENDAFTARAN" => $tanggal->format("Y-m-d"),
+                            "STATUS_SISWA" => "BELUM DIVALIDASI",
+                            "NOMOR_HP" => $this->input->post('NOMOR_HP'),
+                            "AGAMA" => $this->input->post('AGAMA'),
+                            'FILE_KK' => $new_file_name,
+                            'USERNAME_ORTU' => $username_ortu,
+                        );
+
+                        $this->pendaftaran->daftar($data);
+
+                        $tanggal = $this->input->post("TANGGAL_LAHIR");
+                        $password_ortu = str_replace('-', '', $tanggal);
+
+                        $data_ortu = array(
+                            'USERNAME' => $username_ortu,
+                            'PASSWORD' => $password_ortu,
+                            'ID_ROLE' => 5,
+                        );
+
+                        $this->pendaftaran->daftar_ortu($data_ortu);
+
+                        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pendaftaran berhasil! Silakan tunggu pesan pada WhatsApp Anda untuk pemberitahuan validasi!</div>');
+                        redirect('auth');
+                    } else {
+                        echo $this->upload->display_errors();
+                    }
+                }
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Umur tidak valid. Umur siswa harus antara 4 - 5 tahun!</div>');
+                redirect('pendaftaran');
+            }
         }
     }
 

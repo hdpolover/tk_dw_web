@@ -18,12 +18,14 @@
                 Nominal: Rp.100.000
             <br>
             <br>
+            <?php echo form_error('tujuan'); ?>
             <div class="form-group row">
                 <label for="desc" class="col-sm-4 col-form-label">Tujuan Pembayaran</label>
                 <div class="col-sm-8">
                     <input type="text" name="tujuan" class="form-control" id="tujuan" placeholder="Masukan tujuan rekening pembayaran">
                 </div>
             </div>
+            <?php echo form_error('tgl_bayar'); ?>
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-4">
@@ -35,24 +37,28 @@
                     </div>
                 </div>
             </div>
+            <?php echo form_error('nama_pengirim'); ?>
             <div class="form-group row">
                 <label for="nama_pengirim" class="col-sm-4 col-form-label">Nama Rekening Pengirim</label>
                 <div class="col-sm-8">
                     <input type="text" name="nama_pengirim" class="form-control" id="nama_pengirim" placeholder="Masukan Nama rekening pengirim">
                 </div>
             </div>
+            <?php echo form_error('nomor_pengirim'); ?>
             <div class="form-group row">
                 <label for="nomor_pengirim" class="col-sm-4 col-form-label">Nomor Rekening Pengirim</label>
                 <div class="col-sm-8">
                     <input type="number" name="nomor_pengirim" class="form-control" id="nomor_pengirim" placeholder="Masukan Nomor rekening pengirim">
                 </div>
             </div>
+            <?php echo form_error('nominal'); ?>
             <div class="form-group row">
                 <label for="nominal" class="col-sm-4 col-form-label">Nominal</label>
                 <div class="col-sm-8">
                     <input type="number" name="nominal" class="form-control" id="nominal" placeholder="Masukan nominal yang dikirim">
                 </div>
             </div>
+            <?php echo form_error('bukti_bayar'); ?>
             <div class="form-group row">
                 <div class="col-sm-4">
                     <label for="bukti_bayar" class="col-form-label">Bukti Pembayaran</label>

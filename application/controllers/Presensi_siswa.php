@@ -63,27 +63,42 @@ class Presensi_siswa extends CI_Controller
 
     public function simpan()
     {
-        $id = $this->input->post('ID');
-        $status = $this->input->post('STATUS');
-        $tgl = $this->input->post('TGL_PRESENSI');
+        $this->form_validation->set_message('required', '{field} harus diisi.');
+        $this->form_validation->set_rules('TGL_PRESENSI', 'Tanggal Presensi', 'required');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
 
-        for ($i=0; $i < sizeof($id); $i++) 
-        { 
-           $data = array('ID_PEGAWAI' => $id[$i]);
-               $data = array(
-                'ID_SISWA' => $id[$i],
-                'STATUS' => $status[$i],
-                'TGL_PRESENSI' => $tgl,
-            );
+        if ($this->form_validation->run() == FALSE) {
+            $data['title'] = 'TK DHARMA WANITA';
+            $data['siswa'] = $this->siswa->get_siswa_for_presensi();
 
-            $this->presensi_siswa->simpan($data);
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar/sidebar_tu', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('presensi_siswa/tambah', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $id = $this->input->post('ID');
+            $status = $this->input->post('STATUS');
+            $tgl = $this->input->post('TGL_PRESENSI');
+
+            for ($i = 0; $i < sizeof($id); $i++) {
+                $data = array('ID_PEGAWAI' => $id[$i]);
+                $data = array(
+                    'ID_SISWA' => $id[$i],
+                    'STATUS' => $status[$i],
+                    'TGL_PRESENSI' => $tgl,
+                );
+
+                $this->presensi_siswa->simpan($data);
+            }
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Presensi siswa berhasil ditambahkan!</div>');
+            redirect('presensi_siswa');
         }
-
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Presensi siswa berhasil ditambahkan!</div>');
-        redirect('presensi_siswa');
     }
 
-    public function lihat($id) {
+    public function lihat($id)
+    {
         $data['title'] = 'TK DHARMA WANITA';
         $data['pegawai'] = $this->pegawai->get_pegawai($id);
 

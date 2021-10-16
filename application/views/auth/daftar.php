@@ -32,6 +32,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php echo form_error('jenjang'); ?>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col">
@@ -60,7 +61,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col">
@@ -74,7 +74,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col">
@@ -88,7 +87,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <?php echo form_error('JENIS_KELAMIN'); ?>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col">
@@ -103,7 +102,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <?php echo form_error('AGAMA'); ?>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col">
@@ -122,7 +121,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col">
@@ -136,7 +134,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col">
@@ -150,7 +147,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <?php echo form_error('image'); ?>
                                 <div class="form-group row">
                                     <label for="image" class="col-sm-6 col-form-label">Kartu Keluarga</label>
                                     <div class="col">
@@ -160,7 +157,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col">

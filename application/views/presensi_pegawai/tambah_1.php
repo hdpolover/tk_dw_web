@@ -1,5 +1,7 @@
 <div class="container-fluid">
 
+    <?= $this->session->flashdata('message'); ?>
+
     <!-- Basic Card Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -7,6 +9,7 @@
         </div>
         <div class="card-body">
             <form method="post" action="<?= base_url('presensi_pegawai/simpan'); ?>">
+                <?php echo form_error('TGL_PRESENSI'); ?>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-4">
