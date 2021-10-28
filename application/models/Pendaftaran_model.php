@@ -37,5 +37,14 @@ class Pendaftaran_model extends CI_Model
         // $this->db->query($query)->result_array();
     }
 
+    public function update_jenjang($id, $jenjang)
+    {
+        $this->db->set('ID_JENJANG', $jenjang);
+        $this->db->where('ID_PENDAFTARAN', $id);
+        $this->db->update('daftar_siswa');
+        // $query = "UPDATE daftar_siswa SET STATUS_SISWA='" . $text . "' WHERE ID_PENDAFTARAN=" . $id . "";
+        // $this->db->query($query)->result_array();
+    }
+
     
 }

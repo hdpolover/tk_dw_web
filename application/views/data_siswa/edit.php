@@ -7,6 +7,7 @@
         </div>
         <div class="card-body">
             <form method="post" action="<?= base_url('data_siswa/simpan_edit'); ?>">
+            <input type="text" hidden name="id_daftar" class="form-control" id="id_daftar" value="<?= $siswa[0]['ID_PENDAFTARAN']; ?>">
                 <div class="form-group row">
                     <div class="col-sm-8">
                         <input type="text" hidden name="id" class="form-control" id="id" value="<?= $siswa[0]['ID_SISWA']; ?>">
